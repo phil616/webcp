@@ -1,0 +1,8 @@
+--- a/frontend/src/utils/task.ts
++++ b/web/panel/src/utils/task.ts
+@@ -1,4 +1,4 @@
+-import i18n from '@/lang';
++import i18n from '@panel/lang';
+ 
+ const agentActionKeyMap: Record<string, string> = {
+     Install: 'commons.button.install',

@@ -1,0 +1,98 @@
+--- a/frontend/src/utils/search-reset.ts
++++ b/web/panel/src/utils/search-reset.ts
+@@ -1,7 +1,7 @@
+ import { storeToRefs } from 'pinia';
+ import { nextTick, onActivated, onDeactivated, onScopeDispose, watch, type Ref } from 'vue';
+-import { panelCacheKey, readPanelCache, writePanelCache } from '@/utils/panel-cache';
+-import GlobalStore from '@/store/modules/global';
++import { panelCacheKey, readPanelCache, writePanelCache } from '@panel/utils/panel-cache';
++import GlobalStore from '@panel/store/modules/global';
+ 
+ export type SearchFields = Record<string, Ref<string | number | undefined>>;
+ type SearchValues = Record<string, string | number | undefined>;
+@@ -11,7 +11,8 @@
+     save(key: string, values: SearchValues) {
+         for (const category of ['search', 'pagination'] as const) {
+             const entries = Object.entries(values).filter(
+-                ([name]) => (name === 'page' || name === 'pageSize') === (category === 'pagination'),
++                ([name]) =>
++                    (name === 'page' || name === 'pageSize') === (category === 'pagination'),
+             );
+             if (entries.length) {
+                 writePanelCache(
+@@ -40,9 +41,17 @@
+     },
+ };
+ 
+-export const bindSearchState = (key: () => string | undefined, fields: SearchFields, storage = searchStorage) => {
+-    const defaults = Object.fromEntries(Object.entries(fields).map(([name, field]) => [name, field.value]));
+-    const names = Object.keys(fields).sort((left, right) => Number(left === 'page') - Number(right === 'page'));
++export const bindSearchState = (
++    key: () => string | undefined,
++    fields: SearchFields,
++    storage = searchStorage,
++) => {
++    const defaults = Object.fromEntries(
++        Object.entries(fields).map(([name, field]) => [name, field.value]),
++    );
++    const names = Object.keys(fields).sort(
++        (left, right) => Number(left === 'page') - Number(right === 'page'),
++    );
+     let pending: { key: string; values: SearchValues } | undefined;
+     let queued = false;
+     const flush = () => {
+@@ -79,7 +88,10 @@
+                     (name === 'page' || name === 'pageSize') &&
+                     (typeof value !== 'number' || !Number.isInteger(value) || value < 1);
+                 fields[name].value =
+-                    invalidPage || (initial !== undefined && value !== undefined && typeof value !== typeof initial)
++                    invalidPage ||
++                    (initial !== undefined &&
++                        value !== undefined &&
++                        typeof value !== typeof initial)
+                         ? initial
+                         : value;
+             }
+@@ -95,11 +107,16 @@
+         { immediate: true, flush: 'sync' },
+     );
+     watch(
+-        () => Object.fromEntries(Object.entries(fields).map(([name, field]) => [name, field.value])),
++        () =>
++            Object.fromEntries(Object.entries(fields).map(([name, field]) => [name, field.value])),
+         (values, previous) => {
+             if (restoring || !active || !activeKey) return;
+-            const changed = Object.entries(values).filter(([name, value]) => value !== previous[name]);
+-            const paginationChanged = changed.some(([name]) => name === 'page' || name === 'pageSize');
++            const changed = Object.entries(values).filter(
++                ([name, value]) => value !== previous[name],
++            );
++            const paginationChanged = changed.some(
++                ([name]) => name === 'page' || name === 'pageSize',
++            );
+             const searchChanged = changed.some(([name]) => name !== 'page' && name !== 'pageSize');
+             const snapshot = Object.fromEntries(
+                 Object.entries(values).filter(([name]) =>
+@@ -129,7 +146,8 @@
+             await nextTick();
+             if (version !== resumeVersion) return false;
+             // Search watchers may reset the page while restoring a changed query.
+-            if (activeKey === restoredKey && fields.page && page !== undefined) fields.page.value = page;
++            if (activeKey === restoredKey && fields.page && page !== undefined)
++                fields.page.value = page;
+             active = true;
+             resuming = false;
+             return true;
+@@ -143,7 +161,11 @@
+ }
+ 
+ /** Keep queries across page visits and reload data when a cached page becomes active. */
+-export const useSearchState = (page: string, fields: SearchFields, options: SearchStateOptions = {}) => {
++export const useSearchState = (
++    page: string,
++    fields: SearchFields,
++    options: SearchStateOptions = {},
++) => {
+     const { cacheUserID } = storeToRefs(GlobalStore());
+     const binding = bindSearchState(() => {
+         const scope = options.scope?.();

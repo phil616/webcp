@@ -1,0 +1,27 @@
+--- a/agent/utils/ssl/client.go
++++ b/internal/onepanel/ssl/client.go
+@@ -1,3 +1,5 @@
++// SPDX-License-Identifier: GPL-3.0-only
++// Copied from 1Panel commit 3adee9445897aa41c0160b4f805a9b1f43f712ac; import paths adapted.
+ package ssl
+ 
+ import (
+@@ -13,15 +15,15 @@
+ 	"sync"
+ 	"time"
+ 
+-	"github.com/1Panel-dev/1Panel/agent/app/dto"
+-	"github.com/1Panel-dev/1Panel/agent/app/model"
+-	"github.com/1Panel-dev/1Panel/agent/global"
+ 	legoacme "github.com/go-acme/lego/v5/acme"
+ 	"github.com/go-acme/lego/v5/certificate"
+ 	"github.com/go-acme/lego/v5/challenge/dns01"
+ 	"github.com/go-acme/lego/v5/lego"
+ 	"github.com/go-acme/lego/v5/providers/http/webroot"
+ 	"github.com/pkg/errors"
++	"web-panel/internal/onepanel/dto"
++	"web-panel/internal/onepanel/global"
++	"web-panel/internal/onepanel/model"
+ )
+ 
+ // dnsChallengeMu serializes DNS-01 issuance flows because lego v5 keeps the

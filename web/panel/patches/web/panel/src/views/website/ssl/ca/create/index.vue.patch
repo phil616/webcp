@@ -1,0 +1,28 @@
+--- a/frontend/src/views/website/ssl/ca/create/index.vue
++++ b/web/panel/src/views/website/ssl/ca/create/index.vue
+@@ -36,7 +36,7 @@
+         <template #footer>
+             <span class="dialog-footer">
+                 <el-button @click="handleClose" :disabled="loading">{{ $t('commons.button.cancel') }}</el-button>
+-                <el-button v-permission type="primary" @click="submit(caForm)" :disabled="loading">
++                <el-button type="primary" @click="submit(caForm)" :disabled="loading">
+                     {{ $t('commons.button.confirm') }}
+                 </el-button>
+             </span>
+@@ -47,11 +47,11 @@
+ <script lang="ts" setup>
+ import { ref } from 'vue';
+ import { FormInstance } from 'element-plus';
+-import { Rules } from '@/global/form-rules';
+-import { KeyTypes } from '@/global/mimetype';
+-import { createCA } from '@/api/modules/website';
+-import { MsgSuccess } from '@/utils/message';
+-import i18n from '@/lang';
++import { Rules } from '@panel/global/form-rules';
++import { KeyTypes } from '@panel/global/mimetype';
++import { createCA } from '@panel/api/modules/website';
++import { MsgSuccess } from '@panel/utils/message';
++import i18n from '@panel/lang';
+ 
+ const open = ref(false);
+ const loading = ref(false);

@@ -1,0 +1,16 @@
+--- a/frontend/src/views/website/ssl/detail/index.vue
++++ b/web/panel/src/views/website/ssl/detail/index.vue
+@@ -67,10 +67,10 @@
+     </DrawerPro>
+ </template>
+ <script lang="ts" setup>
+-import { getSSL } from '@/api/modules/website';
++import { getSSL } from '@panel/api/modules/website';
+ import { ref } from 'vue';
+-import { dateFormatSimple } from '@/utils/date';
+-import { getProvider, getDNSName } from '@/utils/ssl';
++import { dateFormatSimple } from '@panel/utils/date';
++import { getProvider, getDNSName } from '@panel/utils/ssl';
+ const open = ref(false);
+ const id = ref(0);
+ const curr = ref('detail');

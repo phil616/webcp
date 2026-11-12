@@ -1,0 +1,11 @@
+--- a/frontend/src/components/status/index.vue
++++ b/web/panel/src/components/status/index.vue
+@@ -40,7 +40,7 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { TABLE_TOOLTIP_OPTIONS } from '@/components/table/shared';
++import { TABLE_TOOLTIP_OPTIONS } from '@panel/components/table/shared';
+ import { computed, ref } from 'vue';
+ 
+ const props = defineProps({

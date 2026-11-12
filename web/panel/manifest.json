@@ -1,0 +1,1138 @@
+{
+  "repository": "https://github.com/1Panel-dev/1Panel",
+  "commit": "3adee9445897aa41c0160b4f805a9b1f43f712ac",
+  "license": "GPL-3.0-only",
+  "adaptationsDocument": "docs/certificates.md",
+  "files": [
+    {
+      "source": "frontend/src/api/index.ts",
+      "local": "web/panel/src/api/index.ts",
+      "upstreamBlob": "60d74a014434c8c0c37ce13062d709a10428f7e0",
+      "originalSha256": "07bc39e782817004e4cc3d69ed511b7cecfddcba758a5ec4a6400bbe22470fa4",
+      "adaptedSha256": "89fff3c5a716d15ef5185622fcab36792c6236dd8d2939535571ff53f14163de",
+      "patch": "web/panel/patches/web/panel/src/api/index.ts.patch"
+    },
+    {
+      "source": "frontend/src/api/interface/file.ts",
+      "local": "web/panel/src/api/interface/file.ts",
+      "upstreamBlob": "9dffba49858565f82e3f50bdadf7da24bbe7b758",
+      "originalSha256": "071264737fa697a8b1eeff85901bada836f5d9d5d4e032a2a57c317c62033bb4",
+      "adaptedSha256": "071264737fa697a8b1eeff85901bada836f5d9d5d4e032a2a57c317c62033bb4"
+    },
+    {
+      "source": "frontend/src/api/interface/index.ts",
+      "local": "web/panel/src/api/interface/index.ts",
+      "upstreamBlob": "8ce8325b06e1dc431542ef1fd2adb4223acebc12",
+      "originalSha256": "4c4a458c2380344c3b8ebd1d8f185be375e6d181ac597e26d46179bd8f548143",
+      "adaptedSha256": "4c4a458c2380344c3b8ebd1d8f185be375e6d181ac597e26d46179bd8f548143"
+    },
+    {
+      "source": "frontend/src/api/interface/nginx.ts",
+      "local": "web/panel/src/api/interface/nginx.ts",
+      "upstreamBlob": "6d35fa44da5b196a15c46da9e5dc6dfcfeb09bef",
+      "originalSha256": "fcf5ca3e9ff757a4c4d4bcbe70b5175c64b2e714435ab4a81fd00e4f624fd529",
+      "adaptedSha256": "fcf5ca3e9ff757a4c4d4bcbe70b5175c64b2e714435ab4a81fd00e4f624fd529"
+    },
+    {
+      "source": "frontend/src/api/interface/website.ts",
+      "local": "web/panel/src/api/interface/website.ts",
+      "upstreamBlob": "b8801dfe090d7c95482282125ec46b4d0784b45b",
+      "originalSha256": "be88447fdad4b6f45731af1b90c73a1dcd1e89ed1baa686ca401c6d7af0784e0",
+      "adaptedSha256": "be88447fdad4b6f45731af1b90c73a1dcd1e89ed1baa686ca401c6d7af0784e0"
+    },
+    {
+      "source": "frontend/src/api/modules/files.ts",
+      "local": "web/panel/src/api/modules/files.ts",
+      "upstreamBlob": "edf5869936a2c2475da13f227f8a8fd98e13257f",
+      "originalSha256": "8558a3de404c313567fcd99fea9835844b106660397484cb12e21a82cad2bf05",
+      "adaptedSha256": "7cb05d401d95d0e0cc2734e7cd3f68e2953e01fce5e129cda746d4db60873c53",
+      "patch": "web/panel/patches/web/panel/src/api/modules/files.ts.patch"
+    },
+    {
+      "source": "frontend/src/api/modules/log.ts",
+      "local": "web/panel/src/api/modules/log.ts",
+      "upstreamBlob": "c177b843cb6891531be07484a18a7035e4a6026b",
+      "originalSha256": "e7a1a90cfcce77284840dacbaef76c056067add3dee37b17573a63d1dccf50a8",
+      "adaptedSha256": "0080beca30fe3b965075001e8c42ef7a683fa6f98f6dbc428b82e05cd18bb38f",
+      "patch": "web/panel/patches/web/panel/src/api/modules/log.ts.patch"
+    },
+    {
+      "source": "frontend/src/api/modules/nginx.ts",
+      "local": "web/panel/src/api/modules/nginx.ts",
+      "upstreamBlob": "d9d1e7f6f8ad566d27ebbb7d1909c11eab29f1ad",
+      "originalSha256": "54a3223d92b8eb1e410fbe4532834cf1fb390fbf7b749cb6e492a2b17bd4b9a2",
+      "adaptedSha256": "5f9483b445039dd73cf4cf969b408621d1e591f5edf9871780591eba5f234057",
+      "patch": "web/panel/patches/web/panel/src/api/modules/nginx.ts.patch"
+    },
+    {
+      "source": "frontend/src/api/modules/website.ts",
+      "local": "web/panel/src/api/modules/website.ts",
+      "upstreamBlob": "a0119440e8d16ea0ecd9df63ed13ac372572f128",
+      "originalSha256": "bc056f4c84144cbaff9848d23c4ae63cf955f25abbb40ee1cb1aa379972d03de",
+      "adaptedSha256": "ecadb0e50b9bf7dc333f41bf54cde99d8e1d89f3ea94a20ace8c1cb3241bc65a",
+      "patch": "web/panel/patches/web/panel/src/api/modules/website.ts.patch"
+    },
+    {
+      "source": "frontend/src/assets/iconfont/iconfont.js",
+      "local": "web/panel/src/assets/iconfont/iconfont.js",
+      "upstreamBlob": "192fe22ae7814dc8a74b39c2525cd79245cea12f",
+      "originalSha256": "010bf9532f48fdc65bfed434a472ecf588f50c04ffbcf2ea246859952756f7d4",
+      "adaptedSha256": "010bf9532f48fdc65bfed434a472ecf588f50c04ffbcf2ea246859952756f7d4"
+    },
+    {
+      "source": "frontend/src/assets/images/menu-bg.svg",
+      "local": "web/panel/src/assets/images/menu-bg.svg",
+      "upstreamBlob": "cf679075e9b667534f531d4b92d273517a382bfc",
+      "originalSha256": "d3ed2a642cd869604b3f396cc2dd616488765fa5003b64ab99ec552c1915842e",
+      "adaptedSha256": "d3ed2a642cd869604b3f396cc2dd616488765fa5003b64ab99ec552c1915842e"
+    },
+    {
+      "source": "frontend/src/assets/images/no_app.svg",
+      "local": "web/panel/src/assets/images/no_app.svg",
+      "upstreamBlob": "74c0fdd0f65617a9045f76ddf0b4f4015b979b3a",
+      "originalSha256": "f9eb0a11c40dbc94222c582396ec45f4e410b447e1401864bc71833b64d59adb",
+      "adaptedSha256": "f9eb0a11c40dbc94222c582396ec45f4e410b447e1401864bc71833b64d59adb"
+    },
+    {
+      "source": "frontend/src/components/back-button/index.vue",
+      "local": "web/panel/src/components/back-button/index.vue",
+      "upstreamBlob": "e6b2aefdd1533870c80943db902f26338fbfd494",
+      "originalSha256": "42e4dd6e32b2c4df50ca723a7b65988af6f77edaddbf94e1fab420870b422d6c",
+      "adaptedSha256": "856449b7391bda40f5446095dcc5b7ca83d54da68aaeb4d41c94d190f9876b21",
+      "patch": "web/panel/patches/web/panel/src/components/back-button/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/codemirror-pro/index.vue",
+      "local": "web/panel/src/components/codemirror-pro/index.vue",
+      "upstreamBlob": "35e7d9f01013fd8ebd82af5873d866c0b99bbc95",
+      "originalSha256": "8cab17fc2fd2bcfb7112158efce3f642c48f703e4f04adcf6192189f81f51380",
+      "adaptedSha256": "f3b19ebe5e58a1cb6639f0f6ae2f9fdad9d032e96b49b759c77c9c9efc311569",
+      "patch": "web/panel/patches/web/panel/src/components/codemirror-pro/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/codemirror-pro/nginx.ts",
+      "local": "web/panel/src/components/codemirror-pro/nginx.ts",
+      "upstreamBlob": "c3586ebb2acedb1da4121e2b8600af47eda85c4a",
+      "originalSha256": "6d701b0f990585a3c1d3753fc768458d10d1fc519a79028a3cfc4af98131a9da",
+      "adaptedSha256": "6d701b0f990585a3c1d3753fc768458d10d1fc519a79028a3cfc4af98131a9da"
+    },
+    {
+      "source": "frontend/src/components/copy-button/index.vue",
+      "local": "web/panel/src/components/copy-button/index.vue",
+      "upstreamBlob": "9a0b343725f05ad9014e21484663fbba699861fe",
+      "originalSha256": "1a62da8007766088db19e68b908204c919cb9d67e21a3c3ab0d76f788dbe768a",
+      "adaptedSha256": "4c466e3a121bc329486c2ee5d055d82686eed5f5a5f9a6f0199a596bf38e1955",
+      "patch": "web/panel/patches/web/panel/src/components/copy-button/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/del-dialog/index.vue",
+      "local": "web/panel/src/components/del-dialog/index.vue",
+      "upstreamBlob": "66ab42f650266919a6e3b082fb0eea9c60190e8c",
+      "originalSha256": "66abce409b1103c834389e6599eac6162bcb60c787a65794d79ae931c7d976e9",
+      "adaptedSha256": "d74c83c21a5dfe80da5ec228571fd34c0857e66b88fca28071b3171e9ab5dab8",
+      "patch": "web/panel/patches/web/panel/src/components/del-dialog/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/dialog-pro/index.vue",
+      "local": "web/panel/src/components/dialog-pro/index.vue",
+      "upstreamBlob": "8b665dff71192e2873dc23562b31884026ef9942",
+      "originalSha256": "07156e9dc28f8ee58a1a24ebad7926adfec69a30a7cd57cbe8906ca8eb7327ec",
+      "adaptedSha256": "6f0db450d1319e5eb6fb251758babfde2d05c0cd49306f6108ec4957a661bb16",
+      "patch": "web/panel/patches/web/panel/src/components/dialog-pro/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/drawer-pro/index.vue",
+      "local": "web/panel/src/components/drawer-pro/index.vue",
+      "upstreamBlob": "26e60ed6916cce404bafb8183f37b1a93f421bdb",
+      "originalSha256": "b4647f2ecf32b463ffe171095ae61172efc62f63470998053824f2e525ddb6bd",
+      "adaptedSha256": "b5c9d02bfdc72a81a9536b908e88d4dca8e1eddab437c1438dbfa1c7ddb628eb",
+      "patch": "web/panel/patches/web/panel/src/components/drawer-pro/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/file-list/index.vue",
+      "local": "web/panel/src/components/file-list/index.vue",
+      "upstreamBlob": "9b5e8ea3b3e551a3535c4ce8e14b0af9047f5b1b",
+      "originalSha256": "2a2838bb648ffbec274af28e8441a1f50cf0eb6ae6a75fda714ed6846a1bdf9c",
+      "adaptedSha256": "38b3069847884143f3dc29584e5ab5481ddbb343d4869a02ceb62fffa3849747",
+      "patch": "web/panel/patches/web/panel/src/components/file-list/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/fu/FuDropdownItem.vue",
+      "local": "web/panel/src/components/fu/FuDropdownItem.vue",
+      "upstreamBlob": "8a7974130a9696aa6791b71acbb96a6c5c3a4429",
+      "originalSha256": "5427be3a129a1eba98ff4d1ad94415672d8037e0ad491eb1da9c8cb897620990",
+      "adaptedSha256": "5427be3a129a1eba98ff4d1ad94415672d8037e0ad491eb1da9c8cb897620990"
+    },
+    {
+      "source": "frontend/src/components/fu/FuInputRwSwitch.vue",
+      "local": "web/panel/src/components/fu/FuInputRwSwitch.vue",
+      "upstreamBlob": "fcdf8e675f08151a4eca05e1d669ec259c410b7c",
+      "originalSha256": "254bfd042b043086f9d1d177ada49c62b913d2f45c10761ff0e9acfc4cc87436",
+      "adaptedSha256": "254bfd042b043086f9d1d177ada49c62b913d2f45c10761ff0e9acfc4cc87436"
+    },
+    {
+      "source": "frontend/src/components/fu/FuReadWriteSwitch.vue",
+      "local": "web/panel/src/components/fu/FuReadWriteSwitch.vue",
+      "upstreamBlob": "b03f90dbe70c8731dbe94d6ce0271511b96f47f8",
+      "originalSha256": "bdbc3b8082b121a934f4458cab93b9ff292ecbad7fd8315cc9f223d8afb4ad1d",
+      "adaptedSha256": "bdbc3b8082b121a934f4458cab93b9ff292ecbad7fd8315cc9f223d8afb4ad1d"
+    },
+    {
+      "source": "frontend/src/components/fu/FuSelectRwSwitch.vue",
+      "local": "web/panel/src/components/fu/FuSelectRwSwitch.vue",
+      "upstreamBlob": "b7a280df73cbe398c455be2eaea8737d38562811",
+      "originalSha256": "11dd795b1e7d41a7958cf1be397e75cfa490ec892b5fe67bb687174491713a37",
+      "adaptedSha256": "11dd795b1e7d41a7958cf1be397e75cfa490ec892b5fe67bb687174491713a37"
+    },
+    {
+      "source": "frontend/src/components/fu/FuStep.ts",
+      "local": "web/panel/src/components/fu/FuStep.ts",
+      "upstreamBlob": "1d0349e84168430417dd962d2e7f30b52daae348",
+      "originalSha256": "2580ee85d653b7a3e9519661789054c684fcf485f4bb24e454384cdf106f3cd7",
+      "adaptedSha256": "2580ee85d653b7a3e9519661789054c684fcf485f4bb24e454384cdf106f3cd7"
+    },
+    {
+      "source": "frontend/src/components/fu/FuSteps.ts",
+      "local": "web/panel/src/components/fu/FuSteps.ts",
+      "upstreamBlob": "099b161ff626ce4daec6924dbb4eb83faeba789f",
+      "originalSha256": "32f99932962802c786d5be1312d82c7d2568c18d7910e3cd84d0906fa78457c7",
+      "adaptedSha256": "32f99932962802c786d5be1312d82c7d2568c18d7910e3cd84d0906fa78457c7"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuHorizontalNavigation.vue",
+      "local": "web/panel/src/components/fu/steps/FuHorizontalNavigation.vue",
+      "upstreamBlob": "090d032c1cbd81bbf92fcc654deb151d89cb1ecb",
+      "originalSha256": "9a60633e68bc3b299a206fb291f38c3056fdf90322e2799914019de61e67e68c",
+      "adaptedSha256": "9a60633e68bc3b299a206fb291f38c3056fdf90322e2799914019de61e67e68c"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuHorizontalSteps.ts",
+      "local": "web/panel/src/components/fu/steps/FuHorizontalSteps.ts",
+      "upstreamBlob": "e091bcd18803d6824edaffde6a3d6add00147f42",
+      "originalSha256": "7975b0560d1b53df904cf04cff1276d679c47c6b45c8e7a5cddcf65d9ee50b76",
+      "adaptedSha256": "6db84a3cc6211b88fd2be9db82406e1111959f612ce37bc3a0f165b2e5f9d788",
+      "patch": "web/panel/patches/web/panel/src/components/fu/steps/FuHorizontalSteps.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuStep.vue",
+      "local": "web/panel/src/components/fu/steps/FuStep.vue",
+      "upstreamBlob": "c62808d622305bb93b56df81a17ae8c137a718be",
+      "originalSha256": "9a7273d059457df33355061b7b703bc668fb364aeb78b8f775e7297bd9dce58e",
+      "adaptedSha256": "9a7273d059457df33355061b7b703bc668fb364aeb78b8f775e7297bd9dce58e"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuStepButton.vue",
+      "local": "web/panel/src/components/fu/steps/FuStepButton.vue",
+      "upstreamBlob": "43b12db85419e47811b0949e29af8553c47faa82",
+      "originalSha256": "56e6f1cf0634ef55870de461f1a9fc691263011f48d9344db47a335d142846d1",
+      "adaptedSha256": "56e6f1cf0634ef55870de461f1a9fc691263011f48d9344db47a335d142846d1"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuSteps.ts",
+      "local": "web/panel/src/components/fu/steps/FuSteps.ts",
+      "upstreamBlob": "8ab7856d4531bceb75227bdd7e8520a03040e5e9",
+      "originalSha256": "bb851194ddf13aeb8bf25c2dd4f597a9b3af01ff92a6c6012ac603068fc005a2",
+      "adaptedSha256": "bb851194ddf13aeb8bf25c2dd4f597a9b3af01ff92a6c6012ac603068fc005a2"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuStepsFooter.ts",
+      "local": "web/panel/src/components/fu/steps/FuStepsFooter.ts",
+      "upstreamBlob": "b713aebf64254d474f57f14a594178eea6e41a31",
+      "originalSha256": "98fbb76e44408f00603e92c43882306d44b2fbcfa2861d576c8de80381c11a7b",
+      "adaptedSha256": "98fbb76e44408f00603e92c43882306d44b2fbcfa2861d576c8de80381c11a7b"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuVerticalNavigation.vue",
+      "local": "web/panel/src/components/fu/steps/FuVerticalNavigation.vue",
+      "upstreamBlob": "33aecdbb895e11391e2ff9ce09d0796032141efd",
+      "originalSha256": "290dfe10b3e50713eecff1ad6d370db145da7df5a5a16121eec9fcb942dfd76b",
+      "adaptedSha256": "290dfe10b3e50713eecff1ad6d370db145da7df5a5a16121eec9fcb942dfd76b"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/FuVerticalSteps.ts",
+      "local": "web/panel/src/components/fu/steps/FuVerticalSteps.ts",
+      "upstreamBlob": "238057ecf5ee7a3d0639c1f355b19d98448168b2",
+      "originalSha256": "ec3355a8ac168fd4c0ca1a1bf2b72564a6477c76f5504c69e7f08ee6c25d57a2",
+      "adaptedSha256": "cb5ac7a00640c881de36ee5b6b0cbc9900c12860e2be47eb4b3a73bcbacaea96",
+      "patch": "web/panel/patches/web/panel/src/components/fu/steps/FuVerticalSteps.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/Stepper.ts",
+      "local": "web/panel/src/components/fu/steps/Stepper.ts",
+      "upstreamBlob": "c267d817655e22c56a6167ac33dc8e5b1b0f00cc",
+      "originalSha256": "d5a3de814421fbae83a2cca6f318f8c4a642a77f8e3b6e7c2dcd8f64a279737b",
+      "adaptedSha256": "7adb06231f3f37fdec0096c6709887a5c4304f10360c57dbb94772173a4dcfbe",
+      "patch": "web/panel/patches/web/panel/src/components/fu/steps/Stepper.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/fu/steps/types.ts",
+      "local": "web/panel/src/components/fu/steps/types.ts",
+      "upstreamBlob": "e74cc9dd945d638287c8a74703b0918231ebd04b",
+      "originalSha256": "95dbb9201880741ae3f64f3382bfca3318456973e46028f021c23e1b6ddfa619",
+      "adaptedSha256": "842599eea245c90e220f9025d531e306909fff2ff23c730802fc250a008ee4fe",
+      "patch": "web/panel/patches/web/panel/src/components/fu/steps/types.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/index.ts",
+      "local": "web/panel/src/components/index.ts",
+      "upstreamBlob": "6b6afa71665dd9e7768f39964c8577c839fd4edd",
+      "originalSha256": "6b82b6d7f1cc94ce4598aa6574994bc049d8263fd8b01bddfcf173e3f02a13b5",
+      "adaptedSha256": "0161a63b2dde7cab7a2a64958c1889f670911c6d2475fb804f0ba7f25085823e",
+      "patch": "web/panel/patches/web/panel/src/components/index.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/layout-content/form-button.vue",
+      "local": "web/panel/src/components/layout-content/form-button.vue",
+      "upstreamBlob": "bba22c5abf96711b98a834c675feb296d2a92b73",
+      "originalSha256": "8e129699e648ab94a0b8e1ef7729be0948c4001188eca1713ac4d54efcc0fd89",
+      "adaptedSha256": "8e129699e648ab94a0b8e1ef7729be0948c4001188eca1713ac4d54efcc0fd89"
+    },
+    {
+      "source": "frontend/src/components/layout-content/index.vue",
+      "local": "web/panel/src/components/layout-content/index.vue",
+      "upstreamBlob": "fab6f95e93976c25a332970fbc3bff747b38ce34",
+      "originalSha256": "8aa46e28c528758642c7cb2ab5eee235121e0b19a7fd3234168cd24b7a38c26f",
+      "adaptedSha256": "ed2c1da27a019088f1e99eddb56b360ac841ae0f7a02f93d5f4453e264e0f067",
+      "patch": "web/panel/patches/web/panel/src/components/layout-content/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/layout-content/no-such-service.vue",
+      "local": "web/panel/src/components/layout-content/no-such-service.vue",
+      "upstreamBlob": "e0d91c2a3c881250f5e40de9facbaf84925942f0",
+      "originalSha256": "f72461cc400f5dbc95166f96922895175de5a279b86de6d5f66f8710a58be60c",
+      "adaptedSha256": "619805c78567428bb38321c1f9370641e9fbb635f26d74afa0666a85a7039f03",
+      "patch": "web/panel/patches/web/panel/src/components/layout-content/no-such-service.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/log/custom-highlight/index.vue",
+      "local": "web/panel/src/components/log/custom-highlight/index.vue",
+      "upstreamBlob": "2518ea33bd17ab65f752bb0095ed24c5f1bddd7d",
+      "originalSha256": "cc78cf300cba6ebcb1dec00f3a27f46f2581fb4a7e918c6f4b89e82920d7cab2",
+      "adaptedSha256": "cc78cf300cba6ebcb1dec00f3a27f46f2581fb4a7e918c6f4b89e82920d7cab2"
+    },
+    {
+      "source": "frontend/src/components/log/file/index.vue",
+      "local": "web/panel/src/components/log/file/index.vue",
+      "upstreamBlob": "ee368d8c5473d4be9af540c951d47b7f20213c56",
+      "originalSha256": "2ddc019c2fc2942d062ffcbd2adb71cf9ba290a916f06ea57f470b92cf6949bf",
+      "adaptedSha256": "fa654128afadf886ec49e3eab2bfd30a402b99b53199cc61cea6efd7ff8453ba",
+      "patch": "web/panel/patches/web/panel/src/components/log/file/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/log/file-drawer/index.vue",
+      "local": "web/panel/src/components/log/file-drawer/index.vue",
+      "upstreamBlob": "b27dc505695199acd99ab6eaed63cebef810ba9e",
+      "originalSha256": "c94fc7602e360f924bcf20742f6a7c8ef657fdb3aedfa6ab7e89f0e763ac4f68",
+      "adaptedSha256": "daf3f11a855e0dd3cd5081359f39519a70f6054b08fef78f6fb15a9960c423ed",
+      "patch": "web/panel/patches/web/panel/src/components/log/file-drawer/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/log/task/index.vue",
+      "local": "web/panel/src/components/log/task/index.vue",
+      "upstreamBlob": "0acf26b24eb8acc1e57b558bd72f2b41f6181dde",
+      "originalSha256": "376947398c5369a30a1b1690ce00378058e94093f65701b371acc3ca30a49b62",
+      "adaptedSha256": "f6444d951174a5e737689721539888ce2e0e0024f6934d465c1eec7a6747d29e",
+      "patch": "web/panel/patches/web/panel/src/components/log/task/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/main-div/index.vue",
+      "local": "web/panel/src/components/main-div/index.vue",
+      "upstreamBlob": "5c6960f93f195cbf161600cd55820de5876b3f13",
+      "originalSha256": "5f22faf4e2d9c67e3e679d22e1a60a7d38d148ac54b68ded4f19b237184b87f9",
+      "adaptedSha256": "5f22faf4e2d9c67e3e679d22e1a60a7d38d148ac54b68ded4f19b237184b87f9"
+    },
+    {
+      "source": "frontend/src/components/msg-info/index.vue",
+      "local": "web/panel/src/components/msg-info/index.vue",
+      "upstreamBlob": "6023401219258ee8fb5fd786985bd5862f3cfc80",
+      "originalSha256": "51b2cfd471f944e5d2bcfa325f73f14a745fe9ec87c98f5328733887ad60ba0c",
+      "adaptedSha256": "9c4d033422153c2620b9c0fa700355ed7830dc96b2c890cad6210b399f82499a",
+      "patch": "web/panel/patches/web/panel/src/components/msg-info/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/router-button/index.vue",
+      "local": "web/panel/src/components/router-button/index.vue",
+      "upstreamBlob": "8c8167d7dc6d21fcb8503fc736139eed57bfdebc",
+      "originalSha256": "c3a5d3d0559cd3382493e711a67f3fbb872763c6d5d928ce5e4531edc80140cc",
+      "adaptedSha256": "c062a709b9d0a6296b2a57feed54d784579b0b0cbc1710ba59fb079528664c9e",
+      "patch": "web/panel/patches/web/panel/src/components/router-button/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/router-view-cache/index.vue",
+      "local": "web/panel/src/components/router-view-cache/index.vue",
+      "upstreamBlob": "c27da9385aefd67dae524c785f00e3e86a2c70c0",
+      "originalSha256": "d3a0b825fbfb114a8ff41370e9c9c18b54ddac41ce155994d52814743d6e7952",
+      "adaptedSha256": "65a4fbd8e85e3629360440d43425464a2a335bb62813cb77f7c52047e12fcbb8",
+      "patch": "web/panel/patches/web/panel/src/components/router-view-cache/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/shared/vnode.ts",
+      "local": "web/panel/src/components/shared/vnode.ts",
+      "upstreamBlob": "021190fccb7bee9135a25221205ea63e8b91dde1",
+      "originalSha256": "821e52b27fe7634f3259832b9735efaefe51df4fc8ef5d8ab0cf2812fac23e57",
+      "adaptedSha256": "821e52b27fe7634f3259832b9735efaefe51df4fc8ef5d8ab0cf2812fac23e57"
+    },
+    {
+      "source": "frontend/src/components/status/index.vue",
+      "local": "web/panel/src/components/status/index.vue",
+      "upstreamBlob": "37383d24b2a609e349a68e7dc13685f3d2a2326c",
+      "originalSha256": "a4efcfc1b7e1bd6f8d7985c7b3b5044a9304e3ccfa25fbd21a4fe5b7665e7c9a",
+      "adaptedSha256": "e1c6341704dcb31bc59a4f048e09f7bbc02d7a649a8042400f77f11aa57109bf",
+      "patch": "web/panel/patches/web/panel/src/components/status/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/svg-icon/svg-icon.vue",
+      "local": "web/panel/src/components/svg-icon/svg-icon.vue",
+      "upstreamBlob": "d9d46c14e31200d5eea863f08eab8169425821c0",
+      "originalSha256": "d011172a130661a604d88b3a7a61839a197adba53b50f2d55539287a7f6e422d",
+      "adaptedSha256": "d011172a130661a604d88b3a7a61839a197adba53b50f2d55539287a7f6e422d"
+    },
+    {
+      "source": "frontend/src/components/table/Table.ts",
+      "local": "web/panel/src/components/table/Table.ts",
+      "upstreamBlob": "5ed14959bd1743fe3894e8494ea844ac21b026db",
+      "originalSha256": "863be204f99f2b5eb12a87295fffd9ebaf9f3fad5f9166366b0258cc0fc9b256",
+      "adaptedSha256": "863be204f99f2b5eb12a87295fffd9ebaf9f3fad5f9166366b0258cc0fc9b256"
+    },
+    {
+      "source": "frontend/src/components/table/TableColumnSelect.vue",
+      "local": "web/panel/src/components/table/TableColumnSelect.vue",
+      "upstreamBlob": "0f995366aeed13502ee39b80f23367818b3abce3",
+      "originalSha256": "4e24c992d9379bb35fafacad42eea3f87f53395eb7aaaaa259d29c8b5519c5f5",
+      "adaptedSha256": "2985bf171370d0eeada513238ba2da13d5520e3d18b6c45071f38a30cd3327af",
+      "patch": "web/panel/patches/web/panel/src/components/table/TableColumnSelect.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/table/TableOperationActions.vue",
+      "local": "web/panel/src/components/table/TableOperationActions.vue",
+      "upstreamBlob": "25d710ac4b356308db6cf9e1c74b8ffc23e59bce",
+      "originalSha256": "291354b5395395d9f700daaed4acca7785e95a9bfd47397af5fb992a05f1202f",
+      "adaptedSha256": "291354b5395395d9f700daaed4acca7785e95a9bfd47397af5fb992a05f1202f"
+    },
+    {
+      "source": "frontend/src/components/table/TableOperations.vue",
+      "local": "web/panel/src/components/table/TableOperations.vue",
+      "upstreamBlob": "26bf0cd92eb0a59cea74383e338c1775409331b4",
+      "originalSha256": "85ad11d7d19223bfdb0ae55f739138adf888460639e97f1f06cdedbb5fffc27c",
+      "adaptedSha256": "85ad11d7d19223bfdb0ae55f739138adf888460639e97f1f06cdedbb5fffc27c"
+    },
+    {
+      "source": "frontend/src/components/table/TablePagination.vue",
+      "local": "web/panel/src/components/table/TablePagination.vue",
+      "upstreamBlob": "3ad6900405d8aa31468fd823d38810823489391c",
+      "originalSha256": "1da70df5850678e196d9cfbd39d9549c632a31be8696e59ef609df2d5b43ac91",
+      "adaptedSha256": "1da70df5850678e196d9cfbd39d9549c632a31be8696e59ef609df2d5b43ac91"
+    },
+    {
+      "source": "frontend/src/components/table/TableRefresh.vue",
+      "local": "web/panel/src/components/table/TableRefresh.vue",
+      "upstreamBlob": "3174621113a301e833cd23cacc8526077089c702",
+      "originalSha256": "7ad84c82ca6587eff55c7ca7435871498192368f6792565caed63811c9f28333",
+      "adaptedSha256": "7ad84c82ca6587eff55c7ca7435871498192368f6792565caed63811c9f28333"
+    },
+    {
+      "source": "frontend/src/components/table/TableSearch.vue",
+      "local": "web/panel/src/components/table/TableSearch.vue",
+      "upstreamBlob": "b4dbd15d5123fddaa84d0f38d3acc609f00fdc8a",
+      "originalSha256": "6fe52a0deca5e3429f906466e2467dbc44905c2ab2544efe1a1131a790ebfc70",
+      "adaptedSha256": "6fe52a0deca5e3429f906466e2467dbc44905c2ab2544efe1a1131a790ebfc70"
+    },
+    {
+      "source": "frontend/src/components/table/TableSetting.vue",
+      "local": "web/panel/src/components/table/TableSetting.vue",
+      "upstreamBlob": "5a2f440a1c4ef7ac68ad5d7d1c1ef7cfa73d606c",
+      "originalSha256": "02397a707de54f8356724f9d34375479b08f6bc2d20b05510af385a3c2dd2c58",
+      "adaptedSha256": "f5da6d667621e3e2eae4088d2bfdea8ca804bfb32fb3126c2645b3c5eb8074d9",
+      "patch": "web/panel/patches/web/panel/src/components/table/TableSetting.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/table/TableViewSwitch.vue",
+      "local": "web/panel/src/components/table/TableViewSwitch.vue",
+      "upstreamBlob": "441f0a17e69dea42420c49bfd779cecc593a3157",
+      "originalSha256": "72aca3f4691a171ac0c9995529168ee9c04350dc6a5cad6309c8c92ad47ec710",
+      "adaptedSha256": "72aca3f4691a171ac0c9995529168ee9c04350dc6a5cad6309c8c92ad47ec710"
+    },
+    {
+      "source": "frontend/src/components/table/complex/ComplexTable.vue",
+      "local": "web/panel/src/components/table/complex/ComplexTable.vue",
+      "upstreamBlob": "d03f668b445461488be2ba4188c82e9751dee789",
+      "originalSha256": "e995451e3e499a78b31d37e74bdeb54b6a7a334400054fafd8d239f2745160fa",
+      "adaptedSha256": "eb2855acbb11d0744e771b3b31300dd32f489d0eaadcc0c428e3d96468c2580c",
+      "patch": "web/panel/patches/web/panel/src/components/table/complex/ComplexTable.vue.patch"
+    },
+    {
+      "source": "frontend/src/components/table/complex/useCardColumns.ts",
+      "local": "web/panel/src/components/table/complex/useCardColumns.ts",
+      "upstreamBlob": "74a3396f652b6b0799fe1bb0a2dedc44f86ef3fe",
+      "originalSha256": "4c00d2d411131372a169d967d7d7205be07f28e292c5fd82936bc84251d3c5e4",
+      "adaptedSha256": "2b8a93091c1f86e617265d55e1c04866ad6a3b47a40626c39a9fd53b349a5e28",
+      "patch": "web/panel/patches/web/panel/src/components/table/complex/useCardColumns.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/table/complex/useContextMenu.ts",
+      "local": "web/panel/src/components/table/complex/useContextMenu.ts",
+      "upstreamBlob": "d6324ab08c431662a19675e6d0fa5306b624cac7",
+      "originalSha256": "ae7e41a956c746db662c52abe19bf2794cc0ebe90b618978ce9b42bb7f24acd0",
+      "adaptedSha256": "6930704c3b2bfc16df49988e56c96743977d95ce77cabc91a85e40b0a1e93fa6",
+      "patch": "web/panel/patches/web/panel/src/components/table/complex/useContextMenu.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/table/complex/usePaginationCache.ts",
+      "local": "web/panel/src/components/table/complex/usePaginationCache.ts",
+      "upstreamBlob": "2ded5755c2a488d76fa2b1731c73d22e6e2bf1bc",
+      "originalSha256": "71ab84a74b109edd5dbf1a63d2e86d7f2d6190b3926b1bb5974c8871441bf3bc",
+      "adaptedSha256": "956a8f5594aa9c36359377e81ec362495d76e209386fce0944235509ec000693",
+      "patch": "web/panel/patches/web/panel/src/components/table/complex/usePaginationCache.ts.patch"
+    },
+    {
+      "source": "frontend/src/components/table/complex/useResponsivePagination.ts",
+      "local": "web/panel/src/components/table/complex/useResponsivePagination.ts",
+      "upstreamBlob": "62965547af3c0ff87f75e75a77c3accf899e2bfe",
+      "originalSha256": "78f3544d93acd379dd7d2a06b3b2d4d32836b8e76b4f4c19c3bedc3653e23017",
+      "adaptedSha256": "78f3544d93acd379dd7d2a06b3b2d4d32836b8e76b4f4c19c3bedc3653e23017"
+    },
+    {
+      "source": "frontend/src/components/table/complex/useTableSelection.ts",
+      "local": "web/panel/src/components/table/complex/useTableSelection.ts",
+      "upstreamBlob": "cb37fa1bd0be557f09d16b600564d1b8896f74e7",
+      "originalSha256": "1bca86d1fb8cfab26b994f9896515d089a62e3d19b262e51221a23fab66c2d7c",
+      "adaptedSha256": "1bca86d1fb8cfab26b994f9896515d089a62e3d19b262e51221a23fab66c2d7c"
+    },
+    {
+      "source": "frontend/src/components/table/index.ts",
+      "local": "web/panel/src/components/table/index.ts",
+      "upstreamBlob": "3fa796bed9dea1ea3d7696f2d29db70de3a80d0a",
+      "originalSha256": "759cf1d5dc1c46832d3437cebf29b2e704ae49f4de657f08b2cb20d2f781e472",
+      "adaptedSha256": "759cf1d5dc1c46832d3437cebf29b2e704ae49f4de657f08b2cb20d2f781e472"
+    },
+    {
+      "source": "frontend/src/components/table/shared.ts",
+      "local": "web/panel/src/components/table/shared.ts",
+      "upstreamBlob": "c12282f0c60c9154b6b36576280ededb5a4d5baa",
+      "originalSha256": "d41e1f323ef824910591c192224ddecc7c5032c7a49d2f10519656118bea6e38",
+      "adaptedSha256": "0ec2ef612e7c7ec157947e525c45ee7588ad759004a08d8f475675e8a6173442",
+      "patch": "web/panel/patches/web/panel/src/components/table/shared.ts.patch"
+    },
+    {
+      "source": "frontend/src/composables/useGlobalStore.ts",
+      "local": "web/panel/src/composables/useGlobalStore.ts",
+      "upstreamBlob": "7eb8ca8128ec9e7fe4e00f7024cd40853f5295ff",
+      "originalSha256": "4f64898e96988659de692b7b035ae0234d21a5b1bee8c8ff79fe8928e97bae1f",
+      "adaptedSha256": "cc4570fd3802bd2bd1eed1dc6f802ab2a9c889539c7b9559d08e6aa5157517c6",
+      "patch": "web/panel/patches/web/panel/src/composables/useGlobalStore.ts.patch"
+    },
+    {
+      "source": "frontend/src/composables/useOperateNodeContext.ts",
+      "local": "web/panel/src/composables/useOperateNodeContext.ts",
+      "upstreamBlob": "431bbf930de4b793591e52038434ad39aa9a00cc",
+      "originalSha256": "800e72216203e25d0a3b63710a78be3dbd6a406826ef691e2d0a23a02fb071ab",
+      "adaptedSha256": "696fffbb23fb005ee792f41b9fd65bde46598912ba401d38d59fe089b310fca7",
+      "patch": "web/panel/patches/web/panel/src/composables/useOperateNodeContext.ts.patch"
+    },
+    {
+      "source": "frontend/src/enums/files.ts",
+      "local": "web/panel/src/enums/files.ts",
+      "upstreamBlob": "1386db3fc203299eab11e6b9828940a633e08ffc",
+      "originalSha256": "eafe1e52f7eeca62b5db8d5336d58d9a6fadef5dc1384eb9708e86282def7fce",
+      "adaptedSha256": "eafe1e52f7eeca62b5db8d5336d58d9a6fadef5dc1384eb9708e86282def7fce"
+    },
+    {
+      "source": "frontend/src/enums/http-enum.ts",
+      "local": "web/panel/src/enums/http-enum.ts",
+      "upstreamBlob": "faae38357d6fd5a3778d4d79abfe6fb4272bda46",
+      "originalSha256": "477026a04ec95a46f55742dc35db53714094bab1a5a3743a1f69d2abafb17cbf",
+      "adaptedSha256": "477026a04ec95a46f55742dc35db53714094bab1a5a3743a1f69d2abafb17cbf"
+    },
+    {
+      "source": "frontend/src/global/bus.ts",
+      "local": "web/panel/src/global/bus.ts",
+      "upstreamBlob": "a8feefa2a34f98b2d90237dccaab728fb4201ffb",
+      "originalSha256": "fbae85b024e458ea3d6d1e970de9c235f362fc948fe70c1ca379a2ce18cab07b",
+      "adaptedSha256": "846efe5f95e918851f2257a1bb14c64e3c0ec1f8cd19777699a289e5de4a4595",
+      "patch": "web/panel/patches/web/panel/src/global/bus.ts.patch"
+    },
+    {
+      "source": "frontend/src/global/form-rules.ts",
+      "local": "web/panel/src/global/form-rules.ts",
+      "upstreamBlob": "f93c480ceffdb36d787d884aa05060243d143dd6",
+      "originalSha256": "3314040c39e108cebfca0fbd36946986ae73f24e4b8b687c1850edfa5d4a2c13",
+      "adaptedSha256": "8141902446bdb08aedb2f61a7fc648b75a14913850604b37291b4f0fffb91578",
+      "patch": "web/panel/patches/web/panel/src/global/form-rules.ts.patch"
+    },
+    {
+      "source": "frontend/src/global/mimetype.ts",
+      "local": "web/panel/src/global/mimetype.ts",
+      "upstreamBlob": "727ba90f5592c15040d95c9b4425b6d08bbbc697",
+      "originalSha256": "b0d051b43e892cdd15017fae085c69c962df7cd5178ca98d3ba48d88427ce763",
+      "adaptedSha256": "92fc6933f8aa02ace1eebac6d6cf4e388bea6454c725f0acbf79f994144030a7",
+      "patch": "web/panel/patches/web/panel/src/global/mimetype.ts.patch"
+    },
+    {
+      "source": "frontend/src/global/use-theme.ts",
+      "local": "web/panel/src/global/use-theme.ts",
+      "upstreamBlob": "8479ce23b0480fbb9e41ade29af51bb13190077a",
+      "originalSha256": "94b612f55a8b50c9359eb2cf56b744bcb9f78656ae0845c43041149b3f2e8576",
+      "adaptedSha256": "e85aa56a6c72b5e787e6f0150ac1da232948dc0beca2e181708b42f638b1fafd",
+      "patch": "web/panel/patches/web/panel/src/global/use-theme.ts.patch"
+    },
+    {
+      "source": "frontend/src/lang/fu.ts",
+      "local": "web/panel/src/lang/fu.ts",
+      "upstreamBlob": "15c02b12841f4007fbb73494c59d1b2e69c22141",
+      "originalSha256": "67f56db6dc8ada64551c420886191a6e83296e7da5588e6305285448ac8fe34b",
+      "adaptedSha256": "67f56db6dc8ada64551c420886191a6e83296e7da5588e6305285448ac8fe34b"
+    },
+    {
+      "source": "frontend/src/lang/index.ts",
+      "local": "web/panel/src/lang/index.ts",
+      "upstreamBlob": "16cf6b1be257042eed9a42c90c4018b8e36715e9",
+      "originalSha256": "196e7133e09ffba34b980e991c4d5f633be657e87d77e17782f3299f4d651ef5",
+      "adaptedSha256": "189ce53fecc0d8f83080d81cac693d0e25092ff4d387a9c7548dbb0e11c00d73",
+      "patch": "web/panel/patches/web/panel/src/lang/index.ts.patch"
+    },
+    {
+      "source": "frontend/src/lang/modules/zh.ts",
+      "local": "web/panel/src/lang/modules/zh.ts",
+      "upstreamBlob": "a7ec0432358162188232b15c0820cc4c1790da0b",
+      "originalSha256": "c13c2413de3293fc8feda4b61463f969ac42405ac351dd0fc5d5329f97af776c",
+      "adaptedSha256": "322fbda82284238dffd32e435ffd05bb61487ae17b031aa8984159b6ae7d983a",
+      "patch": "web/panel/patches/web/panel/src/lang/modules/zh.ts.patch"
+    },
+    {
+      "source": "frontend/src/layout/components/AppMain.vue",
+      "local": "web/panel/src/layout/components/AppMain.vue",
+      "upstreamBlob": "8cf73888ad671b261aa6cd427f76a5d01e86fc2b",
+      "originalSha256": "c597a51f0fef8268dadc8581eac8a8ce9c709fbc8b7c4128ede0d81a6eeeefbb",
+      "adaptedSha256": "bcf813dc36c892023ee75c4227a85ba0cc4744d248553d556dd114bf3966488f",
+      "patch": "web/panel/patches/web/panel/src/layout/components/AppMain.vue.patch"
+    },
+    {
+      "source": "frontend/src/layout/components/Sidebar/components/SubItem.vue",
+      "local": "web/panel/src/layout/components/Sidebar/components/SubItem.vue",
+      "upstreamBlob": "95109ad59a1e9759af4dce62942b8789d295fedb",
+      "originalSha256": "a858a2d3ab8f021644b80bcc9c3b84e4ed0cd7b0be2f75dce056e011b9dcd30c",
+      "adaptedSha256": "153c5b77735ddcbebe158baa2aad43d3f982b985e07eb7c6f10aa422a20e34a0",
+      "patch": "web/panel/patches/web/panel/src/layout/components/Sidebar/components/SubItem.vue.patch"
+    },
+    {
+      "source": "frontend/src/layout/components/Sidebar/index.scss",
+      "local": "web/panel/src/layout/components/Sidebar/index.scss",
+      "upstreamBlob": "0e1f0e5884b140bc5d11c0af9959ab0cc4b4f682",
+      "originalSha256": "c0fd56599ece93d1d99a488620a6d4501c7bff65f8dca3c0d6578864dca28abe",
+      "adaptedSha256": "c4b011d4fba314bbd85af581045676246ac08344e0c5dafab4bb4e99c03669e0",
+      "patch": "web/panel/patches/web/panel/src/layout/components/Sidebar/index.scss.patch"
+    },
+    {
+      "source": "frontend/src/layout/hooks/useResize.ts",
+      "local": "web/panel/src/layout/hooks/useResize.ts",
+      "upstreamBlob": "fa5ef7aae7737c606590597e9d57a04ab7a3341b",
+      "originalSha256": "7632d15906100869688e053ab0cacdea188bbbdb2239d982ff4efb8ba7a71c4e",
+      "adaptedSha256": "5c3f63aea601f0662b11bf0f8b2d3d60df3ef2696061654404cc09ec96d2ee66",
+      "patch": "web/panel/patches/web/panel/src/layout/hooks/useResize.ts.patch"
+    },
+    {
+      "source": "frontend/src/layout/index.vue",
+      "local": "web/panel/src/layout/index.vue",
+      "upstreamBlob": "5d210b3c79d11f9a2fd2acfa0059348fcaa8b4f1",
+      "originalSha256": "403183fa854ba560134a5a8776a8e523519c48ba156dac2499585f5c3fccc20e",
+      "adaptedSha256": "bb8cef3edd5bb150a15778344d5f62817ff2244e9e4d5e8225b68168de07d85a",
+      "patch": "web/panel/patches/web/panel/src/layout/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/store/modules/global.ts",
+      "local": "web/panel/src/store/modules/global.ts",
+      "upstreamBlob": "3c4771ffa078084ae90dec766be3bdcf140585f2",
+      "originalSha256": "510a520d42f590b0df62f9731fda5ff00768a0429ac0c407c3c3d752144517b6",
+      "adaptedSha256": "26d39d5f54ff5d49db985ffcfcb8821f22d8904993a83200ebc44ca92a178072",
+      "patch": "web/panel/patches/web/panel/src/store/modules/global.ts.patch"
+    },
+    {
+      "source": "frontend/src/styles/common.scss",
+      "local": "web/panel/src/styles/common.scss",
+      "upstreamBlob": "e5de003137122047560650b4b92f32f4a33dcfbb",
+      "originalSha256": "9e38552b333fadafdf4fbb6b33d89f713ded8c5f9602d9453282a6daada70440",
+      "adaptedSha256": "9e38552b333fadafdf4fbb6b33d89f713ded8c5f9602d9453282a6daada70440"
+    },
+    {
+      "source": "frontend/src/styles/element-dark.scss",
+      "local": "web/panel/src/styles/element-dark.scss",
+      "upstreamBlob": "b482529bf456fa686b52e61af0ce50c9f8f1e46c",
+      "originalSha256": "3314b1ca0a648c746ad6c8b4153954cac4b1492e527ab834d7cbfd246206b5db",
+      "adaptedSha256": "3314b1ca0a648c746ad6c8b4153954cac4b1492e527ab834d7cbfd246206b5db"
+    },
+    {
+      "source": "frontend/src/styles/element.scss",
+      "local": "web/panel/src/styles/element.scss",
+      "upstreamBlob": "7a0bc9f175f7ffa8270704fb5bcd94b050bd661f",
+      "originalSha256": "c0867df15929bf4ce48d2cf92af860f77741c9da6dad7bb4e39d6679e17b2a63",
+      "adaptedSha256": "c0867df15929bf4ce48d2cf92af860f77741c9da6dad7bb4e39d6679e17b2a63"
+    },
+    {
+      "source": "frontend/src/styles/fu.scss",
+      "local": "web/panel/src/styles/fu.scss",
+      "upstreamBlob": "7ae601fbcfe99431702227b49e48ee4b79590298",
+      "originalSha256": "0aef669f26f45254601c374ca89017e58a6b027bddbc08022648ec861b038b2b",
+      "adaptedSha256": "0aef669f26f45254601c374ca89017e58a6b027bddbc08022648ec861b038b2b"
+    },
+    {
+      "source": "frontend/src/styles/index.scss",
+      "local": "web/panel/src/styles/index.scss",
+      "upstreamBlob": "1f78d526985f88d410ae5625c255176db77466bf",
+      "originalSha256": "157b52b2dfdccf34e7d7ece142a83e5b6ba2129d3d9c1821b2d17fc0c4c725f3",
+      "adaptedSha256": "157b52b2dfdccf34e7d7ece142a83e5b6ba2129d3d9c1821b2d17fc0c4c725f3"
+    },
+    {
+      "source": "frontend/src/styles/mixins.scss",
+      "local": "web/panel/src/styles/mixins.scss",
+      "upstreamBlob": "248cff5915ce2e40855077cfc95d3a8530e1f1ca",
+      "originalSha256": "a671d8e10a3f91762b7263c0a865053add224d935f164ed289b7ccab1a7e393b",
+      "adaptedSha256": "a671d8e10a3f91762b7263c0a865053add224d935f164ed289b7ccab1a7e393b"
+    },
+    {
+      "source": "frontend/src/styles/mobile.scss",
+      "local": "web/panel/src/styles/mobile.scss",
+      "upstreamBlob": "ccdb740ce3ea200304694310c16c33396e75197e",
+      "originalSha256": "30111a2e17b77e29d65028a7fe1d2e9f656e7ebfdd02f8dee8145b07f5b27a6c",
+      "adaptedSha256": "30111a2e17b77e29d65028a7fe1d2e9f656e7ebfdd02f8dee8145b07f5b27a6c"
+    },
+    {
+      "source": "frontend/src/styles/reset.scss",
+      "local": "web/panel/src/styles/reset.scss",
+      "upstreamBlob": "2dfafce4ad9ea7b8a550058246a878466e8bbb55",
+      "originalSha256": "f5444f2df98a7d74f21a09c007cdb626c4fdd1fdef400fef47d615e64d8db7ab",
+      "adaptedSha256": "f5444f2df98a7d74f21a09c007cdb626c4fdd1fdef400fef47d615e64d8db7ab"
+    },
+    {
+      "source": "frontend/src/styles/var.scss",
+      "local": "web/panel/src/styles/var.scss",
+      "upstreamBlob": "14a139461bc94f0283ca351b1c1f24e6dcdf18d5",
+      "originalSha256": "d3d9f719cc54d2f4ed0032f6012598909331190a998d1483a64444cf03c71058",
+      "adaptedSha256": "d3d9f719cc54d2f4ed0032f6012598909331190a998d1483a64444cf03c71058"
+    },
+    {
+      "source": "frontend/src/utils/base64.ts",
+      "local": "web/panel/src/utils/base64.ts",
+      "upstreamBlob": "b05f30ea7204b9232bd48a4ca01bf39d40ccd8cb",
+      "originalSha256": "a00802fcf650bb4c350e935b70ce6ac119b5b0b297003607204681695bb56ddd",
+      "adaptedSha256": "a00802fcf650bb4c350e935b70ce6ac119b5b0b297003607204681695bb56ddd"
+    },
+    {
+      "source": "frontend/src/utils/bus.ts",
+      "local": "web/panel/src/utils/bus.ts",
+      "upstreamBlob": "84a19e8f541a020d1b8102a2374c16705bb4a924",
+      "originalSha256": "1a0a3ecdac8af1dcbbfaa8aca55bec59f6900f038988df865556d48f18437519",
+      "adaptedSha256": "1a0a3ecdac8af1dcbbfaa8aca55bec59f6900f038988df865556d48f18437519"
+    },
+    {
+      "source": "frontend/src/utils/clipboard.ts",
+      "local": "web/panel/src/utils/clipboard.ts",
+      "upstreamBlob": "0d0be0e502ef1c610a83213dda4f61a87cc2a1be",
+      "originalSha256": "36aae7c8a88125288a3245e7d6698a6b3f552e0c32a240e5077711ff94b94dd1",
+      "adaptedSha256": "c4dcc438c497eda5073711bd14a084f4445d337427110077095093c16bb95bc6",
+      "patch": "web/panel/patches/web/panel/src/utils/clipboard.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/date.ts",
+      "local": "web/panel/src/utils/date.ts",
+      "upstreamBlob": "376ec118f3790ca80799e32a5517fc6f8c01507b",
+      "originalSha256": "20ab0b8e6c07f35836e027ea5a62026aa74de89c357015ac82051f7258243bc3",
+      "adaptedSha256": "4fbeadbacc5ad4f23accf5f381b02e73af03950b45f4904c45a9f172ce204c5a",
+      "patch": "web/panel/patches/web/panel/src/utils/date.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/file.ts",
+      "local": "web/panel/src/utils/file.ts",
+      "upstreamBlob": "e022f332259816c794977e8e01c76c82f5a0aefa",
+      "originalSha256": "049123e4fa09e998d005f0648079699e215769c608a39930a37dd635ac0f42ed",
+      "adaptedSha256": "4034a35f3fa503be0f786012d8084a367347581691c56c7a278f93834118b30b",
+      "patch": "web/panel/patches/web/panel/src/utils/file.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/id.ts",
+      "local": "web/panel/src/utils/id.ts",
+      "upstreamBlob": "8a20849f3522243f911365ec94db0ba595abce26",
+      "originalSha256": "5aa66c6b09bde8191aa2d54fe455942aac8347437036d2a0136286f86e9a3d9e",
+      "adaptedSha256": "5aa66c6b09bde8191aa2d54fe455942aac8347437036d2a0136286f86e9a3d9e"
+    },
+    {
+      "source": "frontend/src/utils/message.ts",
+      "local": "web/panel/src/utils/message.ts",
+      "upstreamBlob": "c675dca323eb1687e422def7b21435317c304a91",
+      "originalSha256": "e5ae529c4e9cae100545295ef7b2205e5ae1c9235225396c39d9374c8411e4e7",
+      "adaptedSha256": "e5ae529c4e9cae100545295ef7b2205e5ae1c9235225396c39d9374c8411e4e7"
+    },
+    {
+      "source": "frontend/src/utils/misc.ts",
+      "local": "web/panel/src/utils/misc.ts",
+      "upstreamBlob": "93513920fb02eb19891093aa51582a412686f638",
+      "originalSha256": "d3ae3ac12d2daa1b1343742d2c1adc33e03302fbad8669ae53bfdb1d21040699",
+      "adaptedSha256": "def7a04ec9872f1b772549c7a340567835604878ddf0c70b82368822c9aae17a",
+      "patch": "web/panel/patches/web/panel/src/utils/misc.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/panel-cache.ts",
+      "local": "web/panel/src/utils/panel-cache.ts",
+      "upstreamBlob": "deee894b9de93bea430211bd19ecd9fe3e0d0a8b",
+      "originalSha256": "c7e02d326718dc0900153e5eb57f773e158a4428940a75417d0ab53904a386c7",
+      "adaptedSha256": "355a6742ef18acdfc8c04f98b43599c3d107dcbf6e25a9c6fb1a9d51f5504db8",
+      "patch": "web/panel/patches/web/panel/src/utils/panel-cache.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/permission.ts",
+      "local": "web/panel/src/utils/permission.ts",
+      "upstreamBlob": "102355118d14f705cf1f26231579adc14449a1b9",
+      "originalSha256": "07d2b923d0f62018bc6b82d5d25e70fa6dbb6729f9cd9b14881d51ed3861d0fa",
+      "adaptedSha256": "fab35bf32aeedeccdddf70216fd0209af01cf8a89e3bcf4276ba4bb6d3277fdf",
+      "patch": "web/panel/patches/web/panel/src/utils/permission.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/router.ts",
+      "local": "web/panel/src/utils/router.ts",
+      "upstreamBlob": "f833c6edaf7e2e9f071de35e8bff18833f6dfdb1",
+      "originalSha256": "cfd68ef36268909c3df52bb5aaa8a33ed1d8730c6bb5fea355f80236c7b12b55",
+      "adaptedSha256": "59391c7e8168a031349255ac42b0b37eca313a798857939cd60fa8b4a9f2c29f",
+      "patch": "web/panel/patches/web/panel/src/utils/router.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/search-reset.ts",
+      "local": "web/panel/src/utils/search-reset.ts",
+      "upstreamBlob": "83bef953a4d1a0d0b3f59da8a79ebaa399859c5a",
+      "originalSha256": "5009d288f48ae6cbf4f1d05dbd3505893167d8945ec258ce483cac93f7e20282",
+      "adaptedSha256": "e800142e8c25afeeaf053418279a3f3e05c0e7ac4fcd165d49dd08282babca4a",
+      "patch": "web/panel/patches/web/panel/src/utils/search-reset.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/size.ts",
+      "local": "web/panel/src/utils/size.ts",
+      "upstreamBlob": "df4a07babaafb9c991beff335472bd1cc3af609f",
+      "originalSha256": "3bfecd6fed395647dd0103c4b0b6a29d4047dc91998979b1fc62050c1b699e54",
+      "adaptedSha256": "3bfecd6fed395647dd0103c4b0b6a29d4047dc91998979b1fc62050c1b699e54"
+    },
+    {
+      "source": "frontend/src/utils/ssl.ts",
+      "local": "web/panel/src/utils/ssl.ts",
+      "upstreamBlob": "c4a77ce81364f28a731832c8022345a2359ffe01",
+      "originalSha256": "c075f53348884d57887056cd5d5d720e39dc4d5d5943fe828e285a846a99b376",
+      "adaptedSha256": "f31ae4fd7aecc4cb8c20b38b08eab83a2c5d1ce59b61ea7d1938f61bdde5b96c",
+      "patch": "web/panel/patches/web/panel/src/utils/ssl.ts.patch"
+    },
+    {
+      "source": "frontend/src/utils/tab-cache.ts",
+      "local": "web/panel/src/utils/tab-cache.ts",
+      "upstreamBlob": "9ab3bb65a33207eb2c69dad113c700e124a2b2c0",
+      "originalSha256": "8972dbfceebf26371e905dcad178bdf01e66f69dde0e944168118297c8503377",
+      "adaptedSha256": "8972dbfceebf26371e905dcad178bdf01e66f69dde0e944168118297c8503377"
+    },
+    {
+      "source": "frontend/src/utils/task.ts",
+      "local": "web/panel/src/utils/task.ts",
+      "upstreamBlob": "524b96400507245035730817441b42c1e1818f02",
+      "originalSha256": "9f6cdfaa108f4a02e71fb58bfd620ebdcd094890405151af6a7753731aaa28f4",
+      "adaptedSha256": "9218592e96f5a4431f6bb388cf481b3586fc6ee6bef7e77badb7087312d43228",
+      "patch": "web/panel/patches/web/panel/src/utils/task.ts.patch"
+    },
+    {
+      "source": "frontend/src/views/host/file-management/hooks/searchable.ts",
+      "local": "web/panel/src/views/host/file-management/hooks/searchable.ts",
+      "upstreamBlob": "0b1e0c0f1b3933ee303941ebc172f0b9aea0d1d6",
+      "originalSha256": "09550f1a54158025536318822fd70f9ca8aedfc3889542a6ed1a88782c8daebb",
+      "adaptedSha256": "09550f1a54158025536318822fd70f9ca8aedfc3889542a6ed1a88782c8daebb"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/acme-account/create/index.vue",
+      "local": "web/panel/src/views/website/ssl/acme-account/create/index.vue",
+      "upstreamBlob": "581b52989c12bee4363146f9eada2a4b7c461e63",
+      "originalSha256": "670e3b60e2cd6a0c0ed858c8988e10b717d7351595e23d9f2128a9d0d1bd7704",
+      "adaptedSha256": "9f913710568c89287f5c10e251e4cf26a2fdfd3e5f10b08b76e96a3469190e28",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/acme-account/create/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/acme-account/index.vue",
+      "local": "web/panel/src/views/website/ssl/acme-account/index.vue",
+      "upstreamBlob": "8a698bdfee201685018c0ff022fd92ff012c9ce1",
+      "originalSha256": "5cf53093cdc7455fa9d0e971d32656f0ff2196b051c015e3d4786332a4a90a68",
+      "adaptedSha256": "3fbd86d5783f63ee54987653dfe55e941ba8089a7b07a98b9f6ec540ce447d99",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/acme-account/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/apply/index.vue",
+      "local": "web/panel/src/views/website/ssl/apply/index.vue",
+      "upstreamBlob": "e9dd54ba0ef665ade46e4368c8da3331c25ef3bf",
+      "originalSha256": "fbe71a37aaf477da8bea178862a94a9e0373b546f2afd9b3450aac54e9fe15b3",
+      "adaptedSha256": "92a22982067c85ffc027e6b72ad9cf0b4c324d865d72e74cc181a78df33eb22a",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/apply/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/ca/create/index.vue",
+      "local": "web/panel/src/views/website/ssl/ca/create/index.vue",
+      "upstreamBlob": "6f88c7fc3b49d230642bf52019331ea7e5e4245f",
+      "originalSha256": "97f0ced5ed34b69202f412b3742aba36a2c64dba817253ab7a15917a20314c86",
+      "adaptedSha256": "ef4230bca6b873e1079af4981e7382441cf0a6d8ea389388f12cbbbd997fd570",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/ca/create/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/ca/detail/index.vue",
+      "local": "web/panel/src/views/website/ssl/ca/detail/index.vue",
+      "upstreamBlob": "016bc8d70f292bfee710d41d22aa3304cb1ccfb4",
+      "originalSha256": "dd9ceecec4be0ada08514e6cca7b0abf3a349f022c69b2d5eacd3a0bb4a54747",
+      "adaptedSha256": "eba48a2998ad5e51a18500dd8c521c5b3f68e2bb2de062bcf30e07c1593f38c1",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/ca/detail/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/ca/index.vue",
+      "local": "web/panel/src/views/website/ssl/ca/index.vue",
+      "upstreamBlob": "03dab7486657e832d074f997cdb3f96e41adcaa6",
+      "originalSha256": "ba1c7795a9f6e2c09e47a73756176271ee5a60e5833406fbf62829286239ed87",
+      "adaptedSha256": "b405ad8dc2c60b9a50d50e910c1e7ffd3742dfc5b0bdecb1a119ee9ce2a07946",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/ca/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/ca/upload/index.vue",
+      "local": "web/panel/src/views/website/ssl/ca/upload/index.vue",
+      "upstreamBlob": "135fd726713ce3ee8281f20658d3024b4ad65d0b",
+      "originalSha256": "7d241f9d84f200ad32b73b7743fc13c40417da28109937b12bf8f52d51aa3e66",
+      "adaptedSha256": "7c4413be2f70472a071aa6c72169ab67bf9fe1bdeccace66da30426b86aa68d5",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/ca/upload/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/create/index.vue",
+      "local": "web/panel/src/views/website/ssl/create/index.vue",
+      "upstreamBlob": "33bd41e903d40e9d56caaa2778f5817fb1cde02c",
+      "originalSha256": "f9c5d8a2a8a8ae0be0b1bfe122e7f251e04744e9df447fe22a065aec1d783bcb",
+      "adaptedSha256": "f46ca05f6f4ac9a0543d4db2c880ae1f69f79da7181286ffe54bba4aab6f1a26",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/create/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/detail/index.vue",
+      "local": "web/panel/src/views/website/ssl/detail/index.vue",
+      "upstreamBlob": "7c6085abb4f435923bdae86734537c593787b041",
+      "originalSha256": "188818bd8f4d85a0c8981d53d21e4b5fca5fe9fb72582436cb7167fa4af8e05a",
+      "adaptedSha256": "d15a4f90d5f5f21df09c8dbe9cb5aa30fb9155bed3a0034c86db1be4f1605bd5",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/detail/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/dns-account/create/index.vue",
+      "local": "web/panel/src/views/website/ssl/dns-account/create/index.vue",
+      "upstreamBlob": "9e14b06bbe4d2fa7a5e4a92db4ed00727cc7854f",
+      "originalSha256": "e879b0aebb69055b047ddecd2ad1066bc331ea6adfb1e6ded9f4578d785fc4e3",
+      "adaptedSha256": "8ca1ef095def5d2a5f79a737080c64574cad609555f38037b94312b88007bc26",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/dns-account/create/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/dns-account/index.vue",
+      "local": "web/panel/src/views/website/ssl/dns-account/index.vue",
+      "upstreamBlob": "5136f4eefa7897f8c9ddb33f780f43ddc790c2aa",
+      "originalSha256": "8852acb0eea107e548fc1a7f65b2551c55d31d3772879ec3c2c1ece4bbd04ec5",
+      "adaptedSha256": "5543f58f0553a2abaf4ced1b2d07d94c79bb6cd8784b912060e9b689c549bf69",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/dns-account/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/index.vue",
+      "local": "web/panel/src/views/website/ssl/index.vue",
+      "upstreamBlob": "4c9cdd556ff1cd7a6abb8ad5ec8bf3258b472b2e",
+      "originalSha256": "0ec7d3a0faf7f6d8b9b68e60af8b623168d5104d8f2b5b0dd8cf9ad5b806d596",
+      "adaptedSha256": "91a9955b492f981f7f2c2c16f879343bd08b7b6f7e31981f348b4008ebb2c1ef",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/obtain/index.vue",
+      "local": "web/panel/src/views/website/ssl/obtain/index.vue",
+      "upstreamBlob": "99436c40b81f3308e87849be8b0d821702496290",
+      "originalSha256": "9ed5353f9a814ee2089137895cc2d3ff0b07b5b045a5a8d711c75e4329388a91",
+      "adaptedSha256": "84fc53bf814e59d87ea79c44d4e0a34c7e5917ab6e57126c3647082d30926686",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/obtain/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/ssl/upload/index.vue",
+      "local": "web/panel/src/views/website/ssl/upload/index.vue",
+      "upstreamBlob": "2790e6e56f50c035a458813cf644cb8e99092e12",
+      "originalSha256": "d8144befb11e591b69653b282ac1d6f0a9ce88e455cd344133b6eadbded7e15a",
+      "adaptedSha256": "83bfd33743bd8e9eafa60bbfe4a0c9e77ffc33a9a8f295cf52ae92b3591c3ee8",
+      "patch": "web/panel/patches/web/panel/src/views/website/ssl/upload/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/website/components/https/index.vue",
+      "local": "web/panel/src/views/website/website/components/https/index.vue",
+      "upstreamBlob": "0ef246f1e9caa6a3cb0c5651e21084877f56ad10",
+      "originalSha256": "3aa0e1dd1a40cc9dbcf398b2bed995628274ffe7b5db7585ae068f7ab22e9bde",
+      "adaptedSha256": "2ad5453089fc48d579b7e757ca70230a18ec3f8fc25c6ce078ba76bcbbdd3ead",
+      "patch": "web/panel/patches/web/panel/src/views/website/website/components/https/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/website/components/website-ssl/index.vue",
+      "local": "web/panel/src/views/website/website/components/website-ssl/index.vue",
+      "upstreamBlob": "073c92626efc36b2ea2a6384efb2c695764d623f",
+      "originalSha256": "94502fda1283e2dd8d7e609ab17cc2de9559e05c1fd79c388ca1af4f6884485e",
+      "adaptedSha256": "770e31d24842ad853df6569a16eb602caee8a119682f1efaace1c523e9ff5fb0",
+      "patch": "web/panel/patches/web/panel/src/views/website/website/components/website-ssl/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/website/config/basic/https/index.vue",
+      "local": "web/panel/src/views/website/website/config/basic/https/index.vue",
+      "upstreamBlob": "54c6352f7cac0aaedd61eb1ad6c1f5526c844b65",
+      "originalSha256": "4ef4be690ed87ddc5535e7c168b4f44f2e9ceeca8506dcf92bfd149c1d8e9c5b",
+      "adaptedSha256": "5907038f2eef864bc1b9f0778fa73cf8f21d6d54c9a2a3b0530921f7a71517ad",
+      "patch": "web/panel/patches/web/panel/src/views/website/website/config/basic/https/index.vue.patch"
+    },
+    {
+      "source": "frontend/src/views/website/website/nginx/performance/index.vue",
+      "local": "web/panel/src/views/website/website/nginx/performance/index.vue",
+      "upstreamBlob": "2287f57cf4dd71860a1c0c306c286f0464eb97d5",
+      "originalSha256": "77081b92288256778f4cd1947dc572171a2f88a2bd80a761dfa20476c45a429b",
+      "adaptedSha256": "8e78422627f4ace03e3b1ce3d8fe38abd1377732f4e45e8e4a5c84a23fd836b8",
+      "patch": "web/panel/patches/web/panel/src/views/website/website/nginx/performance/index.vue.patch"
+    },
+    {
+      "source": "agent/app/model/website_acme_account.go",
+      "local": "internal/onepanel/model/website_acme_account.go",
+      "upstreamBlob": "39766f4740c76aa41b6582b3762be918455f1dd2",
+      "originalSha256": "753ec9176d6de15e54389093aaefa0fa7b1284dc917d5d34f6f6a7336eeda32a",
+      "adaptedSha256": "5059cf23732e7eef4636668bfc6172a0107c873d58b965919e8d6f00ef9824d1",
+      "patch": "web/panel/patches/internal/onepanel/model/website_acme_account.go.patch"
+    },
+    {
+      "source": "agent/app/model/website_ca.go",
+      "local": "internal/onepanel/model/website_ca.go",
+      "upstreamBlob": "c40d9d6b7ae3168bdf9201b4704960fce38ce53d",
+      "originalSha256": "c0aa5c5c5f13a6f7d3a25dc88e0558f96a3ff5e17f5eb3e1a194dd734999a3fb",
+      "adaptedSha256": "13bca0d6a292aea6ee031386d88aa8771f54a7145862813a894b02d3bdaf38c8",
+      "patch": "web/panel/patches/internal/onepanel/model/website_ca.go.patch"
+    },
+    {
+      "source": "agent/app/model/website_dns_account.go",
+      "local": "internal/onepanel/model/website_dns_account.go",
+      "upstreamBlob": "0dfce6ec856813014b7eed8478a5609acfaf2a2c",
+      "originalSha256": "f0559de1c742800012f3b003266374e08cc143d450d5563bbd6292df5837b7ba",
+      "adaptedSha256": "c892d30f932a657b621847915bbc6fa69c7196ca50b596dec2c16db895dda4d5",
+      "patch": "web/panel/patches/internal/onepanel/model/website_dns_account.go.patch"
+    },
+    {
+      "source": "agent/app/model/website_ssl.go",
+      "local": "internal/onepanel/model/website_ssl.go",
+      "upstreamBlob": "31338d41490ccc8d8ce843eba866aef1ac4fa2b6",
+      "originalSha256": "cabd8efe9aaf9c766fa4db5d0907cb4fc46bdc2d6881214001305278e829df9e",
+      "adaptedSha256": "f4fe095e8776dd052ffba55f8092197507c5710f93e4be7374a1f8c95faf4dfe",
+      "patch": "web/panel/patches/internal/onepanel/model/website_ssl.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/components/block.go",
+      "local": "internal/onepanel/nginx/components/block.go",
+      "upstreamBlob": "d0f40b66dc0adf50a07f71ad32a1f8432acee730",
+      "originalSha256": "1d7d94874983e00435dc5f152165d38edbc2703be5ad94dcbb511d48f2b239ef",
+      "adaptedSha256": "6536bfaaa06f5a45f107ddaabd304356ac55bae8f753f4827d6bbf5626af593e",
+      "patch": "web/panel/patches/internal/onepanel/nginx/components/block.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/components/comment.go",
+      "local": "internal/onepanel/nginx/components/comment.go",
+      "upstreamBlob": "31459be091cf22268fbe4c3cc0c8bf7fdfcbbfa4",
+      "originalSha256": "ec8fb34c0d6e995ff91348d3890dcfb80dab8d8b9b6493bb3cdec1a8ea5796f3",
+      "adaptedSha256": "db7b60a6280980ba61e2ca3c6dda19c6710389905e9b657a2f02c7b0227a5b77",
+      "patch": "web/panel/patches/internal/onepanel/nginx/components/comment.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/components/config.go",
+      "local": "internal/onepanel/nginx/components/config.go",
+      "upstreamBlob": "a2da80bc8a7bda5b92b781488aa9ccdb810f5fdb",
+      "originalSha256": "5010b416e1ba5879cda5f18f1a8de1ab0a34f2d6b16423c7f65e1390f8bc4bb5",
+      "adaptedSha256": "b49df6c8a4a7ff68d827e39f217602159dc92bf97838ab22766a048abfcd3167",
+      "patch": "web/panel/patches/internal/onepanel/nginx/components/config.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/components/directive.go",
+      "local": "internal/onepanel/nginx/components/directive.go",
+      "upstreamBlob": "dfdef75ef2f5b0ca71afb219d03618a3177ebbb9",
+      "originalSha256": "e5ea1f5b6092a640f0893a04b76f4ced1a1e86a166cd754c4b1c2b17eeb076a1",
+      "adaptedSha256": "966ef3f2a7218368ac713700a9b50edb0499613a30a8ff2a91a0f0ea3c3cc003",
+      "patch": "web/panel/patches/internal/onepanel/nginx/components/directive.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/components/lua_block.go",
+      "local": "internal/onepanel/nginx/components/lua_block.go",
+      "upstreamBlob": "d9b4b36760e6dffa2dadb2cead898f6cb1f69cb4",
+      "originalSha256": "6b6aa1aae8dfb8a5c47dc101043d8c23802adac0cf2a4996f7188460de3adad4",
+      "adaptedSha256": "4b348f788ddf3f6fcdd520d38874d75a06a7d64a1dc3c0a759f1bc1baca484ca",
+      "patch": "web/panel/patches/internal/onepanel/nginx/components/lua_block.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/components/statement.go",
+      "local": "internal/onepanel/nginx/components/statement.go",
+      "upstreamBlob": "432a4c1656a7b4b1c9ed7adc04e30e318c3e94a2",
+      "originalSha256": "adbf9bb415e17b53ff4075eec123feb4369aae63fc4d1fa7ae4b889d21ba81ec",
+      "adaptedSha256": "46ee99e0be3cdfab3345c237d2527a55d44ff1ab18053e30b06cd452fea3f20e",
+      "patch": "web/panel/patches/internal/onepanel/nginx/components/statement.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/parser/flag/flag.go",
+      "local": "internal/onepanel/nginx/parser/flag/flag.go",
+      "upstreamBlob": "b39d9e7ac93c6a260e10332a5bfcf4aa5957be3c",
+      "originalSha256": "6ad865f8576850cf665d9edb3edf9df18cf0d9a14a49dc7ff2c9ae5a91618fdc",
+      "adaptedSha256": "5e6e5c5749c3e2a4c58ecc096be586764696ad4290eacf6bb22ad698749dbfd3",
+      "patch": "web/panel/patches/internal/onepanel/nginx/parser/flag/flag.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/parser/lexer.go",
+      "local": "internal/onepanel/nginx/parser/lexer.go",
+      "upstreamBlob": "e2067247d5b2442a32ce5e566873c79f27da38e7",
+      "originalSha256": "9939c85934c1fd7385e0c7d2d5bb91d76abe2a6387510fcf20eecd36474451a6",
+      "adaptedSha256": "d98354efcebb5b9261df6bcf7208f2df355d0fec8c1ccc0272bbc90f815fb814",
+      "patch": "web/panel/patches/internal/onepanel/nginx/parser/lexer.go.patch"
+    },
+    {
+      "source": "agent/utils/nginx/parser/parser.go",
+      "local": "internal/onepanel/nginx/parser/parser.go",
+      "upstreamBlob": "cdf82101c778fc3d23764344b77dee25d06b8a1c",
+      "originalSha256": "69a13e41badd08d2fe7025807c677592911ba84c935217767e4a50be75fe773a",
+      "adaptedSha256": "73fc6e9aec73cccc7c8713de1c69c6ce7ab5886e88c7f7d28b80639b9ca9bedc",
+      "patch": "web/panel/patches/internal/onepanel/nginx/parser/parser.go.patch"
+    },
+    {
+      "source": "agent/utils/ssl/acme.go",
+      "local": "internal/onepanel/ssl/acme.go",
+      "upstreamBlob": "c00cf62731d2c1264ce794f2b640479d143f061c",
+      "originalSha256": "0a70b7a01066c56d99e74223b1c1d9de64faecd7208fdc296ad6ed0c0fadb078",
+      "adaptedSha256": "1cd69f27837efdfe2ee5845db799417dd896da6755a2077850a2fbba9646a617",
+      "patch": "web/panel/patches/internal/onepanel/ssl/acme.go.patch"
+    },
+    {
+      "source": "agent/utils/ssl/client.go",
+      "local": "internal/onepanel/ssl/client.go",
+      "upstreamBlob": "22cbf0d5a96bd895e1db8d4136e6583b3e6674b7",
+      "originalSha256": "f1caa36a43c082fd520818dc516c0408d9b9fd67a6d1c8147ec357c8f20b4fdb",
+      "adaptedSha256": "b882125f47ca81e71785b3870f69df70399cac8d566a4b2dc5852cd088a53827",
+      "patch": "web/panel/patches/internal/onepanel/ssl/client.go.patch"
+    },
+    {
+      "source": "agent/utils/ssl/dns_provider.go",
+      "local": "internal/onepanel/ssl/dns_provider.go",
+      "upstreamBlob": "28a9194a3428af1b3023f914c504ed7a4da5cdc0",
+      "originalSha256": "aadb4ff0ab3506fe5f04ad778b1b36ca65194d82552d84fb52e64648f49ee032",
+      "adaptedSha256": "4bfe8e38b275348aa1f14f188953c372c227b8b4b26128f238232828a08165ca",
+      "patch": "web/panel/patches/internal/onepanel/ssl/dns_provider.go.patch"
+    },
+    {
+      "source": "agent/utils/ssl/manual_client.go",
+      "local": "internal/onepanel/ssl/manual_client.go",
+      "upstreamBlob": "f925d01b404ed43a68de15f409bc348abe8ea3e6",
+      "originalSha256": "9fbf19b96919e647a2632e64a286b4645795322c84824959253aa5886664b66e",
+      "adaptedSha256": "0a45bd7d34c50e5629aee84d913dbaf8658918e6a54c5244b6c465df563013fb",
+      "patch": "web/panel/patches/internal/onepanel/ssl/manual_client.go.patch"
+    },
+    {
+      "source": "agent/app/service/website_ca.go",
+      "local": "internal/onepanel/ssl/ca_import.go",
+      "upstreamBlob": "5a5901643dd958e3ba1702651c8223830fe0f7e3",
+      "originalSha256": "edde7cc4566bf9b1a7f7cf5ff36bec146c3c4877b371ce618f62c6049bdb2a1d",
+      "adaptedSha256": "8221ce2b9f71e2089c72d616448331534ad02cca321fab987d93be55c1e077b1",
+      "patch": "web/panel/patches/internal/onepanel/ssl/ca_import.go.patch"
+    },
+    {
+      "source": "agent/app/service/website_ca.go",
+      "local": "internal/onepanel/ssl/ca_key.go",
+      "upstreamBlob": "5a5901643dd958e3ba1702651c8223830fe0f7e3",
+      "originalSha256": "edde7cc4566bf9b1a7f7cf5ff36bec146c3c4877b371ce618f62c6049bdb2a1d",
+      "adaptedSha256": "1c7f3c8633bc0104f23f801238b7c6f17d845817172bde42931576d32603a569",
+      "patch": "web/panel/patches/internal/onepanel/ssl/ca_key.go.patch"
+    }
+  ]
+}

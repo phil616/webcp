@@ -1,0 +1,11 @@
+--- a/frontend/src/components/table/TableSetting.vue
++++ b/web/panel/src/components/table/TableSetting.vue
+@@ -22,7 +22,7 @@
+ <script setup lang="ts">
+ import { onActivated, onDeactivated, onMounted, onUnmounted, ref, watch } from 'vue';
+ import { useRoute } from 'vue-router';
+-import { panelCacheKey, readPanelCache, writePanelCache } from '@/utils/panel-cache';
++import { panelCacheKey, readPanelCache, writePanelCache } from '@panel/utils/panel-cache';
+ 
+ defineOptions({ name: 'TableSetting' });
+ const refreshRateUnit = ref(0);

@@ -1,0 +1,50 @@
+--- a/frontend/src/views/website/ssl/create/index.vue
++++ b/web/panel/src/views/website/ssl/create/index.vue
+@@ -215,7 +215,6 @@
+             <span class="dialog-footer">
+                 <el-button @click="handleClose" :disabled="loading">{{ $t('commons.button.cancel') }}</el-button>
+                 <el-button
+-                    v-permission="'website_cert_manage'"
+                     type="primary"
+                     @click="submit(sslForm)"
+                     :disabled="loading"
+@@ -229,7 +228,7 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { Website } from '@/api/interface/website';
++import { Website } from '@panel/api/interface/website';
+ import {
+     createSSL,
+     listWebsites,
+@@ -238,21 +237,21 @@
+     updateSSL,
+     searchCAs,
+     obtainSSLByCA,
+-} from '@/api/modules/website';
+-import { Rules, checkMaxLength, checkNumberRange } from '@/global/form-rules';
+-import FileList from '@/components/file-list/index.vue';
+-import i18n from '@/lang';
++} from '@panel/api/modules/website';
++import { Rules, checkMaxLength, checkNumberRange } from '@panel/global/form-rules';
++import FileList from '@panel/components/file-list/index.vue';
++import i18n from '@panel/lang';
+ import { FormInstance } from 'element-plus';
+ import { computed, nextTick, reactive, ref, watch } from 'vue';
+-import { MsgSuccess } from '@/utils/message';
+-import { KeyTypes } from '@/global/mimetype';
+-import { getDNSName, getAccountName } from '@/utils/ssl';
++import { MsgSuccess } from '@panel/utils/message';
++import { KeyTypes } from '@panel/global/mimetype';
++import { getDNSName, getAccountName } from '@panel/utils/ssl';
+ import { defineAsyncComponent } from 'vue';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
+ const { isMaster, isXpackOrEE } = useGlobalStore();
+ 
+ const PushToNode = defineAsyncComponent(async () => {
+-    const modules = import.meta.glob('@/xpack/views/ssl/index.vue');
++    const modules = import.meta.glob('@panel/xpack/views/ssl/index.vue');
+     const loader = modules['/src/xpack/views/ssl/index.vue'];
+     if (loader) {
+         return ((await loader()) as any).default;

@@ -1,0 +1,31 @@
+--- a/agent/utils/ssl/manual_client.go
++++ b/internal/onepanel/ssl/manual_client.go
+@@ -1,3 +1,5 @@
++// SPDX-License-Identifier: GPL-3.0-only
++// Copied from 1Panel commit 3adee9445897aa41c0160b4f805a9b1f43f712ac; import paths adapted.
+ package ssl
+ 
+ import (
+@@ -16,11 +18,11 @@
+ 	"sync"
+ 	"time"
+ 
+-	"github.com/1Panel-dev/1Panel/agent/app/dto"
+-	"github.com/1Panel-dev/1Panel/agent/app/model"
+ 	"github.com/go-acme/lego/v5/certificate"
+ 	"github.com/miekg/dns"
+ 	"golang.org/x/crypto/acme"
++	"web-panel/internal/onepanel/dto"
++	"web-panel/internal/onepanel/model"
+ )
+ 
+ type ManualClient struct {
+@@ -369,7 +371,7 @@
+ 		return res, fmt.Errorf("order not ready: %s", order.Status)
+ 	}
+ 
+-	certBytes, certURL, err := c.client.CreateOrderCert(ctx, order.FinalizeURL, csr, true)
++	certBytes, certURL, err := c.client.CreateCertFromOrder(ctx, order, csr, true)
+ 	if err != nil {
+ 		return res, fmt.Errorf("failed to finalize order: %v", err)
+ 	}

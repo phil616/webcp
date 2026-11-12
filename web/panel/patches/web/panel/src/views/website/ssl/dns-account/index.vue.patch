@@ -1,0 +1,34 @@
+--- a/frontend/src/views/website/ssl/dns-account/index.vue
++++ b/web/panel/src/views/website/ssl/dns-account/index.vue
+@@ -3,7 +3,7 @@
+         <RouterButton :buttons="routerButton" />
+         <LayoutContent backName="SSL" :title="$t('website.dnsAccountManage')">
+             <template #leftToolBar>
+-                <el-button v-permission type="primary" @click="openCreate">
++                <el-button type="primary" @click="openCreate">
+                     {{ $t('commons.button.create') }}
+                 </el-button>
+             </template>
+@@ -50,15 +50,15 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { TABLE_TOOLTIP_OPTIONS } from '@/components/table/shared';
+-import { readCachedPageSize } from '@/utils/panel-cache';
++import { TABLE_TOOLTIP_OPTIONS } from '@panel/components/table/shared';
++import { readCachedPageSize } from '@panel/utils/panel-cache';
+ import Create from './create/index.vue';
+-import { Website } from '@/api/interface/website';
+-import { deleteDnsAccount, searchDnsAccount } from '@/api/modules/website';
++import { Website } from '@panel/api/interface/website';
++import { deleteDnsAccount, searchDnsAccount } from '@panel/api/modules/website';
+ import { onMounted, reactive, ref, toRef } from 'vue';
+-import i18n from '@/lang';
+-import { useSearchState } from '@/utils/search-reset';
+-import { getDNSName } from '@/utils/ssl';
++import i18n from '@panel/lang';
++import { useSearchState } from '@panel/utils/search-reset';
++import { getDNSName } from '@panel/utils/ssl';
+ const paginationConfig = reactive({
+     cacheSizeKey: 'dns-account-page-size',
+     currentPage: 1,

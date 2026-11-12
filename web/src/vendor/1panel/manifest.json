@@ -1,0 +1,176 @@
+{
+  "repository": "https://github.com/1Panel-dev/1Panel",
+  "commit": "3adee9445897aa41c0160b4f805a9b1f43f712ac",
+  "license": "GPL-3.0-only",
+  "modifiedOn": "2026-11-11",
+  "files": [
+    {
+      "source": "frontend/src/styles/element.scss",
+      "upstreamBlob": "7a0bc9f175f7ffa8270704fb5bcd94b050bd661f",
+      "local": "styles/element.scss",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/styles/common.scss",
+      "upstreamBlob": "e5de003137122047560650b4b92f32f4a33dcfbb",
+      "local": "styles/common.scss",
+      "adaptations": "Explicitly import local SCSS variables; formatting only otherwise."
+    },
+    {
+      "source": "frontend/src/styles/element-dark.scss",
+      "upstreamBlob": "b482529bf456fa686b52e61af0ce50c9f8f1e46c",
+      "local": "styles/element-dark.scss",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/styles/fu.scss",
+      "upstreamBlob": "7ae601fbcfe99431702227b49e48ee4b79590298",
+      "local": "styles/fu.scss",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/styles/var.scss",
+      "upstreamBlob": "14a139461bc94f0283ca351b1c1f24e6dcdf18d5",
+      "local": "styles/var.scss",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/styles/mixins.scss",
+      "upstreamBlob": "248cff5915ce2e40855077cfc95d3a8530e1f1ca",
+      "local": "styles/mixins.scss",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/styles/reset.scss",
+      "upstreamBlob": "2dfafce4ad9ea7b8a550058246a878466e8bbb55",
+      "local": "styles/reset.scss",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/layout-content/index.vue",
+      "upstreamBlob": "fab6f95e93976c25a332970fbc3bff747b38ce34",
+      "local": "components/layout-content/index.vue",
+      "adaptations": "Use local BackButton and explicit SCSS path."
+    },
+    {
+      "source": "frontend/src/components/layout-content/form-button.vue",
+      "upstreamBlob": "bba22c5abf96711b98a834c675feb296d2a92b73",
+      "local": "components/layout-content/form-button.vue",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/drawer-pro/index.vue",
+      "upstreamBlob": "26e60ed6916cce404bafb8183f37b1a93f421bdb",
+      "local": "components/drawer-pro/index.vue",
+      "adaptations": "Replace panel global store and i18n with local adapters; responsive mobile width, accessible close control, disabled state and fullscreen cleanup on unmount."
+    },
+    {
+      "source": "frontend/src/components/dialog-pro/index.vue",
+      "upstreamBlob": "8b665dff71192e2873dc23562b31884026ef9942",
+      "local": "components/dialog-pro/index.vue",
+      "adaptations": "Use local mobile sizing; fix open event binding."
+    },
+    {
+      "source": "frontend/src/components/status/index.vue",
+      "upstreamBlob": "37383d24b2a609e349a68e7dc13685f3d2a2326c",
+      "local": "components/status/index.vue",
+      "adaptations": "Remove all permission integration; use Element Plus icons."
+    },
+    {
+      "source": "frontend/src/components/card-with-header/index.vue",
+      "upstreamBlob": "db95d740749b9a539a744150d88191cbd5203bf5",
+      "local": "components/card-with-header/index.vue",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/main-div/index.vue",
+      "upstreamBlob": "5c6960f93f195cbf161600cd55820de5876b3f13",
+      "local": "components/main-div/index.vue",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/table/TablePagination.vue",
+      "upstreamBlob": "3ad6900405d8aa31468fd823d38810823489391c",
+      "local": "components/table/TablePagination.vue",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/table/TableRefresh.vue",
+      "upstreamBlob": "3174621113a301e833cd23cacc8526077089c702",
+      "local": "components/table/TableRefresh.vue",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/table/TableSearch.vue",
+      "upstreamBlob": "b4dbd15d5123fddaa84d0f38d3acc609f00fdc8a",
+      "local": "components/table/TableSearch.vue",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/table/TableOperationActions.vue",
+      "upstreamBlob": "25d710ac4b356308db6cf9e1c74b8ffc23e59bce",
+      "local": "components/table/TableOperationActions.vue",
+      "adaptations": "Make row and action types generic; use local permission-free operation helpers."
+    },
+    {
+      "source": "frontend/src/components/confirm-dialog/index.vue",
+      "upstreamBlob": "3979e82eeca9c00f980b3d1cfc96b82469433a11",
+      "local": "components/confirm-dialog/index.vue",
+      "adaptations": "Explicit DialogPro import and accessible confirmation-input label."
+    },
+    {
+      "source": "frontend/src/components/form-section/index.scss",
+      "upstreamBlob": "4a9c6278b4635610eddcd78089e19c00742b21f9",
+      "local": "styles/form-section.scss",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/layout/components/Sidebar/index.scss",
+      "upstreamBlob": "0e1f0e5884b140bc5d11c0af9959ab0cc4b4f682",
+      "local": "styles/sidebar.scss",
+      "adaptations": "Resolve SCSS variable import locally."
+    },
+    {
+      "source": "frontend/src/assets/images/menu-bg.svg",
+      "upstreamBlob": "cf679075e9b667534f531d4b92d273517a382bfc",
+      "local": "assets/menu-bg.svg",
+      "adaptations": "Attribution header only."
+    },
+    {
+      "source": "frontend/src/components/table/shared.ts",
+      "upstreamBlob": "c12282f0c60c9154b6b36576280ededb5a4d5baa",
+      "local": "components/table/shared.ts",
+      "adaptations": "Typed operation and tooltip helpers only; remove all permission/RBAC dependencies."
+    },
+    {
+      "source": "frontend/src/components/codemirror-pro/index.vue",
+      "upstreamBlob": "35e7d9f01013fd8ebd82af5873d866c0b99bbc95",
+      "local": "components/codemirror-pro/index.vue",
+      "adaptations": "Keep CodeMirror/oneDark/model API; add HTML/Lua and accessible labels; typed lifecycle, one initialization, safe external updates."
+    },
+    {
+      "source": "frontend/src/components/back-button/index.vue",
+      "upstreamBlob": "e6b2aefdd1533870c80943db902f26338fbfd494",
+      "local": "../../components/panel/BackButton.vue",
+      "adaptations": "Keep el-page-header and slot API; use the shared Vue Router for navigation."
+    },
+    {
+      "source": "frontend/src/components/router-button/index.vue",
+      "upstreamBlob": "8c8167d7dc6d21fcb8503fc736139eed57bfdebc",
+      "local": "../../components/panel/RouterButton.vue",
+      "adaptations": "Retain route radio card layout and SCSS; replace routing; remove all licensing, RBAC and node code."
+    },
+    {
+      "source": "frontend/src/components/table/complex/ComplexTable.vue",
+      "upstreamBlob": "d03f668b445461488be2ba4188c82e9751dee789",
+      "local": "../../components/panel/ComplexTable.vue",
+      "adaptations": "Thin domain pagination adapter to original ComplexTable/FuTable in web/panel/src; responsive card rendering and selection are implemented by upstream components."
+    },
+    {
+      "source": "frontend/src/components/del-dialog/index.vue",
+      "upstreamBlob": "66ab42f650266919a6e3b082fb0eea9c60190e8c",
+      "local": "../../components/panel/DeleteDialog.vue",
+      "adaptations": "Keep warning, resource names and cancel/confirm flow; promise state belongs to caller instead of panel API injection."
+    }
+  ]
+}

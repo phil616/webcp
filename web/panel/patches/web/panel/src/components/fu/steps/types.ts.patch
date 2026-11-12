@@ -1,0 +1,16 @@
+--- a/frontend/src/components/fu/steps/types.ts
++++ b/web/panel/src/components/fu/steps/types.ts
+@@ -1,3 +1,4 @@
++import type {StepProps} from 'element-plus';
+ export interface StepOptions {
+     id?: string;
+     index: number;
+@@ -6,7 +7,7 @@
+     title?: string;
+     description?: string;
+     icon?: string;
+-    status?: string;
++    status?: StepProps['status'];
+ }
+ 
+ export interface StepperOptions {

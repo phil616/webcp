@@ -1,0 +1,132 @@
+--- a/frontend/src/views/website/ssl/index.vue
++++ b/web/panel/src/views/website/ssl/index.vue
+@@ -3,22 +3,22 @@
+         <RouterButton :buttons="routerButton" />
+         <LayoutContent :title="$t('website.ssl', 2)">
+             <template #leftToolBar>
+-                <el-button v-permission type="primary" @click="openSSL()">
++                <el-button type="primary" @click="openSSL()">
+                     {{ $t('ssl.create') }}
+                 </el-button>
+-                <el-button v-permission type="primary" @click="openUpload()">
++                <el-button type="primary" @click="openUpload()">
+                     {{ $t('ssl.upload') }}
+                 </el-button>
+-                <el-button v-permission type="primary" plain @click="openCA()">
++                <el-button type="primary" plain @click="openCA()">
+                     {{ $t('ssl.selfSigned') }}
+                 </el-button>
+-                <el-button v-permission type="primary" plain @click="openAcmeAccount()">
++                <el-button type="primary" plain @click="openAcmeAccount()">
+                     {{ $t('website.acmeAccountManage') }}
+                 </el-button>
+-                <el-button v-permission type="primary" plain @click="openDnsAccount()">
++                <el-button type="primary" plain @click="openDnsAccount()">
+                     {{ $t('website.dnsAccountManage') }}
+                 </el-button>
+-                <el-button v-permission plain @click="deletessl(null)" :disabled="selects.length === 0">
++                <el-button plain @click="deletessl(null)" :disabled="selects.length === 0">
+                     {{ $t('commons.button.delete') }}
+                 </el-button>
+             </template>
+@@ -114,7 +114,7 @@
+                     <el-table-column :label="$t('commons.button.log')" prop="log" width="80px">
+                         <template #default="{ row }">
+                             <el-button
+-                                @click="openSSLLog(row)"
++                                @click="openSSLLog(row as Website.SSL)"
+                                 link
+                                 type="primary"
+                                 v-if="row.provider != 'manual' && row.provider !== 'fromMaster'"
+@@ -131,12 +131,12 @@
+                     ></el-table-column>
+                     <el-table-column :label="$t('website.remark')" prop="description" width="100px">
+                         <template #default="{ row }">
+-                            <fu-read-write-switch v-permission>
++                            <fu-read-write-switch>
+                                 <template #read>
+                                     <MsgInfo :info="row.description" width="200" />
+                                 </template>
+                                 <template #default="{ read }">
+-                                    <el-input v-model="row.description" @blur="updateDesc(row, read)" />
++                                    <el-input v-model="row.description" @blur="updateDesc(row as Website.SSLDTO, read)" />
+                                 </template>
+                             </fu-read-write-switch>
+                         </template>
+@@ -144,14 +144,13 @@
+                     <el-table-column :label="$t('ssl.autoRenew')" prop="autoRenew" width="200px">
+                         <template #default="{ row }">
+                             <el-switch
+-                                v-permission
+                                 :disabled="
+                                     row.provider === 'dnsManual' ||
+                                     row.provider === 'manual' ||
+                                     row.provider === 'fromMaster'
+                                 "
+                                 v-model="row.autoRenew"
+-                                @change="updateConfig(row)"
++                                @change="updateConfig(row as Website.SSLDTO)"
+                             />
+                         </template>
+                     </el-table-column>
+@@ -203,7 +202,6 @@
+                             {{ $t('commons.button.cancel') }}
+                         </el-button>
+                         <el-button
+-                            v-permission="'website_cert_manage'"
+                             type="primary"
+                             @click="submitPush"
+                             :disabled="pushLoading"
+@@ -219,35 +217,35 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { TABLE_TOOLTIP_OPTIONS } from '@/components/table/shared';
+-import { useSearchState } from '@/utils/search-reset';
++import { TABLE_TOOLTIP_OPTIONS } from '@panel/components/table/shared';
++import { useSearchState } from '@panel/utils/search-reset';
+ import { toRef, defineAsyncComponent, onMounted, reactive, ref } from 'vue';
+-import { deleteSSL, downloadFile, pushSSLToNode, searchSSL, updateSSL } from '@/api/modules/website';
+-import { routerToNameWithQuery } from '@/utils/router';
++import { deleteSSL, downloadFile, pushSSLToNode, searchSSL, updateSSL } from '@panel/api/modules/website';
++import { routerToNameWithQuery } from '@panel/utils/router';
+ import Create from './create/index.vue';
+ import Detail from './detail/index.vue';
+-import { dateFormat } from '@/utils/date';
+-import { getProvider } from '@/utils/ssl';
+-import i18n from '@/lang';
+-import { Website } from '@/api/interface/website';
+-import { MsgError, MsgSuccess } from '@/utils/message';
++import { dateFormat } from '@panel/utils/date';
++import { getProvider } from '@panel/utils/ssl';
++import i18n from '@panel/lang';
++import { Website } from '@panel/api/interface/website';
++import { MsgError, MsgSuccess } from '@panel/utils/message';
+ import SSLUpload from './upload/index.vue';
+ import Apply from './apply/index.vue';
+-import Log from '@/components/log/file-drawer/index.vue';
++import Log from '@panel/components/log/file-drawer/index.vue';
+ import Obtain from './obtain/index.vue';
+-import MsgInfo from '@/components/msg-info/index.vue';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
+-import { useOperateNodeContext } from '@/composables/useOperateNodeContext';
+-import TaskLog from '@/components/log/task/index.vue';
+-import { newUUID } from '@/utils/id';
+-import { Rules } from '@/global/form-rules';
++import MsgInfo from '@panel/components/msg-info/index.vue';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
++import { useOperateNodeContext } from '@panel/composables/useOperateNodeContext';
++import TaskLog from '@panel/components/log/task/index.vue';
++import { newUUID } from '@panel/utils/id';
++import { Rules } from '@panel/global/form-rules';
+ import { FormInstance } from 'element-plus';
+ 
+ const { currentNode, isMobile, isMaster, isXpackOrEE } = useGlobalStore();
+ useOperateNodeContext(currentNode);
+ 
+ const PushToNode = defineAsyncComponent(async () => {
+-    const modules = import.meta.glob('@/xpack/views/ssl/index.vue');
++    const modules = import.meta.glob('@panel/xpack/views/ssl/index.vue');
+     const loader = modules['/src/xpack/views/ssl/index.vue'];
+     if (loader) {
+         return ((await loader()) as any).default;

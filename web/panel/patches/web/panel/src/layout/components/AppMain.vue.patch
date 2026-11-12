@@ -1,0 +1,11 @@
+--- a/frontend/src/layout/components/AppMain.vue
++++ b/web/panel/src/layout/components/AppMain.vue
+@@ -3,7 +3,7 @@
+ </template>
+ 
+ <script setup lang="ts">
+-import type { KeepAlivePattern } from '@/utils/tab-cache';
++import type { KeepAlivePattern } from '@panel/utils/tab-cache';
+ 
+ defineProps<{
+     keepAlive?: KeepAlivePattern | null;

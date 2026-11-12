@@ -1,0 +1,8 @@
+--- a/frontend/src/global/form-rules.ts
++++ b/web/panel/src/global/form-rules.ts
+@@ -1,4 +1,4 @@
+-import i18n from '@/lang';
++import i18n from '@panel/lang';
+ import { FormItemRule } from 'element-plus';
+ 
+ type ValidatorValue = string;

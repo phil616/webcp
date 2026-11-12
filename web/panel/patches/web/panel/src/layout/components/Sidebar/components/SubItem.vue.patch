@@ -1,0 +1,37 @@
+--- a/frontend/src/layout/components/Sidebar/components/SubItem.vue
++++ b/web/panel/src/layout/components/Sidebar/components/SubItem.vue
+@@ -1,6 +1,6 @@
+ <template>
+     <template v-for="subItem in menuList" :key="subItem.name">
+-        <el-sub-menu v-if="subItem?.children?.length > 1" :index="subItem.path" popper-class="sidebar-container-popper">
++        <el-sub-menu v-if="subItem?.children?.length > 1" :index="subItem.path" :aria-label="$t(subItem.meta?.title as string, 2)" popper-class="sidebar-container-popper">
+             <template #title>
+                 <el-icon v-if="subItem.meta?.icon">
+                     <SvgIcon :iconName="subItem.meta?.icon as string" />
+@@ -10,7 +10,7 @@
+             <SubItem :menuList="subItem.children" :level="level + 1" />
+         </el-sub-menu>
+ 
+-        <el-menu-item v-else-if="subItem?.children?.length === 1" :index="subItem.children[0].path">
++        <el-menu-item v-else-if="subItem?.children?.length === 1" :index="subItem.children[0].path" :aria-label="$t(subItem.meta?.title as string, 2)">
+             <el-icon v-if="subItem.meta?.icon">
+                 <SvgIcon :iconName="subItem.meta?.icon as string" />
+             </el-icon>
+@@ -19,7 +19,7 @@
+             </template>
+         </el-menu-item>
+ 
+-        <el-menu-item v-else :index="subItem.path">
++        <el-menu-item v-else :index="subItem.path" :aria-label="$t(subItem.meta?.title as string, 2)">
+             <el-icon v-if="subItem.meta?.icon && level === 0">
+                 <SvgIcon :iconName="subItem.meta?.icon as string" />
+             </el-icon>
+@@ -33,7 +33,7 @@
+ 
+ <script setup lang="ts">
+ import { RouteRecordRaw } from 'vue-router';
+-import SvgIcon from '@/components/svg-icon/svg-icon.vue';
++import SvgIcon from '@panel/components/svg-icon/svg-icon.vue';
+ 
+ defineProps<{ menuList: RouteRecordRaw[]; level?: number }>();
+ </script>

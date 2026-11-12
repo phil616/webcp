@@ -1,0 +1,12 @@
+--- a/frontend/src/utils/clipboard.ts
++++ b/web/panel/src/utils/clipboard.ts
+@@ -1,7 +1,7 @@
+-import i18n from '@/lang';
++import i18n from '@panel/lang';
+ import useClipboard from 'vue-clipboard3';
+ 
+-import { MsgError, MsgSuccess } from '@/utils/message';
++import { MsgError, MsgSuccess } from '@panel/utils/message';
+ 
+ const { toClipboard } = useClipboard();
+ 

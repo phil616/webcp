@@ -1,0 +1,8 @@
+--- a/frontend/src/layout/components/Sidebar/index.scss
++++ b/web/panel/src/layout/components/Sidebar/index.scss
+@@ -1,4 +1,4 @@
+-@use '@/styles/var.scss' as *;
++@use '@panel/styles/var.scss' as *;
+ 
+ .sidebar-container {
+     :deep(.el-menu) {

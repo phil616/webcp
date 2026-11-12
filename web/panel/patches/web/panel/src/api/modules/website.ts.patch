@@ -1,0 +1,17 @@
+--- a/frontend/src/api/modules/website.ts
++++ b/web/panel/src/api/modules/website.ts
+@@ -1,10 +1,10 @@
+-import http, { type RequestConfig } from '@/api';
++import http, { type RequestConfig } from '@panel/api';
+ import { ReqPage, ResPage } from '../interface';
+ import { Website } from '../interface/website';
+ import { File } from '../interface/file';
+-import { TimeoutEnum } from '@/enums/http-enum';
+-import { deepCopy } from '@/utils/misc';
+-import { encodeBase64Fields } from '@/utils/base64';
++import { TimeoutEnum } from '@panel/enums/http-enum';
++import { deepCopy } from '@panel/utils/misc';
++import { encodeBase64Fields } from '@panel/utils/base64';
+ 
+ export const searchWebsites = (req: Website.WebSiteSearch, node?: string) => {
+     const params = node ? `?operateNode=${node}` : '';

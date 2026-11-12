@@ -1,0 +1,24 @@
+--- a/frontend/src/components/drawer-pro/index.vue
++++ b/web/panel/src/components/drawer-pro/index.vue
+@@ -56,10 +56,10 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { computed, useSlots, ref } from 'vue';
++import { computed, useSlots, ref, onBeforeUnmount } from 'vue';
+ defineOptions({ name: 'DrawerPro' });
+-import i18n from '@/lang';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
++import i18n from '@panel/lang';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
+ const { isFullScreen } = useGlobalStore();
+ 
+ const isFull = ref(false);
+@@ -164,6 +164,7 @@
+     isFullScreen.value = !isFullScreen.value;
+     isFull.value = isFullScreen.value;
+ }
++onBeforeUnmount(()=>{isFullScreen.value=false});
+ const loadTooltip = () => {
+     return i18n.global.t('commons.button.' + (isFullScreen.value ? 'quitFullscreen' : 'fullscreen'));
+ };

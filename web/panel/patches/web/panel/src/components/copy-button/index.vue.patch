@@ -1,0 +1,11 @@
+--- a/frontend/src/components/copy-button/index.vue
++++ b/web/panel/src/components/copy-button/index.vue
+@@ -4,7 +4,7 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { copyText } from '@/utils/clipboard';
++import { copyText } from '@panel/utils/clipboard';
+ defineOptions({ name: 'CopyButton' });
+ 
+ defineProps({

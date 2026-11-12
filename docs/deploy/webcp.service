@@ -1,0 +1,23 @@
+[Unit]
+Description=WebCP Web Control Panel
+Requires=docker.service
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/lib/webcp
+ExecStart=/usr/local/bin/webcp -config /etc/webcp/webcp.json
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/webcp
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target

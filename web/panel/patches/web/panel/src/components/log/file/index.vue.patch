@@ -1,0 +1,23 @@
+--- a/frontend/src/components/log/file/index.vue
++++ b/web/panel/src/components/log/file/index.vue
+@@ -50,13 +50,13 @@
+ </template>
+ <script lang="ts" setup>
+ import { nextTick, onMounted, onUnmounted, reactive, ref, computed } from 'vue';
+-import { downloadFile } from '@/utils/file';
+-import { readByLine } from '@/api/modules/files';
+-import { readTaskLogByLine } from '@/api/modules/log';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
+-import bus from '@/global/bus';
+-import Highlight from '@/components/log/custom-highlight/index.vue';
+-import { translateTaskText } from '@/utils/task';
++import { downloadFile } from '@panel/utils/file';
++import { readByLine } from '@panel/api/modules/files';
++import { readTaskLogByLine } from '@panel/api/modules/log';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
++import bus from '@panel/global/bus';
++import Highlight from '@panel/components/log/custom-highlight/index.vue';
++import { translateTaskText } from '@panel/utils/task';
+ const { currentNode } = useGlobalStore();
+ 
+ interface LogProps {

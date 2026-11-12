@@ -1,0 +1,26 @@
+--- a/agent/app/model/website_ssl.go
++++ b/internal/onepanel/model/website_ssl.go
+@@ -1,12 +1,8 @@
++// SPDX-License-Identifier: GPL-3.0-only
++// 1Panel 3adee9445897aa41c0160b4f805a9b1f43f712ac. Persistence provided by the standalone manager.
+ package model
+ 
+-import (
+-	"fmt"
+-	"path"
+-	"time"
+-
+-	"github.com/1Panel-dev/1Panel/agent/global"
+-)
++import "time"
+ 
+ type WebsiteSSL struct {
+ 	BaseModel
+@@ -51,7 +47,3 @@
+ func (w WebsiteSSL) TableName() string {
+ 	return "website_ssls"
+ }
+-
+-func (w WebsiteSSL) GetLogPath() string {
+-	return path.Join(global.Dir.SSLLogDir, fmt.Sprintf("%s-ssl-%d.log", w.PrimaryDomain, w.ID))
+-}

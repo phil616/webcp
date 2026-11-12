@@ -1,0 +1,10 @@
+{
+  "accessKey": "",
+  "secureCookie": false,
+  "listen": "127.0.0.1:9080",
+  "data": "./data",
+  "container": "webcp-openresty",
+  "image": "1panel/openresty:1.27.1.2-5-1-focal",
+  "httpBind": "0.0.0.0:80",
+  "httpsBind": "0.0.0.0:443"
+}

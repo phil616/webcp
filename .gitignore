@@ -1,0 +1,13 @@
+/data/
+/bin/
+/dist/
+/web/dist/
+/web/node_modules/
+/test-results/
+/playwright-report/
+/web/test-results/
+/web/playwright-report/
+__pycache__/
+*.pyc
+*.log
+/webcp.json

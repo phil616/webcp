@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: ['**']
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Source, frontend, Go race tests and build
+        run: make check build
+      - name: Static analysis
+        run: go run honnef.co/go/tools/cmd/staticcheck@v0.8.2 ./...
+      - name: Python and workflow checks
+        run: |
+          python3 -m venv "$RUNNER_TEMP/webcp-quality-tools"
+          "$RUNNER_TEMP/webcp-quality-tools/bin/pip" install ruff==0.15.19
+          "$RUNNER_TEMP/webcp-quality-tools/bin/ruff" check scripts
+          "$RUNNER_TEMP/webcp-quality-tools/bin/ruff" format --check scripts
+          go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12 .github/workflows/*.yml
+      - name: Dependency security
+        run: make security
+      - name: OpenResty, S3, SQLite recovery and ACME integration
+        run: make integration integration-acme
+      - name: Install test browser
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+      - name: Isolated production browser regression
+        run: python3 scripts/test-web.py
+      - name: Vue development runtime regression
+        run: python3 scripts/test-web.py --dev
+      - name: Preserve failure evidence
+        if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: browser-failure-evidence
+          path: web/test-results/
+          if-no-files-found: warn
+          retention-days: 7

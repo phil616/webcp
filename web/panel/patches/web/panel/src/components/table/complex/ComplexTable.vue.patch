@@ -1,0 +1,34 @@
+--- a/frontend/src/components/table/complex/ComplexTable.vue
++++ b/web/panel/src/components/table/complex/ComplexTable.vue
+@@ -43,7 +43,7 @@
+                                 class="complex-table__card-selection"
+                                 :model-value="isRowSelected(cardRow)"
+                                 :disabled="!isRowSelectable(cardRow)"
+-                                @change="toggleCardSelection(cardRow, $event)"
++                                @change="toggleCardSelection(cardRow, Boolean($event))"
+                                 @click.stop
+                             />
+                             <div class="complex-table__card-name">
+@@ -167,10 +167,10 @@
+     </div>
+ </template>
+ <script setup lang="ts">
+-import { panelCacheKey, writePanelCache } from '@/utils/panel-cache';
++import { panelCacheKey, writePanelCache } from '@panel/utils/panel-cache';
+ import { computed, onDeactivated, onMounted, ref, useAttrs } from 'vue';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
+-import { flattenVNodes, TABLE_OVERFLOW_TOOLTIP_OPTIONS, type FuTableOperationButton } from '@/components/table/shared';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
++import { flattenVNodes, TABLE_OVERFLOW_TOOLTIP_OPTIONS, type FuTableOperationButton } from '@panel/components/table/shared';
+ import { useCardColumns } from './useCardColumns';
+ import { useContextMenu } from './useContextMenu';
+ import { useResponsivePagination } from './useResponsivePagination';
+@@ -532,7 +532,7 @@
+ </script>
+ 
+ <style scoped lang="scss">
+-@use '@/styles/mixins.scss' as *;
++@use '@panel/styles/mixins.scss' as *;
+ 
+ .complex-table {
+     .complex-table__header {

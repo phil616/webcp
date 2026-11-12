@@ -1,0 +1,81 @@
+--- a/frontend/src/layout/hooks/useResize.ts
++++ b/web/panel/src/layout/hooks/useResize.ts
+@@ -1,53 +1,37 @@
+ import { watch, onBeforeMount, onMounted, onBeforeUnmount } from 'vue';
+ import { useRoute } from 'vue-router';
+-import { MenuStore } from '@/store';
+-import { DeviceType } from '@/enums/app';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
+-/** 与 Tailwind CSS 的 md 断点保持一致 */
++import { useInterfaceStore } from '@/stores/interface';
+ const MOBILE_BREAKPOINT = 768;
+-
+-/** 根据大小变化重新布局 */
+ export default () => {
+-    const route = useRoute();
+-    const { globalStore, isMobile } = useGlobalStore();
+-    const menuStore = MenuStore();
+-    const _isMobile = () => {
+-        const rect = document.body.getBoundingClientRect();
+-        return rect.width < MOBILE_BREAKPOINT;
++    const route = useRoute(),
++        store = useInterfaceStore();
++    let previousWidth = 0;
++    const syncLayout = (initial = false) => {
++        const width = document.body.getBoundingClientRect().width;
++        store.isMobile = width < MOBILE_BREAKPOINT;
++        if (store.isMobile) {
++            store.mobileOpen = false;
++            store.withoutAnimation = true;
++        } else if (width !== previousWidth) {
++            if (width < 1200) store.isCollapsed = true;
++            else if (!initial) store.isCollapsed = false;
++            store.withoutAnimation = false;
++        }
++        previousWidth = width;
+     };
+-
+-    const _syncLayout = () => {
+-        const isMobileScreen = _isMobile();
+-        globalStore.toggleDevice(isMobileScreen ? DeviceType.Mobile : DeviceType.Desktop);
+-        if (isMobileScreen) {
+-            menuStore.closeSidebar(true);
+-        }
++    const resize = () => {
++        if (!document.hidden) syncLayout();
+     };
+-
+-    const _resizeHandler = () => {
+-        if (!document.hidden) {
+-            _syncLayout();
+-        }
+-    };
+-
+     watch(
+-        () => route.name,
++        () => route.fullPath,
+         () => {
+-            if (isMobile.value && !menuStore.isCollapse) {
+-                menuStore.closeSidebar(false);
++            if (store.isMobile) {
++                store.mobileOpen = false;
++                store.withoutAnimation = false;
+             }
+         },
+     );
+-
+-    onBeforeMount(() => {
+-        window.addEventListener('resize', _resizeHandler);
+-    });
+-
+-    onMounted(() => {
+-        _syncLayout();
+-    });
+-
+-    onBeforeUnmount(() => {
+-        window.removeEventListener('resize', _resizeHandler);
+-    });
++    onBeforeMount(() => window.addEventListener('resize', resize));
++    onMounted(() => syncLayout(true));
++    onBeforeUnmount(() => window.removeEventListener('resize', resize));
+ };

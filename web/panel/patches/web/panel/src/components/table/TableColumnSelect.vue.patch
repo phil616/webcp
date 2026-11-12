@@ -1,0 +1,19 @@
+--- a/frontend/src/components/table/TableColumnSelect.vue
++++ b/web/panel/src/components/table/TableColumnSelect.vue
+@@ -29,6 +29,7 @@
+ <script setup lang="ts">
+ import { Setting } from '@element-plus/icons-vue';
+ import { computed, ref, type PropType } from 'vue';
++import type {PopoverProps} from 'element-plus';
+ import { useI18n } from 'vue-i18n';
+ 
+ import type { FuTableColumnConfig } from './shared';
+@@ -55,7 +56,7 @@
+         default: false,
+     },
+     trigger: {
+-        type: String,
++        type: String as PropType<PopoverProps['trigger']>,
+         default: 'click',
+     },
+     popperClass: {

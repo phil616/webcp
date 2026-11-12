@@ -1,0 +1,8 @@
+--- a/frontend/src/utils/date.ts
++++ b/web/panel/src/utils/date.ts
+@@ -1,4 +1,4 @@
+-import i18n from '@/lang';
++import i18n from '@panel/lang';
+ 
+ interface RunningTime {
+     days: number;

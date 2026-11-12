@@ -1,0 +1,16 @@
+--- a/frontend/src/components/log/file-drawer/index.vue
++++ b/web/panel/src/components/log/file-drawer/index.vue
+@@ -17,10 +17,10 @@
+ </template>
+ <script lang="ts" setup>
+ import { ref } from 'vue';
+-import LogFile from '@/components/log/file/index.vue';
+-import i18n from '@/lang';
++import LogFile from '@panel/components/log/file/index.vue';
++import i18n from '@panel/lang';
+ import screenfull from 'screenfull';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
+ 
+ const { isMobile, isFullScreen } = useGlobalStore();
+ 

@@ -1,0 +1,8 @@
+--- a/frontend/src/lang/modules/zh.ts
++++ b/web/panel/src/lang/modules/zh.ts
+@@ -1,4 +1,4 @@
+-import { getFuLocaleMessage } from '@/lang/fu';
++import { getFuLocaleMessage } from '@panel/lang/fu';
+ 
+ const message = {
+     apiKeyManagement: {

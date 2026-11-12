@@ -1,0 +1,283 @@
+--- a/frontend/src/views/website/website/nginx/performance/index.vue
++++ b/web/panel/src/views/website/website/nginx/performance/index.vue
+@@ -1,30 +1,48 @@
+ <template>
+     <div>
+-        <el-form v-loading="loading" :model="form" :rules="variablesRules" ref="nginxFormRef" label-position="top">
++        <el-form
++            v-loading="loading"
++            :model="form"
++            :rules="variablesRules"
++            ref="nginxFormRef"
++            label-position="top"
++        >
+             <el-row :gutter="20">
+                 <el-col :xs="24" :sm="24" :md="9" :lg="9" :xl="9">
+-                    <el-form-item label="server_names_hash_bucket_size" prop="server_names_hash_bucket_size">
++                    <el-form-item
++                        label="server_names_hash_bucket_size"
++                        prop="server_names_hash_bucket_size"
++                    >
+                         <el-input
+                             clearable
+                             type="number"
+                             v-model.number="form.server_names_hash_bucket_size"
+                             :disabled="!!sources.server_names_hash_bucket_size"
+                         ></el-input>
+-                        <span class="input-help">{{ $t('nginx.serverNamesHashBucketSizeHelper') }}</span>
++                        <span class="input-help">{{
++                            $t('nginx.serverNamesHashBucketSizeHelper')
++                        }}</span>
+                         <span v-if="sources.server_names_hash_bucket_size" class="input-help">
+                             {{ sourceHelp('server_names_hash_bucket_size') }}
+                         </span>
+                     </el-form-item>
+-                    <el-form-item label="client_header_buffer_size" prop="client_header_buffer_size">
++                    <el-form-item
++                        label="client_header_buffer_size"
++                        prop="client_header_buffer_size"
++                    >
+                         <el-input
+                             clearable
+                             type="number"
+                             v-model.number="form.client_header_buffer_size"
+                             :disabled="!!sources.client_header_buffer_size"
+                         >
+-                            <template #append>{{ unitLabel('client_header_buffer_size', 'k') }}</template>
++                            <template #append>{{
++                                unitLabel('client_header_buffer_size', 'k')
++                            }}</template>
+                         </el-input>
+-                        <span class="input-help">{{ $t('nginx.clientHeaderBufferSizeHelper') }}</span>
++                        <span class="input-help">{{
++                            $t('nginx.clientHeaderBufferSizeHelper')
++                        }}</span>
+                         <span v-if="sources.client_header_buffer_size" class="input-help">
+                             {{ sourceHelp('client_header_buffer_size') }}
+                         </span>
+@@ -36,7 +54,9 @@
+                             v-model.number="form.client_max_body_size"
+                             :disabled="!!sources.client_max_body_size"
+                         >
+-                            <template #append>{{ unitLabel('client_max_body_size', 'm') }}</template>
++                            <template #append>{{
++                                unitLabel('client_max_body_size', 'm')
++                            }}</template>
+                         </el-input>
+                         <span class="input-help">{{ $t('nginx.clientMaxBodySizeHelper') }}</span>
+                         <span v-if="sources.client_max_body_size" class="input-help">
+@@ -65,7 +85,11 @@
+                         <span v-if="sources.gzip" class="input-help">{{ sourceHelp('gzip') }}</span>
+                     </el-form-item>
+                     <el-form-item label="gzip_min_length" prop="gzip_min_length">
+-                        <el-input clearable v-model.number="form.gzip_min_length" :disabled="!!sources.gzip_min_length">
++                        <el-input
++                            clearable
++                            v-model.number="form.gzip_min_length"
++                            :disabled="!!sources.gzip_min_length"
++                        >
+                             <template #append>{{ unitLabel('gzip_min_length', 'k') }}</template>
+                         </el-input>
+                         <span class="input-help">{{ $t('nginx.gzipMinLengthHelper') }}</span>
+@@ -164,7 +188,7 @@
+                 </el-col>
+             </el-row>
+             <el-form-item>
+-                <el-button v-permission type="primary" :disabled="!loaded" @click="submit(nginxFormRef)">
++                <el-button type="primary" :disabled="!loaded" @click="submit(nginxFormRef)">
+                     {{ $t('commons.button.save') }}
+                 </el-button>
+             </el-form-item>
+@@ -172,11 +196,15 @@
+     </div>
+ </template>
+ <script lang="ts" setup>
+-import { Nginx } from '@/api/interface/nginx';
+-import { getNginxConfigByScope, getNginxModules, updateNginxConfigByScope } from '@/api/modules/nginx';
+-import { checkNumberRange, Rules } from '@/global/form-rules';
+-import i18n from '@/lang';
+-import { MsgError, MsgSuccess } from '@/utils/message';
++import { Nginx } from '@panel/api/interface/nginx';
++import {
++    getNginxConfigByScope,
++    getNginxModules,
++    updateNginxConfigByScope,
++} from '@panel/api/modules/nginx';
++import { checkNumberRange, Rules } from '@panel/global/form-rules';
++import i18n from '@panel/lang';
++import { MsgError, MsgSuccess } from '@panel/utils/message';
+ import { FormInstance, FormItemRule } from 'element-plus';
+ import { onMounted, reactive, ref } from 'vue';
+ 
+@@ -214,7 +242,8 @@
+ // a field is read-only and never saved: writing it into nginx.conf would
+ // duplicate the included value and fail the config test.
+ const sources = ref<Record<string, string>>({});
+-const sourceHelp = (name: string) => i18n.global.t('nginx.directiveSourceHelper', [sources.value[name]]);
++const sourceHelp = (name: string) =>
++    i18n.global.t('nginx.directiveSourceHelper', [sources.value[name]]);
+ 
+ // Brotli is only offered once the module is enabled and built. Its directives
+ // live in a panel-managed file rather than nginx.conf, because they have to
+@@ -228,7 +257,12 @@
+ // Durations are edited as written, so a value such as 1m30s round-trips
+ // intact. An unchanged one is not sent at all: it may be a built-in default
+ // that nginx.conf does not set.
+-const timeKeys = ['keepalive_timeout', 'proxy_connect_timeout', 'proxy_send_timeout', 'proxy_read_timeout'];
++const timeKeys = [
++    'keepalive_timeout',
++    'proxy_connect_timeout',
++    'proxy_send_timeout',
++    'proxy_read_timeout',
++];
+ // nginx's built-in defaults, shown when nginx.conf does not set the directive.
+ const timeDefaults: Record<string, string> = {
+     keepalive_timeout: '75s',
+@@ -319,7 +353,12 @@
+ // nginx size directives may be written with or without a unit suffix, and
+ // the suffix carries a factor of 1024. Remember the unit that was read so it
+ // can be written back unchanged, instead of assuming a fixed one.
+-const sizeKeys = ['client_header_buffer_size', 'client_max_body_size', 'gzip_min_length', 'brotli_min_length'];
++const sizeKeys = [
++    'client_header_buffer_size',
++    'client_max_body_size',
++    'gzip_min_length',
++    'brotli_min_length',
++];
+ const units = ref<Record<string, string>>({});
+ 
+ const parseSizeParam = (name: string, value: string) => {
+@@ -345,38 +384,44 @@
+ 
+ const getParams = async () => {
+     loaded.value = false;
+-    // Reset the unit cache: a directive removed since the last load must not
+-    // hand its remembered unit to a value that no longer carries one.
+-    units.value = {};
+-    const res = await getNginxConfigByScope(req.value);
+-    data.value = res.data;
+-    const nextSources: Record<string, string> = {};
+-    for (const param of res.data) {
+-        if (param.source) {
+-            nextSources[param.name] = param.source;
+-        }
+-        if (timeKeys.includes(param.name)) {
+-            const value = param.params.length > 0 ? param.params.join(' ') : timeDefaults[param.name];
+-            form.value[param.name] = value;
+-            baseline[param.name] = value;
+-            continue;
+-        }
+-        if (param.params.length === 0) {
+-            continue;
+-        }
+-        if (param.name == 'gzip') {
+-            form.value.gzip = param.params[0];
+-        } else if (sizeKeys.includes(param.name)) {
+-            form.value[param.name] = parseSizeParam(param.name, param.params[0]);
+-        } else if (param.name in form.value) {
+-            form.value[param.name] = Number(param.params[0].match(/\d+/g)?.[0] ?? 0);
+-        }
+-        // Keys the page does not render (gzip_types, gzip_vary, gzip_proxied)
+-        // are deliberately not stuffed into the form.
+-    }
+-    sources.value = nextSources;
+-    await getBrotliParams();
+-    loaded.value = true;
++    loading.value = true;
++    try {
++        // Reset the unit cache: a directive removed since the last load must not
++        // hand its remembered unit to a value that no longer carries one.
++        units.value = {};
++        const res = await getNginxConfigByScope(req.value);
++        data.value = res.data;
++        const nextSources: Record<string, string> = {};
++        for (const param of res.data) {
++            if (param.source) {
++                nextSources[param.name] = param.source;
++            }
++            if (timeKeys.includes(param.name)) {
++                const value =
++                    param.params.length > 0 ? param.params.join(' ') : timeDefaults[param.name];
++                form.value[param.name] = value;
++                baseline[param.name] = value;
++                continue;
++            }
++            if (param.params.length === 0) {
++                continue;
++            }
++            if (param.name == 'gzip') {
++                form.value.gzip = param.params[0];
++            } else if (sizeKeys.includes(param.name)) {
++                form.value[param.name] = parseSizeParam(param.name, param.params[0]);
++            } else if (param.name in form.value) {
++                form.value[param.name] = Number(param.params[0].match(/\d+/g)?.[0] ?? 0);
++            }
++            // Keys the page does not render (gzip_types, gzip_vary, gzip_proxied)
++            // are deliberately not stuffed into the form.
++        }
++        sources.value = nextSources;
++        await getBrotliParams();
++        loaded.value = true;
++    } finally {
++        loading.value = false;
++    }
+ };
+ 
+ const getBrotliParams = async () => {
+@@ -414,8 +459,16 @@
+         let params: Record<string, string> = {
+             gzip: form.value.gzip,
+             server_names_hash_bucket_size: String(form.value.server_names_hash_bucket_size),
+-            client_header_buffer_size: withUnit('client_header_buffer_size', form.value.client_header_buffer_size, 'k'),
+-            client_max_body_size: withUnit('client_max_body_size', form.value.client_max_body_size, 'm'),
++            client_header_buffer_size: withUnit(
++                'client_header_buffer_size',
++                form.value.client_header_buffer_size,
++                'k',
++            ),
++            client_max_body_size: withUnit(
++                'client_max_body_size',
++                form.value.client_max_body_size,
++                'm',
++            ),
+             gzip_min_length: withUnit('gzip_min_length', form.value.gzip_min_length, 'k'),
+             gzip_comp_level: String(form.value.gzip_comp_level),
+         };
+@@ -442,19 +495,23 @@
+                     params: {
+                         brotli: form.value.brotli,
+                         brotli_comp_level: String(form.value.brotli_comp_level),
+-                        brotli_min_length: withUnit('brotli_min_length', form.value.brotli_min_length, 'k'),
++                        brotli_min_length: withUnit(
++                            'brotli_min_length',
++                            form.value.brotli_min_length,
++                            'k',
++                        ),
+                     },
+                 }).catch(() => {
+                     // gzip was already saved by the time brotli failed; say so
+                     // instead of leaving the user guessing which half applied.
+                     MsgError(i18n.global.t('nginx.brotliSaveFailed'));
+-                    getParams();
++                    getParams().catch(() => {});
+                     throw new Error('brotli save failed');
+                 });
+             })
+-            .then(() => {
++            .then(async () => {
+                 MsgSuccess(i18n.global.t('commons.msg.updateSuccess'));
+-                getParams();
++                await getParams();
+             })
+             .catch(() => {})
+             .finally(() => {
+@@ -463,7 +520,8 @@
+     });
+ };
+ 
++defineExpose({ reload: () => getParams().catch(() => {}) });
+ onMounted(() => {
+-    getParams();
++    getParams().catch(() => {});
+ });
+ </script>

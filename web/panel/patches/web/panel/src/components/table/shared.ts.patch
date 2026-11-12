@@ -1,0 +1,23 @@
+--- a/frontend/src/components/table/shared.ts
++++ b/web/panel/src/components/table/shared.ts
+@@ -1,8 +1,8 @@
+ import type { VNode } from 'vue';
+-import type { UseTooltipProps } from 'element-plus';
+-import { hasManagePermissionAccess, hasPermissionAccess, type PermissionBindingValue } from '@/utils/permission';
++import type { ButtonProps,UseTooltipProps } from 'element-plus';
++import { hasManagePermissionAccess, hasPermissionAccess, type PermissionBindingValue } from '@panel/utils/permission';
+ 
+-export { flattenVNodes } from '@/components/shared/vnode';
++export { flattenVNodes } from '@panel/components/shared/vnode';
+ 
+ export interface FuTableColumnConfig {
+     key: string;
+@@ -21,7 +21,7 @@
+     permission?: true | PermissionBindingValue;
+     nodeAdmin?: boolean;
+     show?: boolean | ((row: Row) => boolean);
+-    type?: string;
++    type?: ButtonProps['type'];
+     icon?: any;
+     divided?: boolean;
+     dot?: boolean | ((row: Row) => boolean);

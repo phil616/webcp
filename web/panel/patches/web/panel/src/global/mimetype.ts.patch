@@ -1,0 +1,10 @@
+--- a/frontend/src/global/mimetype.ts
++++ b/web/panel/src/global/mimetype.ts
+@@ -1,5 +1,5 @@
+-import { CompressType } from '@/enums/files';
+-import i18n from '@/lang';
++import { CompressType } from '@panel/enums/files';
++import i18n from '@panel/lang';
+ 
+ export const Mimetypes = new Map([
+     ['application/zip', CompressType.Zip],

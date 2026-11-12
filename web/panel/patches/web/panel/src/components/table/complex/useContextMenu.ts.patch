@@ -1,0 +1,9 @@
+--- a/frontend/src/components/table/complex/useContextMenu.ts
++++ b/web/panel/src/components/table/complex/useContextMenu.ts
+@@ -1,5 +1,5 @@
+ import { computed, onBeforeUnmount, ref, toValue, type MaybeRefOrGetter } from 'vue';
+-import { isOperationDisabled, isOperationVisible, type FuTableOperationButton } from '@/components/table/shared';
++import { isOperationDisabled, isOperationVisible, type FuTableOperationButton } from '@panel/components/table/shared';
+ 
+ export const useContextMenu = <Row>(buttons: MaybeRefOrGetter<FuTableOperationButton<Row>[] | undefined>) => {
+     const contextMenu = ref({

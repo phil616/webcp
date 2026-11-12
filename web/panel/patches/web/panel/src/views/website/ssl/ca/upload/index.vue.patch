@@ -1,0 +1,28 @@
+--- a/frontend/src/views/website/ssl/ca/upload/index.vue
++++ b/web/panel/src/views/website/ssl/ca/upload/index.vue
+@@ -56,7 +56,7 @@
+         </el-form>
+         <template #footer>
+             <el-button :disabled="loading" @click="handleClose">{{ $t('commons.button.cancel') }}</el-button>
+-            <el-button v-permission type="primary" :loading="loading" @click="submit">
++            <el-button type="primary" :loading="loading" @click="submit">
+                 {{ $t('commons.button.confirm') }}
+             </el-button>
+         </template>
+@@ -68,11 +68,11 @@
+ <script lang="ts" setup>
+ import { nextTick, reactive, ref } from 'vue';
+ import type { FormInstance, UploadFile, UploadInstance, UploadRawFile } from 'element-plus';
+-import { Rules } from '@/global/form-rules';
+-import FileList from '@/components/file-list/index.vue';
+-import { uploadCA, importCA } from '@/api/modules/website';
+-import { MsgError, MsgSuccess } from '@/utils/message';
+-import i18n from '@/lang';
++import { Rules } from '@panel/global/form-rules';
++import FileList from '@panel/components/file-list/index.vue';
++import { uploadCA, importCA } from '@panel/api/modules/website';
++import { MsgError, MsgSuccess } from '@panel/utils/message';
++import i18n from '@panel/lang';
+ 
+ const open = ref(false);
+ const loading = ref(false);

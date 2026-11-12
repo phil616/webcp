@@ -1,0 +1,45 @@
+--- a/frontend/src/views/website/ssl/acme-account/index.vue
++++ b/web/panel/src/views/website/ssl/acme-account/index.vue
+@@ -3,7 +3,7 @@
+         <RouterButton :buttons="routerButton" />
+         <LayoutContent backName="SSL" :title="$t('website.acmeAccountManage')">
+             <template #leftToolBar>
+-                <el-button v-permission type="primary" @click="openCreate">
++                <el-button type="primary" @click="openCreate">
+                     {{ $t('commons.button.create') }}
+                 </el-button>
+             </template>
+@@ -37,7 +37,7 @@
+                     </el-table-column>
+                     <el-table-column :label="$t('website.useProxy')" min-width="100px" v-if="isProductPro">
+                         <template #default="{ row }">
+-                            <el-switch v-permission v-model="row.useProxy" @change="update(row)"></el-switch>
++                            <el-switch v-model="row.useProxy" @change="update(row as Website.AcmeAccount)"></el-switch>
+                         </template>
+                     </el-table-column>
+                     <el-table-column label="URL" show-overflow-tooltip prop="url" min-width="300px"></el-table-column>
+@@ -57,16 +57,16 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { readCachedPageSize } from '@/utils/panel-cache';
+-import { Website } from '@/api/interface/website';
+-import { deleteAcmeAccount, searchAcmeAccount, updateAcmeAccount } from '@/api/modules/website';
+-import i18n from '@/lang';
+-import { useSearchState } from '@/utils/search-reset';
++import { readCachedPageSize } from '@panel/utils/panel-cache';
++import { Website } from '@panel/api/interface/website';
++import { deleteAcmeAccount, searchAcmeAccount, updateAcmeAccount } from '@panel/api/modules/website';
++import i18n from '@panel/lang';
++import { useSearchState } from '@panel/utils/search-reset';
+ import { onMounted, reactive, ref, toRef } from 'vue';
+ import Create from './create/index.vue';
+-import { getAccountName, getKeyName } from '@/utils/ssl';
+-import { MsgSuccess } from '@/utils/message';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
++import { getAccountName, getKeyName } from '@panel/utils/ssl';
++import { MsgSuccess } from '@panel/utils/message';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
+ 
+ const { isProductPro } = useGlobalStore();
+ const loading = ref(false);

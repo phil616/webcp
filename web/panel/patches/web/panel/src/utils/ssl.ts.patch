@@ -1,0 +1,10 @@
+--- a/frontend/src/utils/ssl.ts
++++ b/web/panel/src/utils/ssl.ts
+@@ -1,5 +1,5 @@
+-import { AcmeAccountTypes, DNSTypes, KeyTypes } from '@/global/mimetype';
+-import i18n from '@/lang';
++import { AcmeAccountTypes, DNSTypes, KeyTypes } from '@panel/global/mimetype';
++import i18n from '@panel/lang';
+ 
+ export function getAccountName(type: string) {
+     for (const item of AcmeAccountTypes) {

@@ -1,0 +1,35 @@
+--- a/frontend/src/views/website/ssl/obtain/index.vue
++++ b/web/panel/src/views/website/ssl/obtain/index.vue
+@@ -18,7 +18,7 @@
+         <template #footer>
+             <span class="dialog-footer">
+                 <el-button @click="handleClose" :disabled="loading">{{ $t('commons.button.cancel') }}</el-button>
+-                <el-button v-permission="'website_cert_manage'" type="primary" @click="submit()" :disabled="loading">
++                <el-button type="primary" @click="submit()" :disabled="loading">
+                     {{ $t('commons.button.confirm') }}
+                 </el-button>
+             </span>
+@@ -27,10 +27,10 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { Website } from '@/api/interface/website';
+-import { obtainSSL, renewSSLByCA } from '@/api/modules/website';
+-import i18n from '@/lang';
+-import { MsgSuccess } from '@/utils/message';
++import { Website } from '@panel/api/interface/website';
++import { obtainSSL, renewSSLByCA } from '@panel/api/modules/website';
++import i18n from '@panel/lang';
++import { MsgSuccess } from '@panel/utils/message';
+ import { ref } from 'vue';
+ 
+ interface RenewProps {
+@@ -63,7 +63,7 @@
+         MsgSuccess(i18n.global.t('ssl.applyStart'));
+         loading.value = false;
+         em('submit', ssl.value.id);
+-    } catch (error) {}
++    } catch (error) {} finally {loading.value=false}
+ };
+ 
+ defineExpose({

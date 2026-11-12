@@ -1,0 +1,11 @@
+--- a/frontend/src/components/table/complex/usePaginationCache.ts
++++ b/web/panel/src/components/table/complex/usePaginationCache.ts
+@@ -1,6 +1,6 @@
+ import { nextTick, onActivated, onDeactivated, onScopeDispose, watch } from 'vue';
+-import GlobalStore from '@/store/modules/global';
+-import { panelCacheKey, readPanelCache, writePanelCache } from '@/utils/panel-cache';
++import GlobalStore from '@panel/store/modules/global';
++import { panelCacheKey, readPanelCache, writePanelCache } from '@panel/utils/panel-cache';
+ 
+ interface Pagination {
+     currentPage: number;

@@ -1,0 +1,20 @@
+--- a/frontend/src/components/layout-content/no-such-service.vue
++++ b/web/panel/src/components/layout-content/no-such-service.vue
+@@ -13,7 +13,7 @@
+                         </slot>
+                     </div>
+                     <div>
+-                        <img src="@/assets/images/no_app.svg" />
++                        <img src="@panel/assets/images/no_app.svg" />
+                     </div>
+                 </div>
+             </template>
+@@ -22,7 +22,7 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { routerToNameWithQuery } from '@/utils/router';
++import { routerToNameWithQuery } from '@panel/utils/router';
+ 
+ const prop = defineProps({
+     name: String,

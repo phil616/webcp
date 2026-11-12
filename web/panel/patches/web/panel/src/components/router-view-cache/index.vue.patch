@@ -1,0 +1,11 @@
+--- a/frontend/src/components/router-view-cache/index.vue
++++ b/web/panel/src/components/router-view-cache/index.vue
+@@ -24,7 +24,7 @@
+     routeCacheContextKey,
+     type KeepAlivePattern,
+     type RouteCacheContext,
+-} from '@/utils/tab-cache';
++} from '@panel/utils/tab-cache';
+ import {
+     computed,
+     cloneVNode,

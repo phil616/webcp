@@ -1,0 +1,17 @@
+WebCP
+An independent OpenResty website manager, licensed under GPL-3.0.
+
+This program includes modified frontend components, SCSS styles and an SVG
+menu background from 1Panel (https://github.com/1Panel-dev/1Panel),
+commit 3adee9445897aa41c0160b4f805a9b1f43f712ac, licensed under GPL-3.0.
+Copyright in those portions remains with the upstream 1Panel contributors.
+Modifications for WebCP were made on 2026-11-11 and 2026-11-12.
+
+The SSL frontend pages, models, ACME/DNS providers and CA helpers also reuse
+1Panel source, adapted to this independent program. The Nginx lexer and generic AST
+also reuse the same pinned 1Panel source. No panel authorization or account
+management modules are included. This is not an official 1Panel product.
+
+See web/panel/manifest.json and web/src/vendor/1panel/manifest.json for source paths, blob hashes and
+per-file modifications, docs/gui-1panel.md for adaptation boundaries, and
+LICENSE for the complete GPL text. The software is provided without warranty.

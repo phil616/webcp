@@ -1,0 +1,30 @@
+--- a/frontend/src/views/website/ssl/dns-account/create/index.vue
++++ b/web/panel/src/views/website/ssl/dns-account/create/index.vue
+@@ -199,7 +199,7 @@
+         <template #footer>
+             <span class="dialog-footer">
+                 <el-button @click="handleClose" :disabled="loading">{{ $t('commons.button.cancel') }}</el-button>
+-                <el-button v-permission type="primary" @click="submit(accountForm)" :disabled="loading">
++                <el-button type="primary" @click="submit(accountForm)" :disabled="loading">
+                     {{ $t('commons.button.confirm') }}
+                 </el-button>
+             </span>
+@@ -208,13 +208,13 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { createDnsAccount, updateDnsAccount } from '@/api/modules/website';
+-import { Rules } from '@/global/form-rules';
+-import i18n from '@/lang';
+-import { MsgSuccess } from '@/utils/message';
++import { createDnsAccount, updateDnsAccount } from '@panel/api/modules/website';
++import { Rules } from '@panel/global/form-rules';
++import i18n from '@panel/lang';
++import { MsgSuccess } from '@panel/utils/message';
+ import { FormInstance } from 'element-plus';
+ import { ref } from 'vue';
+-import { DNSTypes } from '@/global/mimetype';
++import { DNSTypes } from '@panel/global/mimetype';
+ 
+ interface AccountProps {
+     mode: string;

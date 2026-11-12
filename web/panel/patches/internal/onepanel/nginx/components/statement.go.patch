@@ -1,0 +1,8 @@
+--- a/agent/utils/nginx/components/statement.go
++++ b/internal/onepanel/nginx/components/statement.go
+@@ -1,3 +1,5 @@
++// SPDX-License-Identifier: GPL-3.0-only
++// Derived from 1Panel commit 3adee9445897aa41c0160b4f805a9b1f43f712ac; see web/panel/manifest.json.
+ package components
+ 
+ type IBlock interface {

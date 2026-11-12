@@ -1,0 +1,12 @@
+--- a/frontend/src/components/table/complex/useCardColumns.ts
++++ b/web/panel/src/components/table/complex/useCardColumns.ts
+@@ -1,7 +1,7 @@
+ import { computed, defineComponent, h, type Component, type PropType, type VNode } from 'vue';
+ 
+-import FuTableOperations from '@/components/table/TableOperations.vue';
+-import { getTableColumnKey, isElTableColumnVNode } from '@/components/table/shared';
++import FuTableOperations from '@panel/components/table/TableOperations.vue';
++import { getTableColumnKey, isElTableColumnVNode } from '@panel/components/table/shared';
+ 
+ export type CardType = 'name' | 'status' | 'content' | 'content-full' | 'description' | 'button';
+ 

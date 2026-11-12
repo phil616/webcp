@@ -1,0 +1,10 @@
+--- a/frontend/src/components/fu/steps/FuHorizontalSteps.ts
++++ b/web/panel/src/components/fu/steps/FuHorizontalSteps.ts
+@@ -1,6 +1,6 @@
+ import { computed, defineComponent, h, provide, ref, Transition, watch } from 'vue';
+ 
+-import { flattenVNodes, getVNodeComponentName } from '@/components/shared/vnode';
++import { flattenVNodes, getVNodeComponentName } from '@panel/components/shared/vnode';
+ import FuHorizontalNavigation from './FuHorizontalNavigation.vue';
+ import FuStepsFooter from './FuStepsFooter';
+ import { Step, Stepper } from './Stepper';

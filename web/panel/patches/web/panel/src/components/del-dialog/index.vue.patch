@@ -1,0 +1,18 @@
+--- a/frontend/src/components/del-dialog/index.vue
++++ b/web/panel/src/components/del-dialog/index.vue
+@@ -40,11 +40,11 @@
+ </template>
+ 
+ <script setup lang="ts">
+-import DialogPro from '@/components/dialog-pro/index.vue';
+-import DrawerPro from '@/components/drawer-pro/index.vue';
++import DialogPro from '@panel/components/dialog-pro/index.vue';
++import DrawerPro from '@panel/components/drawer-pro/index.vue';
+ withDefaults(defineProps<{ drawer?: boolean }>(), { drawer: false });
+-import i18n from '@/lang';
+-import { MsgSuccess } from '@/utils/message';
++import i18n from '@panel/lang';
++import { MsgSuccess } from '@panel/utils/message';
+ import { reactive, ref } from 'vue';
+ 
+ defineOptions({ name: 'OpDialog' });

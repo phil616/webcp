@@ -1,0 +1,13 @@
+--- a/frontend/src/components/log/task/index.vue
++++ b/web/panel/src/components/log/task/index.vue
+@@ -18,8 +18,8 @@
+ </template>
+ <script lang="ts" setup>
+ import { reactive, ref } from 'vue';
+-import bus from '@/global/bus';
+-import LogFile from '@/components/log/file/index.vue';
++import bus from '@panel/global/bus';
++import LogFile from '@panel/components/log/file/index.vue';
+ 
+ defineProps({
+     showClose: {

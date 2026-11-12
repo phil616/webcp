@@ -1,0 +1,7 @@
+--- a/frontend/src/global/bus.ts
++++ b/web/panel/src/global/bus.ts
+@@ -1,3 +1,3 @@
+-import Bus from '@/utils/bus';
++import Bus from '@panel/utils/bus';
+ 
+ export default new Bus();

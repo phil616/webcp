@@ -1,0 +1,11 @@
+--- a/frontend/src/components/layout-content/index.vue
++++ b/web/panel/src/components/layout-content/index.vue
+@@ -96,7 +96,7 @@
+ </script>
+ 
+ <style lang="scss" scoped>
+-@use '@/styles/mixins.scss' as *;
++@use '@panel/styles/mixins.scss' as *;
+ 
+ .content-container__app {
+     margin-top: 7px;

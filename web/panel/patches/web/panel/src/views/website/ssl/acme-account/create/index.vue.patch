@@ -1,0 +1,30 @@
+--- a/frontend/src/views/website/ssl/acme-account/create/index.vue
++++ b/web/panel/src/views/website/ssl/acme-account/create/index.vue
+@@ -79,7 +79,7 @@
+         <template #footer>
+             <span class="dialog-footer">
+                 <el-button @click="handleClose" :disabled="loading">{{ $t('commons.button.cancel') }}</el-button>
+-                <el-button v-permission type="primary" @click="submit(accountForm)" :disabled="loading">
++                <el-button type="primary" @click="submit(accountForm)" :disabled="loading">
+                     {{ $t('commons.button.confirm') }}
+                 </el-button>
+             </span>
+@@ -89,12 +89,12 @@
+ <script lang="ts" setup>
+ import { FormInstance } from 'element-plus';
+ import { ref } from 'vue';
+-import { Rules } from '@/global/form-rules';
+-import { createAcmeAccount } from '@/api/modules/website';
+-import i18n from '@/lang';
+-import { MsgSuccess } from '@/utils/message';
+-import { AcmeAccountTypes, KeyTypes } from '@/global/mimetype';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
++import { Rules } from '@panel/global/form-rules';
++import { createAcmeAccount } from '@panel/api/modules/website';
++import i18n from '@panel/lang';
++import { MsgSuccess } from '@panel/utils/message';
++import { AcmeAccountTypes, KeyTypes } from '@panel/global/mimetype';
++import { useGlobalStore } from '@panel/composables/useGlobalStore';
+ 
+ const { isProductPro } = useGlobalStore();
+ const open = ref();

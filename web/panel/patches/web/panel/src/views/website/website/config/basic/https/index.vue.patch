@@ -1,0 +1,63 @@
+--- a/frontend/src/views/website/website/config/basic/https/index.vue
++++ b/web/panel/src/views/website/website/config/basic/https/index.vue
+@@ -15,7 +15,7 @@
+                 :rules="rules"
+             >
+                 <el-form-item prop="enable" :label="$t('website.enableHTTPS')">
+-                    <el-switch v-permission v-model="form.enable" @change="changeEnable"></el-switch>
++                    <el-switch v-model="form.enable" @change="changeEnable"></el-switch>
+                 </el-form-item>
+ 
+                 <el-collapse-transition>
+@@ -29,7 +29,7 @@
+                         <el-divider content-position="left">{{ $t('website.SSLConfig') }}</el-divider>
+                         <HttpsConfig v-model="form" :website-ssl="websiteSSL" @ssl-change="handleSSLChange" />
+                         <el-form-item>
+-                            <el-button v-permission type="primary" @click="submit(httpsForm)">
++                            <el-button type="primary" @click="submit(httpsForm)">
+                                 {{ $t('commons.button.save') }}
+                             </el-button>
+                         </el-form-item>
+@@ -40,15 +40,15 @@
+     </el-row>
+ </template>
+ <script lang="ts" setup>
+-import HttpsConfig from '@/views/website/website/components/https/index.vue';
++import HttpsConfig from '@panel/views/website/website/components/https/index.vue';
+ 
+-import { Website } from '@/api/interface/website';
+-import { getHTTPSConfig, updateHTTPSConfig } from '@/api/modules/website';
++import { Website } from '@panel/api/interface/website';
++import { getHTTPSConfig, updateHTTPSConfig } from '@panel/api/modules/website';
+ import { ElMessageBox, FormInstance } from 'element-plus';
+ import { computed, onMounted, reactive, ref } from 'vue';
+-import i18n from '@/lang';
+-import { Rules } from '@/global/form-rules';
+-import { MsgSuccess } from '@/utils/message';
++import i18n from '@panel/lang';
++import { Rules } from '@panel/global/form-rules';
++import { MsgSuccess } from '@panel/utils/message';
+ 
+ const props = defineProps({
+     id: {
+@@ -141,6 +141,7 @@
+                 MsgSuccess(i18n.global.t('commons.msg.updateSuccess'));
+                 get();
+             })
++            .catch(()=>{})
+             .finally(() => {
+                 loading.value = false;
+             });
+@@ -171,10 +172,10 @@
+                         done();
+                         MsgSuccess(i18n.global.t('commons.msg.operationSuccess'));
+                         get();
+-                    });
++                    }).catch(()=>{form.enable=true}).finally(()=>{instance.confirmButtonLoading=false});
+                 }
+             },
+-        }).then(() => {});
++        }).then(() => {}).catch(()=>{});
+     }
+ };
+ 

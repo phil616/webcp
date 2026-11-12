@@ -1,0 +1,19 @@
+--- a/frontend/src/views/website/website/components/https/index.vue
++++ b/web/panel/src/views/website/website/components/https/index.vue
+@@ -147,11 +147,11 @@
+ 
+ <script lang="ts" setup>
+ import { computed, watch, onMounted, ref } from 'vue';
+-import { getAccountName } from '@/utils/ssl';
+-import { dateFormatSimple } from '@/utils/date';
+-import WebsiteSSL from '@/views/website/website/components/website-ssl/index.vue';
+-import { Website } from '@/api/interface/website';
+-import { listSSL, searchAcmeAccount } from '@/api/modules/website';
++import { getAccountName } from '@panel/utils/ssl';
++import { dateFormatSimple } from '@panel/utils/date';
++import WebsiteSSL from '@panel/views/website/website/components/website-ssl/index.vue';
++import { Website } from '@panel/api/interface/website';
++import { listSSL, searchAcmeAccount } from '@panel/api/modules/website';
+ 
+ type SSLItem = Website.SSL & { organization?: string };
+ 

@@ -1,0 +1,20 @@
+--- a/frontend/src/components/codemirror-pro/index.vue
++++ b/web/panel/src/components/codemirror-pro/index.vue
+@@ -63,7 +63,7 @@
+ 
+ const emit = defineEmits(['update:modelValue']);
+ const editorRef = ref();
+-const editorView = ref();
++const editorView = shallowRef();
+ const content = computed(() => {
+     return props.modelValue;
+ });
+@@ -195,8 +195,6 @@
+                 },
+                 scrollIntoView: false,
+             });
+-        } else {
+-            initCodeMirror();
+         }
+     },
+     { immediate: true },

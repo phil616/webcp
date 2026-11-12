@@ -1,0 +1,13 @@
+--- a/frontend/src/views/website/website/components/website-ssl/index.vue
++++ b/web/panel/src/views/website/website/components/website-ssl/index.vue
+@@ -28,8 +28,8 @@
+ </template>
+ 
+ <script lang="ts" setup>
+-import { dateFormatSimple } from '@/utils/date';
+-import { getProvider } from '@/utils/ssl';
++import { dateFormatSimple } from '@panel/utils/date';
++import { getProvider } from '@panel/utils/ssl';
+ defineProps({
+     websiteSSL: {
+         type: Object,

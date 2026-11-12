@@ -1,0 +1,270 @@
+--- a/frontend/src/layout/index.vue
++++ b/web/panel/src/layout/index.vue
+@@ -1,217 +1,61 @@
++<script setup lang="ts">
++import { computed, ref, watch } from 'vue';
++import { useRoute } from 'vue-router';
++import { usePanelUI } from '@/composables/usePanelUI';
++import useResize from './hooks/useResize';
++const { isCollapsed, isMobile, isFullScreen, mobileOpen, withoutAnimation } = usePanelUI();
++useResize();
++const route = useRoute();
++const contentRef = ref<HTMLElement>();
++// This standalone layout scrolls its content region rather than the window.
++watch(
++    () => route.fullPath,
++    () => contentRef.value?.scrollTo({ left: 0, top: 0 }),
++    { flush: 'post' },
++);
++const classObj = computed(() => ({
++    fullScreen: isFullScreen.value,
++    hideSidebar: isMobile.value ? !mobileOpen.value : isCollapsed.value,
++    openSidebar: isMobile.value ? mobileOpen.value : !isCollapsed.value,
++    mobile: isMobile.value,
++    mobileOpen: mobileOpen.value,
++    withoutAnimation: withoutAnimation.value,
++}));
++</script>
+ <template>
+-    <div
+-        :class="classObj"
+-        class="app-wrapper relative"
+-        v-loading="loading"
+-        :element-loading-text="loadingText"
+-        fullscreen
+-    >
+-        <div v-if="classObj.mobile && classObj.openSidebar" class="drawer-bg" @click="handleClickOutside" />
+-        <el-affix v-if="!classObj.mobile" :offset="classObj.openMenuTabs ? 8 : 15" class="affix">
+-            <el-tooltip :content="menuStore.isCollapse ? $t('commons.button.expand') : $t('commons.button.collapse')">
+-                <el-button
++    <div class="app-wrapper relative" :class="classObj">
++        <button
++            v-if="isMobile && mobileOpen"
++            class="drawer-bg"
++            aria-label="关闭导航"
++            @click="mobileOpen = false"
++        />
++        <el-affix v-if="!isMobile && !isFullScreen" :offset="15" class="affix">
++            <el-tooltip :content="isCollapsed ? '展开导航' : '收起导航'"
++                ><el-button
++                    class="collapse-button"
+                     size="small"
+                     circle
+-                    :style="{ 'margin-left': menuStore.isCollapse ? '63px' : '168px', position: 'absolute' }"
+-                    :icon="menuStore.isCollapse ? 'ArrowRight' : 'ArrowLeft'"
+                     plain
+-                    @click="handleCollapse()"
+-                ></el-button>
+-            </el-tooltip>
++                    :style="{ 'margin-left': isCollapsed ? '63px' : '168px', position: 'absolute' }"
++                    :icon="isCollapsed ? 'ArrowRight' : 'ArrowLeft'"
++                    :aria-label="isCollapsed ? '展开导航' : '收起导航'"
++                    @click="
++                        isCollapsed = !isCollapsed;
++                        withoutAnimation = false;
++                    "
++            /></el-tooltip>
+         </el-affix>
+-        <div class="app-sidebar" v-if="!isFullScreen">
+-            <Sidebar @menu-click="handleMenuClick" :menu-router="!classObj.openMenuTabs" @open-task="openTask" />
++        <aside v-if="!isFullScreen" class="app-sidebar sidebar" aria-label="主导航">
++            <slot name="sidebar" />
++        </aside>
++        <div class="main-container">
++            <slot name="header" />
++            <main ref="contentRef" class="app-main"><slot /></main>
++            <slot v-if="!isFullScreen" name="footer" />
+         </div>
+-
+-        <el-watermark
+-            v-if="isXpackOrEE && watermarkShow && watermark"
+-            :content="loadContent()"
+-            :font="{
+-                fontSize: watermark.fontSize,
+-                color: isDarkTheme ? watermark.darkColor : watermark.lightColor,
+-                textBaseline: 'top',
+-            }"
+-            :rotate="watermark.rotate"
+-            :gap="[watermark.gap, watermark.gap]"
+-        >
+-            <div class="main-container">
+-                <mobile-header v-if="classObj.mobile" />
+-                <Tabs v-if="classObj.openMenuTabs" />
+-                <app-main :keep-alive="classObj.openMenuTabs ? tabsStore.keepAliveTabs : null" class="app-main" />
+-                <Footer class="app-footer" v-if="!isFullScreen" />
+-            </div>
+-        </el-watermark>
+-        <div class="main-container" v-else>
+-            <mobile-header v-if="classObj.mobile" />
+-            <Tabs v-if="classObj.openMenuTabs" />
+-            <app-main :keep-alive="classObj.openMenuTabs ? tabsStore.keepAliveTabs : null" class="app-main" />
+-            <Footer class="app-footer" v-if="!isFullScreen" />
+-        </div>
+-        <TaskList ref="taskListRef" />
+-        <TerminalHost />
+-        <TerminalDock />
+     </div>
+ </template>
+-
+-<script setup lang="ts">
+-import { prunePanelCache } from '@/utils/panel-cache';
+-import { onMounted, computed, ref, watch, onBeforeUnmount } from 'vue';
+-import { Sidebar, Footer, AppMain, MobileHeader, Tabs } from './components';
+-import TerminalHost from '@/components/terminal/host.vue';
+-import TerminalDock from '@/components/terminal/dock/index.vue';
+-import useResize from './hooks/useResize';
+-import { MenuStore, TabsStore } from '@/store';
+-import { getSystemAvailable } from '@/api/modules/setting';
+-import { openMenu } from '@/utils/router';
+-import { loadMasterProductProFromDB, loadProductProFromDB } from '@/utils/xpack';
+-import { useTheme } from '@/global/use-theme';
+-import TaskList from '@/components/task-list/index.vue';
+-import i18n from '@/lang';
+-import { useGlobalStore } from '@/composables/useGlobalStore';
+-
+-const {
+-    globalStore,
+-    currentNode,
+-    currentNodeAddr,
+-    entrance,
+-    isDarkTheme,
+-    isFullScreen,
+-    isLoading,
+-    isMobile,
+-    isXpackOrEE,
+-    loadingText: globalLoadingText,
+-    openMenuTabs,
+-    watermark,
+-    watermarkShow,
+-} = useGlobalStore();
+-const { switchTheme } = useTheme();
+-
+-useResize();
+-
+-const taskListRef = ref();
+-const openTask = () => {
+-    taskListRef.value.acceptParams();
+-    if (isMobile.value) {
+-        menuStore.setCollapse();
+-    }
+-};
+-const menuStore = MenuStore();
+-
+-const tabsStore = TabsStore();
+-
+-const loading = ref(false);
+-const loadingText = computed(() =>
+-    globalLoadingText.value ? i18n.global.t(`commons.loadingText.${globalLoadingText.value}`) : '',
+-);
+-
+-let timer: NodeJS.Timer | null = null;
+-let cacheCleanupTimer: ReturnType<typeof setInterval> | undefined;
+-
+-const classObj = computed(() => {
+-    return {
+-        fullScreen: isFullScreen.value,
+-        hideSidebar: menuStore.isCollapse,
+-        openSidebar: !menuStore.isCollapse,
+-        mobile: isMobile.value,
+-        openMenuTabs: openMenuTabs.value,
+-        withoutAnimation: menuStore.withoutAnimation,
+-    };
+-});
+-const handleClickOutside = () => {
+-    menuStore.closeSidebar(false);
+-};
+-
+-const handleCollapse = () => {
+-    menuStore.setCollapse();
+-};
+-
+-const loadContent = () => {
+-    if (!watermark.value) {
+-        return '';
+-    }
+-
+-    let itemName = watermark.value.content.replaceAll(
+-        '${nodeName}',
+-        currentNode.value === 'local' ? globalStore.getMasterAlias() : currentNode.value,
+-    );
+-    itemName = itemName.replaceAll('${nodeAddr}', currentNodeAddr.value || '127.0.0.1');
+-    return itemName;
+-};
+-
+-watch(
+-    () => isLoading.value,
+-    () => {
+-        if (isLoading.value) {
+-            loadStatus();
+-        } else {
+-            loading.value = isLoading.value;
+-        }
+-    },
+-);
+-const handleMenuClick = async (path) => {
+-    await openMenu(path);
+-};
+-
+-const toLogin = () => {
+-    let baseUrl = window.location.origin;
+-    let newUrl = '';
+-    if (entrance.value) {
+-        newUrl = baseUrl + '/' + entrance.value;
+-    } else {
+-        newUrl = baseUrl + '/login';
+-    }
+-    window.open(newUrl, '_self');
+-};
+-
+-const loadStatus = async () => {
+-    loading.value = isLoading.value;
+-    if (loading.value) {
+-        timer = setInterval(async () => {
+-            await getSystemAvailable()
+-                .then((res) => {
+-                    if (res) {
+-                        toLogin();
+-                        clearInterval(Number(timer));
+-                        timer = null;
+-                    }
+-                })
+-                .catch(() => {
+-                    toLogin();
+-                    clearInterval(Number(timer));
+-                    timer = null;
+-                });
+-        }, 1000 * 10);
+-    }
+-};
+-onBeforeUnmount(() => {
+-    clearInterval(cacheCleanupTimer);
+-    clearInterval(Number(timer));
+-    timer = null;
+-});
+-onMounted(() => {
+-    cacheCleanupTimer = setInterval(() => prunePanelCache(), 300000);
+-    if (openMenuTabs.value && !tabsStore.activeTabPath) {
+-        handleMenuClick('/');
+-    }
+-
+-    loadStatus();
+-    loadProductProFromDB();
+-    loadMasterProductProFromDB();
+-    isFullScreen.value = false;
+-
+-    const mqList = window.matchMedia('(prefers-color-scheme: dark)');
+-    if (mqList.addEventListener) {
+-        mqList.addEventListener('change', () => {
+-            switchTheme();
+-        });
+-    } else if (mqList.addListener) {
+-        mqList.addListener(() => {
+-            switchTheme();
+-        });
+-    }
+-});
+-</script>
+-
+ <style scoped lang="scss">
+ .app-wrapper {
+     position: relative;
