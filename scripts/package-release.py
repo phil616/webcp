@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create reviewable Linux binaries and corresponding source, excluding local state."""
+"""Package Linux binaries and source; use make release for the full validation."""
 
 import argparse
 import gzip
@@ -85,7 +85,6 @@ def main():
         raise SystemExit(
             "Refusing to replace existing release artifacts; select a fresh --output directory"
         )
-    subprocess.run(["python3", "scripts/check-repo.py"], cwd=ROOT, check=True)
     subprocess.run(
         ["python3", "scripts/dependency-notices.py", "--check"], cwd=ROOT, check=True
     )

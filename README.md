@@ -115,9 +115,9 @@ OpenResty 容器只读挂载 `runtime` 和 `sites`，并单独可写挂载 `cach
 ## 开发与验证
 
 ```bash
-make test          # Go 单元测试 + race
-make integration   # 真实 OpenResty + MinIO Docker 集成测试，自动清理测试容器
-make check         # 来源/文档/版本、Go race/vet、前端格式与完整生产构建
+make check         # 日常：来源/文档/版本、Go test/vet、前端格式与完整生产构建
+make test          # 可选：Go 单元测试 + race
+make integration   # 可选：真实 OpenResty、S3、ACME 集成，自动清理测试容器
 ```
 
 前端开发：先构建一次，然后分别运行 `make dev CONFIG=/absolute/path/webcp.json` 和 `npm run dev --prefix web`，访问 `http://127.0.0.1:5173`。Vite 将 `/api` 转发到 `127.0.0.1:9080`。上游和本地 Vue 源码统一编译、完整类型检查，生产构建通过 `go:embed` 嵌入 Go。流程与框架机制见 [前端工作流](docs/frontend-workflow.md)。

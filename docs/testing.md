@@ -3,12 +3,15 @@
 ## 推荐验证入口
 
 ```bash
-make check build                 # 来源、文档、版本、格式、前端、Go race/vet、嵌入构建
-make security                    # Go 可达漏洞和 npm 依赖审计
-make integration integration-acme
-python3 scripts/test-web.py       # 自动创建并清理隔离后端与容器
-python3 scripts/test-web.py --dev  # 同一用例经 Vite，检查 Vue 运行时警告
+make check                       # 日常 CI：来源、文档、版本、格式、前端、Go test/vet
+make test                        # 按需：Go race 检查
+make security                    # 依赖变化：Go 可达漏洞和 npm 依赖审计
+make integration                 # 部署/存储/证书变化：全部容器集成，包含 ACME
+make test-web                    # 界面变化：生产浏览器回归，自动构建嵌入后端
+make test-web-dev                # Vite 调试：同一用例检查 Vue 运行时警告
 ```
+
+PR 和 main push 仅执行 `make check`。Actions 手动勾选 extended 时额外执行安全扫描、容器集成与生产浏览器回归。无需每次运行开发/生产两套相同浏览器用例；源码重建核对只在需要检查可复现性时执行，见 [发布说明](releasing.md)。
 
 自动浏览器入口为默认推荐方式：随机选择回环端口、生成一次性密钥、创建临时数据目录，并按该目录的 ownership 标签清理自身容器。下文手动启动仅用于调试，不能指向真实数据。
 
@@ -17,14 +20,14 @@ python3 scripts/test-web.py --dev  # 同一用例经 Vite，检查 Vue 运行时
 ```bash
 npm ci --prefix web
 npm run build --prefix web
-go test -race ./...
+go test ./...
 go vet ./...
 npm run format:check --prefix web
 ```
 
 Go 测试包括引用保护、乐观并发、失败部署不改变版本、PKI 用途隔离与吊销签名、归档路径穿越/链接/重复/超限、完整备份恢复、中断回滚、文件路径隔离、密钥会话与未登录拒绝、跨站请求拒绝与未知字段拒绝。
 
-## 实际 OpenResty 和 MinIO
+## 实际 OpenResty、S3 和 ACME
 
 需要本机 Docker。测试使用临时数据目录、随机容器名和回环随机端口，退出清理自身容器，不操作其他容器。
 
@@ -46,9 +49,9 @@ make integration
 - 独立缓存命中和清理、HTML 内容替换、CORS 预检/来源/错误页、受信任与非信任真实 IP。
 - 域名/路径/404 重定向和路径/查询保留、同域名不同端口网站、HTTPS 三种访问模式、HSTS 与 HTTP/3 发布/Alt-Svc、完整网站设置备份恢复。
 - 无效 PCRE 校验失败保留旧部署。
-- MinIO 的 S3 连接权限、备份上传、远程列表摘要和远程恢复。
+- S3 连接权限、备份上传、远程列表摘要和远程恢复。
 
-镜像默认为 `1panel/openresty:1.27.1.2-5-1-focal` 和 `minio/minio:RELEASE.2025-09-07T16-13-09Z`，首次测试按需拉取。
+OpenResty 镜像为 `1panel/openresty:1.27.1.2-5-1-focal`。S3 测试使用固定摘要的官方 `rustfs/rustfs:1.0.5` 镜像及临时内存目录，仅对这个隔离实例关闭磁盘拓扑检查；不改变 WebCP 的 S3 客户端或用户配置。MinIO 原测试镜像已经无法公开拉取，不再依赖本机缓存。首次测试按需拉取镜像，拉取失败会正常报错。ACME 使用固定摘要的 Pebble，单独调试可执行 `make integration-acme`，无需再与 `make integration` 同时运行。
 
 ## 浏览器操作
 

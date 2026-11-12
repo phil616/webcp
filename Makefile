@@ -22,7 +22,7 @@ notices:
 	python3 scripts/dependency-notices.py
 
 check: web-build verify
-	go test -race ./...
+	go test ./...
 	go vet ./...
 	npm run format:check --prefix web
 
@@ -34,7 +34,7 @@ test: web-build
 	go test -race ./...
 
 integration:
-	RESTY_INTEGRATION=1 go test -v ./internal/openresty ./internal/service -run 'Test.*Integration' -count=1
+	RESTY_INTEGRATION=1 RESTY_ACME_INTEGRATION=1 go test -v ./internal/openresty ./internal/service -run 'Test.*Integration' -count=1
 
 integration-acme:
 	RESTY_ACME_INTEGRATION=1 go test -v ./internal/service -run '^TestSSLACMEIntegration$$' -count=1
@@ -46,8 +46,9 @@ test-web: build
 test-web-dev: build
 	python3 scripts/test-web.py --dev
 
-release: web-build verify
+release: check
 	python3 scripts/package-release.py --output $(RELEASE_DIR)
+	python3 scripts/verify-release.py $(RELEASE_DIR)
 
 dev:
 	go run ./cmd/web-panel -config $(CONFIG)

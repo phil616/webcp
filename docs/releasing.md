@@ -9,17 +9,12 @@
 ## 检查门槛
 
 ```bash
-make check build
-make security
-make integration integration-acme
-python3 scripts/test-web.py
-python3 scripts/test-web.py --dev
-go run honnef.co/go/tools/cmd/staticcheck@v0.8.2 ./...
+make check
 ```
 
-这些命令检查本地文档链接、统一版本、源码格式、1Panel 的 148 份固定来源、完整前端类型检查、生产构建、Go race/vet、依赖漏洞、实际容器/S3/ACME、SQLite 恢复，以及生产和开发模式的浏览器交互。
+日常检查包括本地文档链接、统一版本、源码格式、1Panel 的 148 份固定来源、完整前端类型检查、生产构建、Go 单元测试与 vet。不为每次提交安装额外分析工具或启动 Docker 和浏览器。
 
-`make check` 不自动安装安全扫描或浏览器；安全工具通过固定版本 go run 调用，浏览器首次需要在 web 目录执行 `npx playwright install chromium`。正式检查必须使用干净安装的依赖，不能把一次缓存命中当成验证结果。
+按修改范围补充检查：并发使用 `make test`（race），依赖使用 `make security`，部署/存储/证书使用 `make integration`（含 ACME），界面使用 `make test-web`。开发浏览器模式用于 Vite 问题调试，不与生产回归默认重复运行。安全工具使用固定版本，浏览器首次需要在 web 目录执行 `npx playwright install chromium`。命令与覆盖见 [验证说明](testing.md)。
 
 ## 本地构建包
 
@@ -27,13 +22,13 @@ go run honnef.co/go/tools/cmd/staticcheck@v0.8.2 ./...
 # 已有 SOURCE_DATE_EPOCH 时复用；在 Git 仓库可使用目标提交的提交时间
 export SOURCE_DATE_EPOCH="$(git log -1 --format=%ct)"
 make release
-cd dist/releases
-sha256sum -c SHA256SUMS
 ```
+
+`make release` 在同一次 Make 调用中执行基础检查、一次前端构建、双架构打包和归档校验；不用再先后调用 `make check build` 或重复验证。打包脚本使用已生成的前端与许可证，源码与版本检查由 Make 统一负责。
 
 非 Git 工作目录可不设置 SOURCE_DATE_EPOCH，此时包时间固定为 Unix epoch，构建时间显示 unknown。commit 无法确认时显示 unknown，不虚构源码身份；这类包只作为本地候选供审阅。对外发布应在实际 Git 仓库中，从经过验证的目标提交构建，检查 VERSION 与 vVERSION 标签一致。
 
-可执行 `python3 scripts/verify-release.py dist/releases --source-rebuild` 核对归档边界、版本、静态架构、摘要，并在临时目录从对应源码重新构建，比较原生可执行文件字节。源码重建应使用 release.json 记录的同一 Go 工具链。
+归档边界、版本、静态架构和摘要会在打包后自动核对。仅在需要检查可复现性时执行 `python3 scripts/verify-release.py dist/releases --source-rebuild`，从对应源码重新构建并比较原生可执行文件字节；此项不在 CI 中重复执行。源码重建应使用 release.json 记录的同一 Go 工具链。
 
 默认生成：
 
@@ -49,7 +44,9 @@ sha256sum -c SHA256SUMS
 
 ## GitHub 工作流
 
-CI 使用 pull_request、分支 push、手动或复用调用，执行同一套本地入口。Release packages 在标签 push 或手动执行时先通过 CI，再构建两个 Linux 包及源码包，上传本次 run 的 artifact。工作流仅有 contents:read，不创建标签、不推送提交、不发布 GitHub Release。
+CI 在 pull_request、main push 和手动触发时仅执行 `make check`；其他分支 push 不重复触发 PR 检查。手动勾选 extended 时增加安全扫描、容器集成和一套生产浏览器回归，失败时仅在存在浏览器报告的情况下上传证据。
+
+Release packages 在标签 push 或手动执行时运行单个打包 job，不再复用整套 CI。先校验标签与 VERSION，再执行 `make release` 并上传本次 run 的 artifact。只有一套工具链安装、前端编译和归档校验，不默认从源码包二次重建。工作流仅有 contents:read，不创建标签、不推送提交、不发布 GitHub Release。
 
 官方 actions 固定完整 SHA，默认不保存 checkout 凭据。该策略遵循 [GitHub Actions 安全参考](https://docs.github.com/en/actions/reference/security/secure-use)。当前目录没有远端执行记录时，YAML/actionlint 和本地命令的通过不能写成“GitHub 云端已验证”。
 

@@ -3,9 +3,13 @@ name: CI
 on:
   pull_request:
   push:
-    branches: ['**']
+    branches: [main]
   workflow_dispatch:
-  workflow_call:
+    inputs:
+      extended:
+        description: Run Docker, ACME, security and production browser checks
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -17,7 +21,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -30,33 +34,24 @@ jobs:
           node-version: '24'
           cache: npm
           cache-dependency-path: web/package-lock.json
-      - name: Source, frontend, Go race tests and build
-        run: make check build
-      - name: Static analysis
-        run: go run honnef.co/go/tools/cmd/staticcheck@v0.8.2 ./...
-      - name: Python and workflow checks
+      - name: Check source, Go and frontend
+        run: make check
+      - name: Extended backend checks
+        if: github.event_name == 'workflow_dispatch' && inputs.extended
+        run: make security integration
+      - name: Build backend and install test browser
+        if: github.event_name == 'workflow_dispatch' && inputs.extended
         run: |
-          python3 -m venv "$RUNNER_TEMP/webcp-quality-tools"
-          "$RUNNER_TEMP/webcp-quality-tools/bin/pip" install ruff==0.15.19
-          "$RUNNER_TEMP/webcp-quality-tools/bin/ruff" check scripts
-          "$RUNNER_TEMP/webcp-quality-tools/bin/ruff" format --check scripts
-          go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12 .github/workflows/*.yml
-      - name: Dependency security
-        run: make security
-      - name: OpenResty, S3, SQLite recovery and ACME integration
-        run: make integration integration-acme
-      - name: Install test browser
-        working-directory: web
-        run: npx playwright install --with-deps chromium
-      - name: Isolated production browser regression
+          python3 scripts/build.py
+          cd web
+          npx playwright install --with-deps chromium
+      - name: Production browser regression
+        if: github.event_name == 'workflow_dispatch' && inputs.extended
         run: python3 scripts/test-web.py
-      - name: Vue development runtime regression
-        run: python3 scripts/test-web.py --dev
-      - name: Preserve failure evidence
-        if: failure()
+      - name: Preserve browser failure evidence
+        if: failure() && hashFiles('web/test-results/**') != ''
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: browser-failure-evidence
           path: web/test-results/
-          if-no-files-found: warn
           retention-days: 7

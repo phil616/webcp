@@ -312,12 +312,18 @@ func TestOpenRestyIntegration(t *testing.T) {
 
 func TestS3Integration(t *testing.T) {
 	integrationOnly(t)
+	port := freePort(t)
+	name := "resty-s3-" + domain.NewID()[:10]
+	t.Cleanup(func() { exec.Command("docker", "rm", "-f", name).Run() })
+	// A disposable S3 fixture; no user data or production storage is mounted.
+	dockerCommand(t, "run", "-d", "--rm", "--name", name,
+		"-p", "127.0.0.1:"+port+":9000",
+		"--tmpfs", "/data:uid=10001,gid=10001,mode=0700",
+		"-e", "RUSTFS_ACCESS_KEY=resty-test", "-e", "RUSTFS_SECRET_KEY=resty-test-secret",
+		"-e", "RUSTFS_CONSOLE_ENABLE=false", "-e", "RUSTFS_UNSAFE_BYPASS_DISK_CHECK=true",
+		"rustfs/rustfs:1.0.5@sha256:b81d16a90ee25bd9511280127ca1471788c6e874cf0f0da759645f46b2dc1d74", "/data")
 	ctx, cancel := context.WithTimeout(context.Background(), 90*time.Second)
 	defer cancel()
-	port := freePort(t)
-	name := "resty-minio-" + domain.NewID()[:10]
-	dockerCommand(t, "run", "-d", "--rm", "--name", name, "-p", "127.0.0.1:"+port+":9000", "-e", "MINIO_ROOT_USER=resty-test", "-e", "MINIO_ROOT_PASSWORD=resty-test-secret", "minio/minio:RELEASE.2025-09-07T16-13-09Z", "server", "/data")
-	t.Cleanup(func() { exec.Command("docker", "rm", "-f", name).Run() })
 	endpoint := "127.0.0.1:" + port
 	client, err := minio.New(endpoint, &minio.Options{Creds: credentials.NewStaticV4("resty-test", "resty-test-secret", ""), Secure: false})
 	if err != nil {

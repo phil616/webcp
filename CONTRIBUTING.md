@@ -27,11 +27,9 @@ make dev-web
 
 ```bash
 make check
-make security
-make integration integration-acme
-make test-web
-make test-web-dev
 ```
+
+日常 CI 只运行上述入口。依赖变化运行 `make security`；并发变化运行 `make test`（race）；部署、存储和证书变化运行 `make integration`；界面变化运行 `make test-web`。仅调试 Vite 运行时问题时运行 `make test-web-dev`，不要求每次重复两套浏览器回归。CI 手动勾选 extended 可运行安全扫描、全部容器集成和生产浏览器回归。
 
 浏览器脚本创建临时数据、随机访问密钥和私有容器名称，只清理带该临时数据目录 ownership 标签的容器。不要把浏览器回归指向真实数据。测试命令、覆盖和边界见 [验证说明](docs/testing.md)。
 
