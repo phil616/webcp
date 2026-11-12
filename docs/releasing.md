@@ -2,7 +2,9 @@
 
 ## 版本与范围
 
-根目录 VERSION 是发布版本来源，必须与 web/package.json 和 lock 的根版本一致。当前 0.1.0 为待发布候选；本地打包和 Actions artifact 上传不等于已经创建 GitHub Release。
+根目录 VERSION 是发布版本来源，必须与 web/package.json 和 lock 的根版本一致。当前发布版本为 0.1.1；本地打包和 Actions artifact 上传不等于已经创建 GitHub Release。
+
+更新 VERSION 后，执行 `npm version --prefix web --no-git-tag-version --ignore-scripts "$(cat VERSION)"` 同步前端 package.json 与锁文件，并将三个文件一起提交。`make check` 和 `make release` 会在安装、构建前端之前检查一致性。
 
 支持 Linux amd64 与 arm64。Go 最低版本为 go.mod 中的 1.26.11，Node.js 22.12+，CI 使用 24。更新安全补丁时以 [Go 官方工具链列表](https://go.dev/dl/) 和 [govulncheck](https://go.dev/doc/security/vuln/) 为准，并保留锁文件。
 
@@ -32,9 +34,9 @@ make release
 
 默认生成：
 
-- webcp-0.1.0-linux-amd64.tar.gz
-- webcp-0.1.0-linux-arm64.tar.gz
-- webcp-0.1.0-source.tar.gz
+- webcp-0.1.1-linux-amd64.tar.gz
+- webcp-0.1.1-linux-arm64.tar.gz
+- webcp-0.1.1-source.tar.gz
 - release.json：版本、来源提交、Go 工具链、每个包的摘要与大小。
 - SHA256SUMS：归档和 release.json 的 SHA-256。
 

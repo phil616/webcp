@@ -21,7 +21,7 @@ verify:
 notices:
 	python3 scripts/dependency-notices.py
 
-check: web-build verify
+check: verify web-build
 	go test ./...
 	go vet ./...
 	npm run format:check --prefix web
