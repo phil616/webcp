@@ -1083,7 +1083,7 @@
       "local": "internal/onepanel/nginx/parser/parser.go",
       "upstreamBlob": "cdf82101c778fc3d23764344b77dee25d06b8a1c",
       "originalSha256": "69a13e41badd08d2fe7025807c677592911ba84c935217767e4a50be75fe773a",
-      "adaptedSha256": "73fc6e9aec73cccc7c8713de1c69c6ce7ab5886e88c7f7d28b80639b9ca9bedc",
+      "adaptedSha256": "ac55ab52b42cf6e7c1d510342a807911c88790de6393168755b1c02b2b527b4d",
       "patch": "web/panel/patches/internal/onepanel/nginx/parser/parser.go.patch"
     },
     {
@@ -1133,6 +1133,14 @@
       "originalSha256": "edde7cc4566bf9b1a7f7cf5ff36bec146c3c4877b371ce618f62c6049bdb2a1d",
       "adaptedSha256": "1c7f3c8633bc0104f23f801238b7c6f17d845817172bde42931576d32603a569",
       "patch": "web/panel/patches/internal/onepanel/ssl/ca_key.go.patch"
+    },
+    {
+      "source": "frontend/src/views/website/website/config/resource/nginx/index.vue",
+      "local": "web/panel/src/views/website/website/config/resource/nginx/index.vue",
+      "upstreamBlob": "2e7b6a3448f0690be93d446cfacac11c298abf6a",
+      "originalSha256": "0a3f11736c71b2f3e364e107d16f915dee43db3f92b0c81f63ec82e8fff6d2dd",
+      "adaptedSha256": "637815470889747589ecf01a18d094129192ba124a82758fff72c22f844a2f79",
+      "patch": "web/panel/patches/web/panel/src/views/website/website/config/resource/nginx/index.vue.patch"
     }
   ]
 }

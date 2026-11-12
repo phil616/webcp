@@ -10,6 +10,9 @@
 | GET | /overview | 草稿（私钥及 S3 Secret Key 脱敏）与运行状态 |
 | POST | /sites | 新建/更新网站，空 id 为新建 |
 | DELETE | /sites/{id} | 删除网站草稿，保留磁盘文件 |
+| GET | /sites/{id}/config | 原子读取网站配置草稿 `{content,revision}` |
+| PUT | /sites/{id}/config | `{content}`，完整解析并映射到 GUI；If-Match 使用读取时的 revision |
+| PUT | /sites/{id}/advanced | `{headers,security}`，结构化响应头及目录保护 |
 | GET | /sites/{id}/files | 列举网站文件 |
 | GET | /sites/{id}/file?path=index.html | 读取 UTF-8 文本文件 |
 | PUT | /sites/{id}/file | 原子保存 `{path,content}` |

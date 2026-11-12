@@ -4,7 +4,20 @@ import (
 	"slices"
 )
 
-// Website configuration is typed and persisted; no editable nginx fragments are stored.
+// Website configuration is typed and persisted; raw nginx fragments are never stored.
+type ResponseHeader struct {
+	Scope  string `json:"scope"` // server, root, proxy:<id>, error:<status>
+	TLS    bool   `json:"tls"`
+	Name   string `json:"name"`
+	Value  string `json:"value"`
+	Always bool   `json:"always"`
+}
+
+type WebsiteSecurity struct {
+	FollowSymlinks   bool `json:"followSymlinks"`
+	AllowHiddenFiles bool `json:"allowHiddenFiles"`
+}
+
 type ProxyCacheConfig struct {
 	MemoryMB        int `json:"memoryMb"`
 	MaxSizeMB       int `json:"maxSizeMb"`
@@ -84,6 +97,9 @@ func DefaultCORS() CORSConfig {
 	return CORSConfig{AllowOrigins: "*", AllowMethods: "GET,POST,OPTIONS,PUT,DELETE", Preflight: true}
 }
 func NormalizeSite(s *Site) {
+	if s.Headers == nil {
+		s.Headers = []ResponseHeader{}
+	}
 	if s.LuaBindings == nil {
 		s.LuaBindings = map[string]string{}
 	}

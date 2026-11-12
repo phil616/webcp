@@ -2,7 +2,7 @@
 
 ## 版本与范围
 
-根目录 VERSION 是发布版本来源，必须与 web/package.json 和 lock 的根版本一致。当前 1.0.0 为待发布候选；本地打包和 Actions artifact 上传不等于已经创建 GitHub Release。
+根目录 VERSION 是发布版本来源，必须与 web/package.json 和 lock 的根版本一致。当前 0.1.0 为待发布候选；本地打包和 Actions artifact 上传不等于已经创建 GitHub Release。
 
 支持 Linux amd64 与 arm64。Go 最低版本为 go.mod 中的 1.26.11，Node.js 22.12+，CI 使用 24。更新安全补丁时以 [Go 官方工具链列表](https://go.dev/dl/) 和 [govulncheck](https://go.dev/doc/security/vuln/) 为准，并保留锁文件。
 
@@ -12,7 +12,7 @@
 make check
 ```
 
-日常检查包括本地文档链接、统一版本、源码格式、1Panel 的 148 份固定来源、完整前端类型检查、生产构建、Go 单元测试与 vet。不为每次提交安装额外分析工具或启动 Docker 和浏览器。
+日常检查包括本地文档链接、统一版本、源码格式、1Panel 的 149 份固定来源、完整前端类型检查、生产构建、Go 单元测试与 vet。不为每次提交安装额外分析工具或启动 Docker 和浏览器。
 
 按修改范围补充检查：并发使用 `make test`（race），依赖使用 `make security`，部署/存储/证书使用 `make integration`（含 ACME），界面使用 `make test-web`。开发浏览器模式用于 Vite 问题调试，不与生产回归默认重复运行。安全工具使用固定版本，浏览器首次需要在 web 目录执行 `npx playwright install chromium`。命令与覆盖见 [验证说明](testing.md)。
 
@@ -32,9 +32,9 @@ make release
 
 默认生成：
 
-- webcp-1.0.0-linux-amd64.tar.gz
-- webcp-1.0.0-linux-arm64.tar.gz
-- webcp-1.0.0-source.tar.gz
+- webcp-0.1.0-linux-amd64.tar.gz
+- webcp-0.1.0-linux-arm64.tar.gz
+- webcp-0.1.0-source.tar.gz
 - release.json：版本、来源提交、Go 工具链、每个包的摘要与大小。
 - SHA256SUMS：归档和 release.json 的 SHA-256。
 

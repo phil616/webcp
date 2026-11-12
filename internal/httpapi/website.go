@@ -8,6 +8,31 @@ import (
 
 // Section-specific DTOs prevent a domain operation from replacing HTTPS or proxy settings.
 func registerWebsiteSettings(register func(string, endpoint), m *service.Manager) {
+	register("GET /api/sites/{id}/config", func(w http.ResponseWriter, r *http.Request) error {
+		document, err := m.WebsiteConfig(r.PathValue("id"))
+		if err == nil {
+			writeJSON(w, 200, document)
+		}
+		return err
+	})
+	register("PUT /api/sites/{id}/config", func(w http.ResponseWriter, r *http.Request) error {
+		var value struct {
+			Content string `json:"content"`
+		}
+		revision, err := decode(w, r, &value)
+		if err != nil {
+			return err
+		}
+		return success(w, m.SaveWebsiteConfig(revision, r.PathValue("id"), value.Content))
+	})
+	register("PUT /api/sites/{id}/advanced", func(w http.ResponseWriter, r *http.Request) error {
+		var value service.WebsiteAdvancedUpdate
+		revision, err := decode(w, r, &value)
+		if err != nil {
+			return err
+		}
+		return success(w, m.SaveWebsiteAdvanced(revision, r.PathValue("id"), value))
+	})
 	register("PUT /api/sites/{id}/name", func(w http.ResponseWriter, r *http.Request) error {
 		var v struct {
 			Name string `json:"name"`

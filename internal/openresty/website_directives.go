@@ -31,7 +31,20 @@ func renderRealIP(b *strings.Builder, c domain.RealIPConfig) {
 	}
 	fmt.Fprintf(b, "  real_ip_header %s;\n", c.Header)
 }
-func renderHeaders(b *strings.Builder, s domain.Site, c domain.CORSConfig, key string, ssl bool) {
+func renderResponseHeaders(b *strings.Builder, s domain.Site, scope string, ssl bool) {
+	for _, header := range s.Headers {
+		if header.Scope != scope || header.TLS != ssl {
+			continue
+		}
+		fmt.Fprintf(b, "  add_header %s %s", header.Name, quote(header.Value))
+		if header.Always {
+			b.WriteString(" always")
+		}
+		b.WriteString(";\n")
+	}
+}
+func renderHeaders(b *strings.Builder, s domain.Site, c domain.CORSConfig, key, scope string, ssl bool) {
+	renderResponseHeaders(b, s, scope, ssl)
 	if ssl && s.HTTPS.HSTS {
 		value := "max-age=31536000"
 		if s.HTTPS.HSTSIncludeSubDomains {
@@ -133,7 +146,7 @@ func renderProxy(b *strings.Builder, s domain.Site, p domain.ProxyRule, ssl bool
 	if p.CORS.Enabled {
 		c, key = p.CORS, s.ID+"_"+p.ID
 	}
-	renderHeaders(b, s, c, key, ssl)
+	renderHeaders(b, s, c, key, "proxy:"+p.ID, ssl)
 	renderPreflight(b, c)
 	if c.Enabled {
 		for _, h := range []string{"Access-Control-Allow-Origin", "Access-Control-Allow-Methods", "Access-Control-Allow-Headers", "Access-Control-Allow-Credentials", "Access-Control-Expose-Headers", "Access-Control-Max-Age"} {

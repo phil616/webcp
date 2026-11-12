@@ -38,7 +38,7 @@ Manager 继续串行协调配置、部署及备份，保证管理器自身的一
 ## 配置部署
 
 1. 从同一 revision 渲染独立 generation，固定容器路径，输出对页面文件的引用。
-2. 域名、上游地址和 ID 先校验；禁止自由编辑 Nginx 指令。Lua 写入部署文件；HTML 由 OpenResty 固定文档目录提供，不写入配置或 generation。
+2. 域名、上游地址和 ID 先校验。网站配置文件编辑复用 1Panel 解析器，转换为类型化 GUI 数据后重新生成并比对完整 AST；不能完整表达的改动拒绝保存，不持久化原始 Nginx 文本。Lua 写入部署文件；HTML 由 OpenResty 固定文档目录提供，不写入配置或 generation。
 3. 使用实际 OpenResty 镜像执行 `nginx -t`；对每个 Lua 模块和代码块执行 LuaJIT 编译。
 4. 校验成功后，用原子 symlink rename 切换 current，再 signal reload；未运行则启动容器。
 5. 命令失败时恢复旧 current；旧 generation 保留供旧 worker 使用。渲染失败的目录删除；Docker 操作失败的 generation 保留，避免连接中断造成重载结果不确定时误删 worker 仍引用的文件。

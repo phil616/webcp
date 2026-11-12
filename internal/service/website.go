@@ -152,6 +152,7 @@ func (m *Manager) DeleteProxy(rev uint64, id, rule string) error {
 			return ErrNotFound
 		}
 		s.Proxies = slices.Delete(s.Proxies, i, i+1)
+		s.Headers = slices.DeleteFunc(s.Headers, func(h domain.ResponseHeader) bool { return h.Scope == "proxy:"+rule })
 		return nil
 	})
 }

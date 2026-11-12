@@ -124,21 +124,29 @@ func renderWebsite(b *strings.Builder, s domain.Site, base string, internal map[
 		if group.ssl {
 			renderHTTPS(b, s, base)
 		} else if s.TLSID != "" && s.HTTPS.HTTPConfig != "HTTPAlso" {
+			renderResponseHeaders(b, s, "server", false)
+			b.WriteString("  location / {")
+			renderResponseHeaders(b, s, "root", false)
 			if s.HTTPS.HTTPConfig == "HTTPSOnly" {
-				b.WriteString("  location / { return 444; }\n")
+				b.WriteString(" return 444; }\n")
 			} else {
 				port := ""
 				if publicHTTPS != 443 {
 					port = fmt.Sprintf(":%d", publicHTTPS)
 				}
-				fmt.Fprintf(b, "  location / { return 301 https://$host%s$request_uri; }\n", port)
+				fmt.Fprintf(b, " return 301 https://$host%s$request_uri; }\n", port)
 			}
 			b.WriteString(" }\n")
 			continue
 		}
 		renderRealIP(b, s.RealIP)
-		fmt.Fprintf(b, "  root %s/%s%s;\n  index %s;\n  disable_symlinks on;\n", sitesRoot, s.ID, strings.TrimSuffix(s.RunDirectory, "/"), strings.Join(s.Index, " "))
-		renderHeaders(b, s, s.CORS, s.ID, group.ssl)
+		fmt.Fprintf(b, "  root %s/%s%s;\n  index %s;\n", sitesRoot, s.ID, strings.TrimSuffix(s.RunDirectory, "/"), strings.Join(s.Index, " "))
+		if s.Security.FollowSymlinks {
+			b.WriteString("  disable_symlinks off;\n")
+		} else {
+			b.WriteString("  disable_symlinks on;\n")
+		}
+		renderHeaders(b, s, s.CORS, s.ID, "server", group.ssl)
 		// These phases apply to both static and proxy locations. content stays on static locations.
 		for _, phase := range []string{"access", "header_filter", "body_filter", "log"} {
 			if id := s.LuaBindings[phase]; id != "" {
@@ -161,11 +169,14 @@ func renderWebsite(b *strings.Builder, s domain.Site, base string, internal map[
 				fallback = "403"
 			}
 			fmt.Fprintf(b, "  error_page %s /__resty_errors/%s.html;\n  location = /__resty_errors/%s.html { internal; root %s/root; disable_symlinks on; try_files /sites/%s/%s.html /default/%s.html =%s;\n", status, code, code, Mount, s.ID, code, code, fallback)
-			renderHeaders(b, s, s.CORS, s.ID, group.ssl)
+			renderHeaders(b, s, s.CORS, s.ID, "error:"+code, group.ssl)
 			b.WriteString("  }\n")
 		}
 		// Rewrite and proxy locations cannot expose or execute PHP files.
-		b.WriteString("  if ($uri ~* \\.(php[0-9]*|phtml|phar)(/|$)) { return 404; }\n  location ~ /\\. { deny all; }\n")
+		b.WriteString("  if ($uri ~* \\.(php[0-9]*|phtml|phar)(/|$)) { return 404; }\n")
+		if !s.Security.AllowHiddenFiles {
+			b.WriteString("  location ~ /\\. { deny all; }\n")
+		}
 		rootProxy := false
 		for _, p := range s.Proxies {
 			if !p.Enabled {
@@ -178,7 +189,7 @@ func renderWebsite(b *strings.Builder, s domain.Site, base string, internal map[
 		}
 		if !rootProxy {
 			b.WriteString("  location / {\n")
-			renderHeaders(b, s, s.CORS, s.ID, group.ssl)
+			renderHeaders(b, s, s.CORS, s.ID, "root", group.ssl)
 			renderPreflight(b, s.CORS)
 			if id := s.LuaBindings["content"]; id != "" && s.Kind == "static" {
 				fmt.Fprintf(b, "   content_by_lua_file %s/blocks/%s.lua;\n", base, id)

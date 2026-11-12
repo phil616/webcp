@@ -91,6 +91,9 @@ parsingloop:
 			}
 			break parsingloop
 		case p.curTokenIs(flag.BlockEnd):
+			if !inBlock {
+				return nil, errors.New("unexpected closing brace")
+			}
 			break parsingloop
 		case p.curTokenIs(flag.LuaCode):
 			context.IsLuaBlock = true
@@ -106,6 +109,8 @@ parsingloop:
 				Detail: p.currentToken.Literal,
 				Line:   p.currentToken.Line,
 			})
+		default:
+			return nil, fmt.Errorf("unexpected token on line %d", p.currentToken.Line)
 		}
 		p.nextToken()
 	}
@@ -140,8 +145,10 @@ func (p *Parser) parseStatement() (components.IDirective, error) {
 			inLineComment = p.followingToken.Literal
 			p.nextToken()
 			p.nextToken()
+		} else {
+			p.nextToken()
 		}
-		block, err := p.parseBlock(false)
+		block, err := p.parseBlock(true)
 		if err != nil {
 			return nil, err
 		}

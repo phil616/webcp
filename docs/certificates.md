@@ -4,7 +4,7 @@
 
 固定使用 [1Panel 提交 3adee9445897aa41c0160b4f805a9b1f43f712ac](https://github.com/1Panel-dev/1Panel/tree/3adee9445897aa41c0160b4f805a9b1f43f712ac)。SSL 页面直接使用该版本 `frontend/src/views/website/ssl` 的源码；网站 HTTPS 设置直接使用 `website/config/basic/https` 及其 `components/https`。不是重新绘制的近似页面。
 
-`web/panel/src` 包含原版证书列表、申请、上传、详情、申请确认、手动 DNS、ACME 账户、DNS 账户、CA 创建/上传/详情，以及实际使用的 LayoutContent、ComplexTable/FuTable、DrawerPro、DialogPro、RouterButton、OpDialog、CopyButton、日志、文件选择器、CodeMirror、校验规则、中文语言包和主题。`web/panel/manifest.json` 记录 148 个上游源文件的提交、Git blob、原始/适配后 SHA-256 和逐文件补丁。导入路径的命名空间调整也在补丁中。
+`web/panel/src` 包含原版证书列表、申请、上传、详情、申请确认、手动 DNS、ACME 账户、DNS 账户、CA 创建/上传/详情，以及实际使用的 LayoutContent、ComplexTable/FuTable、DrawerPro、DialogPro、RouterButton、OpDialog、CopyButton、日志、文件选择器、CodeMirror、校验规则、中文语言包和主题。`web/panel/manifest.json` 记录 149 个上游源文件的提交、Git blob、原始/适配后 SHA-256 和逐文件补丁。导入路径的命名空间调整也在补丁中。
 
 ```bash
 python3 scripts/vendor-1panel.py --verify

@@ -7,8 +7,10 @@ import MainDiv from '@/vendor/1panel/components/main-div/index.vue';
 import Status from '@/vendor/1panel/components/status/index.vue';
 import PanelDrawer from '@/components/panel/PanelDrawer.vue';
 import { useWebsiteSection } from './shared';
+import { usePanelUI } from '@/composables/usePanelUI';
 const props = defineProps<{ site: Site; initialTab?: string }>();
 const { busy, save, resetRevision } = useWebsiteSection(() => props.site);
+const { isMobile } = usePanelUI();
 const nameOpen = ref(false),
   name = ref(props.site.name);
 function rename() {
@@ -61,6 +63,16 @@ const sections = [
     component: defineAsyncComponent(() => import('./RedirectSettings.vue')),
   },
   {
+    id: 'config',
+    label: '配置文件',
+    component: defineAsyncComponent(() => import('./ConfigSettings.vue')),
+  },
+  {
+    id: 'advanced',
+    label: '响应头与安全',
+    component: defineAsyncComponent(() => import('./AdvancedSettings.vue')),
+  },
+  {
     id: 'pages',
     label: '错误页面',
     component: defineAsyncComponent(() => import('./ExtraSettings.vue')),
@@ -98,7 +110,7 @@ watch(section, (value) => {
       }}</el-tag></template
     ><template #main
       ><MainDiv :height-diff="265"
-        ><el-tabs v-model="section" tab-position="left" class="config-tabs"
+        ><el-tabs v-model="section" :tab-position="isMobile ? 'top' : 'left'" class="config-tabs"
           ><el-tab-pane
             v-for="tab in sections"
             :key="tab.id"

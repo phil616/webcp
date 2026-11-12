@@ -54,6 +54,12 @@ PHP、伪静态、负载均衡、流量限制、运行环境和密码访问等�
 
 SSL 使用固定提交的完整页面源码及实际 ComplexTable/FuTable 依赖，不再使用本地混合证书页面。网站 HTTPS 使用原版组件。mTLS 独立入口复用原版 CA 页、抽屉和确认框；专有的客户端/绑定逻辑由独立模块实现。具体清单、逐文件补丁及允许的适配见 [证书模块说明](certificates.md)。
 
+## 网站配置文件
+
+网站设置的“配置文件”直接复用 `website/website/config/resource/nginx/index.vue`，Git blob 为 `2e7b6a3448f0690be93d446cfacac11c298abf6a`。沿用原版编辑器和保存/重载操作，适配独立网站 ID、读取时的 revision、重新加载及校验错误展示；使用项目已经适配过生命周期和无障碍标签的 CodeMirror 组件。原文哈希、适配后哈希及可重建补丁均纳入 web/panel/manifest.json。
+
+上游的文件保存仅写入并检查/重载 Nginx，没有本项目要求的 GUI 完整映射约束。后端继续复用 1Panel lexer/AST，新增类型化导入及完整往返比对。额外响应头和目录保护没有对应的上游表单，采用已有 Element Plus 表单和原版 ComplexTable 机制呈现，字段与配置文件共享同一份数据。行为和限制见 [网站设置说明](website-settings.md)。
+
 ## OpenResty 性能调节
 
 “OpenResty → 性能调节”直接使用固定提交 `website/website/nginx/performance/index.vue` 的表单、字段、帮助文字、布局及单位处理。支持域名哈希桶、请求头缓冲区、请求体大小、keepalive、gzip 开关/最小长度/压缩级别、三类代理超时，共 10 项。表单读取实际生成配置，保留字节/K/M/G 单位和复合时间表达式。保存使用读取表单时的配置版本；冲突时点击“刷新内容”重新加载。加载期间禁止编辑，避免接口返回值覆盖输入。

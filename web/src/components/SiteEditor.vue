@@ -16,6 +16,8 @@ const draft = ref<Site>(
     ? structuredClone(toRaw(props.site))
     : {
         id: '',
+        headers: [],
+        security: { followSymlinks: false, allowHiddenFiles: false },
         bindings: [],
         runDirectory: '/',
         index: ['index.html'],

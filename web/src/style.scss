@@ -589,30 +589,6 @@ a:focus-visible {
   .el-pagination__jump {
     display: none;
   }
-  .config-tabs {
-    display: block !important;
-  }
-  .config-tabs > .el-tabs__header {
-    float: none !important;
-    width: 100%;
-    margin-bottom: 18px;
-  }
-  .config-tabs > .el-tabs__header .el-tabs__nav-wrap {
-    overflow: auto;
-  }
-  .config-tabs > .el-tabs__header .el-tabs__nav {
-    display: flex;
-    float: none;
-  }
-  .config-tabs > .el-tabs__header .el-tabs__item {
-    height: 36px;
-    padding: 0 12px;
-    min-width: auto;
-  }
-  .config-tabs > .el-tabs__header .el-tabs__active-bar,
-  .config-tabs > .el-tabs__header .el-tabs__nav-wrap::after {
-    display: none;
-  }
   .config-tabs > .el-tabs__content {
     padding-left: 0;
   }

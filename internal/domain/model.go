@@ -25,6 +25,8 @@ type State struct {
 }
 
 type Site struct {
+	Headers      []ResponseHeader  `json:"headers"`
+	Security     WebsiteSecurity   `json:"security"`
 	PanelID      uint              `json:"panelId"`
 	ProxyCache   *ProxyCacheConfig `json:"proxyCache"`
 	Bindings     []DomainBinding   `json:"bindings"`

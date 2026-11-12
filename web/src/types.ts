@@ -85,6 +85,8 @@ export interface PortBinding {
   protocol: 'tcp' | 'udp';
 }
 export interface Site {
+  headers: ResponseHeader[];
+  security: { followSymlinks: boolean; allowHiddenFiles: boolean };
   panelId?: number;
   proxyCache: { memoryMb: number; maxSizeMb: number; inactiveMinutes: number };
   bindings: DomainBinding[];
@@ -104,6 +106,13 @@ export interface Site {
   tlsId: string;
   luaBindings: Record<string, string>;
   createdAt: string;
+}
+export interface ResponseHeader {
+  scope: string;
+  tls: boolean;
+  name: string;
+  value: string;
+  always: boolean;
 }
 export interface Lua {
   id: string;

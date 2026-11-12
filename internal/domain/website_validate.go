@@ -146,6 +146,9 @@ func ValidateProxy(p ProxyRule) error {
 }
 func ValidateSiteSettings(site Site) error {
 	s := SiteDefaults(site)
+	if err := ValidateResponseHeaders(s); err != nil {
+		return err
+	}
 	if s.ProxyCache.MemoryMB < 1 || s.ProxyCache.MemoryMB > 1024 || s.ProxyCache.MaxSizeMB < 1 || s.ProxyCache.MaxSizeMB > 1048576 || s.ProxyCache.InactiveMinutes < 1 || s.ProxyCache.InactiveMinutes > 1051200 {
 		return fmt.Errorf("代理缓存容量或有效期无效")
 	}
